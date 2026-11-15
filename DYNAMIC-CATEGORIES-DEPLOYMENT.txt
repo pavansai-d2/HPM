@@ -1,0 +1,52 @@
+HPM DYNAMIC PRODUCT CATEGORIES - DEPLOYMENT NOTES
+==================================================
+
+WHAT WAS UPDATED
+----------------
+1. api/categories.php now sends no-cache headers so newly created or edited
+   categories are not held in a browser/proxy cache.
+2. assets/js/hpm-global-navigation.js fetches the active category list with
+   cache disabled and builds the desktop Products dropdown and mobile drawer
+   submenu from the same API response.
+3. assets/css/hpm-final-responsive-fix.css keeps long category lists usable:
+   desktop dropdown and mobile submenu can scroll, and category names wrap.
+4. Public pages now reference versioned CSS/JS URLs to help browsers load the
+   updated files after deployment.
+5. products.php already reads active categories directly from the MySQL
+   categories table, ordered by sort_order, and builds its category sidebar
+   and sections from those rows. No database schema change is required.
+
+DATABASE
+--------
+The supplied SQL structure already has:
+- categories.is_active
+- categories.sort_order
+- categories.slug
+
+Therefore, do not re-import the database dump just to enable this feature.
+The current database schema is sufficient.
+
+DEPLOYMENT
+----------
+1. Back up the live website files.
+2. Upload/replace the updated HPM project files, preserving your live
+   config/config.php database connection values.
+3. In config/config.php, ensure db_pass contains your actual hosting database
+   password and recaptcha_secret_key contains your current reCAPTCHA secret.
+   The copy in this ZIP intentionally uses placeholders for these secrets.
+4. Ensure /api/categories.php is uploaded and publicly reachable.
+5. Open https://haripalletmachinery.com/api/categories.php in a browser.
+   It should return JSON with success=true and a categories array.
+6. Open the website in a private/incognito window and check the Products menu
+   and products.php category sidebar.
+7. After creating a category in Admin, refresh the public page. The category
+   should appear in the desktop submenu, mobile submenu, and products sidebar.
+
+IMPORTANT SECURITY NOTES
+-----------------------
+- Do not upload this ZIP's config.php without restoring your own live
+  database password and reCAPTCHA secret.
+- The SQL dump supplied with this request contains a plaintext admin password
+  field and an unsolicited spam enquiry. Do not import that dump over the
+  live database. Change the administrator password and remove the spam
+  enquiry from the admin panel.

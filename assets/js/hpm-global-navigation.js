@@ -15,8 +15,10 @@
 
     try {
       const response = await fetch(categoryApi, {
+        method: "GET",
         headers: { Accept: "application/json" },
-        credentials: "same-origin"
+        credentials: "same-origin",
+        cache: "no-store"
       });
       if (!response.ok) throw new Error(`Category API HTTP ${response.status}`);
 
@@ -31,8 +33,11 @@
           if (!category || !category.name || !category.slug) return;
           const li = document.createElement("li");
           const a = document.createElement("a");
-          a.href = `products.php#category-${encodeURIComponent(category.slug)}`;
-          a.textContent = category.name;
+          const slug = String(category.slug).trim();
+          const name = String(category.name).trim();
+          if (!slug || !name) return;
+          a.href = `products.php#category-${encodeURIComponent(slug)}`;
+          a.textContent = name;
           li.appendChild(a);
           list.appendChild(li);
         });

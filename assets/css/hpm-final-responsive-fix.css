@@ -363,3 +363,66 @@ header.header-seven .mainmenu > li.hpm-products-menu > .hpm-products-dropdown {
     pointer-events: none !important;
   }
 }
+
+
+/* ==========================================================
+   HPM DYNAMIC PRODUCT CATEGORY MENU
+   Categories are populated from /api/categories.php.
+   Keep the full list accessible when the admin adds categories.
+========================================================== */
+@media (min-width: 1200px) {
+  header.header-seven .mainmenu > li.hpm-products-menu {
+    position: relative;
+  }
+
+  header.header-seven .mainmenu > li.hpm-products-menu > .hpm-products-dropdown {
+    display: block;
+    width: max-content;
+    min-width: 360px;
+    max-width: min(440px, 90vw);
+    max-height: min(72vh, 620px);
+    overflow-x: hidden;
+    overflow-y: auto;
+    overscroll-behavior: contain;
+    scrollbar-width: thin;
+    scrollbar-color: #d6dce2 transparent;
+    padding: 8px 0;
+  }
+
+  header.header-seven .mainmenu > li.hpm-products-menu > .hpm-products-dropdown > li {
+    display: block;
+    width: 100%;
+  }
+
+  header.header-seven .mainmenu > li.hpm-products-menu > .hpm-products-dropdown > li > a {
+    display: block;
+    white-space: normal;
+    overflow-wrap: anywhere;
+    line-height: 1.55;
+    padding: 13px 24px;
+  }
+}
+
+#side-bar.hpm-mobile-drawer .hpm-mobile-product-categories {
+  max-height: 48vh;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  scrollbar-width: thin;
+}
+
+#side-bar.hpm-mobile-drawer .hpm-mobile-product-categories > li > a {
+  display: block;
+  white-space: normal;
+  overflow-wrap: anywhere;
+  line-height: 1.5;
+  padding-block: 10px;
+}
+
+@media (min-width: 768px) {
+  .hpm-category-nav {
+    max-height: calc(100vh - 140px);
+    overflow-y: auto;
+    overscroll-behavior: contain;
+    scrollbar-width: thin;
+  }
+}

@@ -80,7 +80,7 @@ try {
   <link rel="stylesheet" href="assets/css/hpm-site-polish.css" />
   <link rel="stylesheet" href="assets/css/hpm-navigation-responsive.css" />
   <link rel="stylesheet" href="assets/css/hpm-navigation-breadcrumb-overrides.css" />
-  <link rel="stylesheet" href="assets/css/hpm-final-responsive-fix.css" />
+  <link rel="stylesheet" href="assets/css/hpm-final-responsive-fix.css?v=20261115-dynamic-categories" />
   <meta name="robots" content="index,follow,max-image-preview:large">
 <link rel="stylesheet" href="assets/css/hpm-desktop-menu-fix.css" />
   <link rel="stylesheet" href="assets/css/hpm-performance-design.css">
@@ -847,7 +847,7 @@ try {
   <script src="assets/js/hpm-commerce.js?v=20261109-spec-bullets2" defer></script>
   <script src="assets/js/hpm-site-polish.js" defer></script>
   <script src="assets/js/hpm-products-navigation.js" defer></script>
-  <script src="assets/js/hpm-global-navigation.js" defer></script>
+  <script src="assets/js/hpm-global-navigation.js?v=20261115-dynamic-categories" defer></script>
 </body>
 
 </html>

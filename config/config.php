@@ -12,6 +12,6 @@ return [
     'mail_from' => 'info@haripalletmachinery.com',
     'google_apps_script_url' => '',
     'recaptcha_site_key' => '6LfNFRouAAAAAMpr2PhlpN0VTND-nCjPT17RZnnb',
-    'recaptcha_secret_key' => '6LfNFRouAAAAAFZ7zNiy76lLaDTB_YC58g3VDm4s',
+    'recaptcha_secret_key' => 'PASTE_YOUR_RECAPTCHA_SECRET_KEY_HERE',
     'session_name' => 'HPM_ADMIN'
 ];
