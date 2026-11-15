@@ -1,0 +1,262 @@
+/* ==========================================================
+   HPM NAVIGATION + BREADCRUMB RESPONSIVE OVERRIDES
+   Load this AFTER style.css, hpm-site-polish.css and
+   hpm-navigation-responsive.css.
+   ========================================================== */
+
+:root {
+  --hpm-nav-text: #202b36;
+  --hpm-nav-hover: #ff5a00;
+  --hpm-nav-border: #e2e7ec;
+}
+
+/* ---------- Desktop navigation: neutral default and current state ---------- */
+header.header-seven .mainmenu > li > a,
+header.header-seven .mainmenu > li > a:visited,
+header.header-seven .mainmenu > li.active > a,
+header.header-seven .mainmenu > li > a[aria-current="page"],
+header.header-seven .mainmenu > li > a.is-current {
+  color: var(--hpm-nav-text) !important;
+}
+
+header.header-seven .mainmenu > li > a:hover,
+header.header-seven .mainmenu > li > a:focus-visible {
+  color: var(--hpm-nav-hover) !important;
+}
+
+/* Remove permanently orange active class on Products parent. */
+header.header-seven .mainmenu > li.hpm-products-menu.active > a,
+header.header-seven .mainmenu > li.hpm-products-menu > a[aria-current="page"],
+header.header-seven .mainmenu > li.hpm-products-menu > a.is-current {
+  color: var(--hpm-nav-text) !important;
+}
+
+header.header-seven .mainmenu .submenu a {
+  color: var(--hpm-nav-text) !important;
+}
+header.header-seven .mainmenu .submenu a:hover,
+header.header-seven .mainmenu .submenu a:focus-visible {
+  color: var(--hpm-nav-hover) !important;
+}
+
+/* The category dropdown is populated by hpm-global-navigation.js. */
+.hpm-products-dropdown:empty,
+.hpm-mobile-product-categories:empty {
+  display: none !important;
+}
+
+/* ---------- Mobile drawer controls and menu ---------- */
+#side-bar.hpm-mobile-drawer .hpm-mobile-close,
+#side-bar.hpm-mobile-drawer .hpm-mobile-close:hover,
+#side-bar.hpm-mobile-drawer .hpm-mobile-close:focus,
+#side-bar.hpm-mobile-drawer .hpm-mobile-close:active {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  width: 44px !important;
+  height: 44px !important;
+  min-width: 44px !important;
+  padding: 0 !important;
+  border: 1px solid var(--hpm-nav-border) !important;
+  border-radius: 50% !important;
+  background: #fff !important;
+  color: var(--hpm-nav-text) !important;
+  box-shadow: none !important;
+  transform: none !important;
+}
+
+#side-bar.hpm-mobile-drawer .hpm-close-glyph {
+  display: block !important;
+  color: var(--hpm-nav-text) !important;
+  font-family: Arial, sans-serif !important;
+  font-size: 30px !important;
+  font-weight: 400 !important;
+  line-height: 1 !important;
+}
+
+#side-bar.hpm-mobile-drawer .hpm-mobile-menu-list > li > a,
+#side-bar.hpm-mobile-drawer .hpm-mobile-menu-row > a,
+#side-bar.hpm-mobile-drawer .hpm-mobile-menu-list a[aria-current="page"],
+#side-bar.hpm-mobile-drawer .hpm-mobile-menu-list a.is-current {
+  color: var(--hpm-nav-text) !important;
+  background: transparent !important;
+}
+
+/* Active/current is deliberately the same navy as the other menu links.
+   Only hover/focus changes to HPM orange. */
+#side-bar.hpm-mobile-drawer .hpm-mobile-menu-list a:hover,
+#side-bar.hpm-mobile-drawer .hpm-mobile-menu-list a:focus-visible {
+  color: var(--hpm-nav-hover) !important;
+}
+
+#side-bar.hpm-mobile-drawer .hpm-mobile-submenu-toggle,
+#side-bar.hpm-mobile-drawer .hpm-mobile-submenu-toggle:hover,
+#side-bar.hpm-mobile-drawer .hpm-mobile-submenu-toggle:focus,
+#side-bar.hpm-mobile-drawer .hpm-mobile-submenu-toggle:active,
+#side-bar.hpm-mobile-drawer .hpm-mobile-submenu-toggle[aria-expanded="true"] {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  width: 38px !important;
+  height: 38px !important;
+  min-width: 38px !important;
+  flex: 0 0 38px !important;
+  padding: 0 !important;
+  border: 0 !important;
+  border-radius: 50% !important;
+  background: #f3f5f7 !important;
+  color: var(--hpm-nav-text) !important;
+  box-shadow: none !important;
+  transform: none !important;
+}
+
+#side-bar.hpm-mobile-drawer .hpm-submenu-glyph {
+  display: block !important;
+  color: inherit !important;
+  font: 400 23px/1 Arial, sans-serif !important;
+}
+
+/* Remove only the theme's expanding background on the <i> icon,
+   without deleting Font Awesome's own ::before glyph. */
+#side-bar.hpm-mobile-drawer button i::after,
+#side-bar.hpm-mobile-drawer button i:hover::after,
+#side-bar.hpm-mobile-drawer button i:focus::after {
+  content: none !important;
+  display: none !important;
+  opacity: 0 !important;
+  transform: none !important;
+  background: none !important;
+  box-shadow: none !important;
+}
+
+#side-bar.hpm-mobile-drawer .hpm-mobile-submenu[hidden] {
+  display: none !important;
+}
+#side-bar.hpm-mobile-drawer .hpm-mobile-submenu:not([hidden]) {
+  display: block !important;
+}
+
+/* Social icons: use the Font Awesome 5-compatible Twitter class. */
+#side-bar.hpm-mobile-drawer .hpm-mobile-social-links .fa-twitter {
+  display: inline-block !important;
+  font-family: "Font Awesome 5 Brands", "Font Awesome 6 Brands", sans-serif !important;
+  font-style: normal !important;
+  font-weight: 400 !important;
+  color: inherit !important;
+}
+
+/* ---------- Full-width responsive breadcrumb/banner ---------- */
+.tmp-bread-crumb-area.bg-image-breadcrumb {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  width: 100% !important;
+  max-width: none !important;
+  min-width: 0 !important;
+  height: auto !important;
+  min-height: clamp(220px, 28vw, 420px) !important;
+  margin: 0 !important;
+  padding: clamp(34px, 5vw, 64px) 0 !important;
+  overflow: hidden !important;
+  background-repeat: no-repeat !important;
+  background-position: center center !important;
+  background-size: cover !important;
+}
+
+.tmp-bread-crumb-area.bg-image-breadcrumb > .container-3 {
+  width: 100% !important;
+  max-width: min(100% - 32px, 1320px) !important;
+  margin-right: auto !important;
+  margin-left: auto !important;
+  padding-right: 16px !important;
+  padding-left: 16px !important;
+}
+
+.tmp-bread-crumb-area.bg-image-breadcrumb .row,
+.tmp-bread-crumb-area.bg-image-breadcrumb .col-lg-12 {
+  width: 100% !important;
+  min-width: 0 !important;
+  margin-right: 0 !important;
+  margin-left: 0 !important;
+}
+
+.tmp-bread-crumb-area.bg-image-breadcrumb .breadcrumb-inner {
+  width: 100% !important;
+  max-width: 100% !important;
+  margin: 0 auto !important;
+  padding: 0 !important;
+  text-align: center !important;
+}
+
+.tmp-bread-crumb-area.bg-image-breadcrumb .breadcrumb-inner .title {
+  margin: 0 0 16px !important;
+  font-size: clamp(28px, 4vw, 54px) !important;
+  line-height: 1.15 !important;
+  overflow-wrap: anywhere;
+}
+
+.tmp-bread-crumb-area.bg-image-breadcrumb .breadcrumb-inner .meta {
+  display: flex !important;
+  flex-wrap: wrap !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 8px 12px !important;
+  margin: 0 !important;
+}
+
+/* Remove fixed padding classes inherited from ptb--100 / ptb_sm--100. */
+.tmp-bread-crumb-area.bg-image-breadcrumb .ptb--100,
+.tmp-bread-crumb-area.bg-image-breadcrumb .ptb_sm--100 {
+  padding-top: 0 !important;
+  padding-bottom: 0 !important;
+}
+
+/* Avoid the theme's overlay/decorative layers creating odd side bands. */
+.tmp-bread-crumb-area.bg-image-breadcrumb::before {
+  max-width: 100% !important;
+}
+.tmp-bread-crumb-area.bg-image-breadcrumb::after {
+  left: 0 !important;
+  right: 0 !important;
+  width: 100% !important;
+}
+
+/* The page-specific breadcrumb background must stay full bleed. */
+.hpm-page-breadcrumb,
+.tmp-bread-crumb-area.bg-image-breadcrumb.hpm-page-breadcrumb {
+  width: 100% !important;
+  margin-inline: 0 !important;
+}
+
+@media (max-width: 991.98px) {
+  .tmp-bread-crumb-area.bg-image-breadcrumb {
+    min-height: clamp(205px, 30vw, 290px) !important;
+    padding-block: 32px !important;
+    background-position: center center !important;
+  }
+}
+@media (max-width: 767.98px) {
+  .tmp-bread-crumb-area.bg-image-breadcrumb {
+    min-height: 190px !important;
+    padding-block: 28px !important;
+    background-position: center center !important;
+  }
+  .tmp-bread-crumb-area.bg-image-breadcrumb > .container-3 {
+    max-width: 100% !important;
+    padding-inline: 14px !important;
+  }
+  .tmp-bread-crumb-area.bg-image-breadcrumb .breadcrumb-inner .title {
+    font-size: clamp(25px, 7vw, 34px) !important;
+    margin-bottom: 10px !important;
+  }
+  .tmp-bread-crumb-area.bg-image-breadcrumb .breadcrumb-inner .meta {
+    gap: 6px 9px !important;
+    font-size: 14px !important;
+  }
+}
+@media (max-width: 380px) {
+  .tmp-bread-crumb-area.bg-image-breadcrumb {
+    min-height: 175px !important;
+    padding-block: 22px !important;
+  }
+}

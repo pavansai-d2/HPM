@@ -1,0 +1,39 @@
+HPM - HERO SLIDER NAVIGATION AND CONTACT CAPTCHA
+
+1. HERO SLIDER
+- Homepage index.html includes previous/next arrow controls.
+- assets/js/main.js connects those controls to the existing Swiper instance.
+- assets/css/hpm-hero-responsive.css styles and positions the controls.
+- Existing slides, autoplay, and pagination are retained.
+
+2. GOOGLE reCAPTCHA v2 CHECKBOX SETUP (REQUIRED BEFORE LIVE USE)
+The contact form uses Google reCAPTCHA v2 ("I'm not a robot" checkbox).
+Register the domain in the Google reCAPTCHA Admin Console and select:
+reCAPTCHA v2 -> "I'm not a robot" Checkbox.
+
+Then:
+A. In contact.html, replace YOUR_RECAPTCHA_V2_SITE_KEY in the data-sitekey
+   attribute with your actual SITE KEY.
+
+B. In config/config.php, replace YOUR_RECAPTCHA_V2_SECRET_KEY with your
+   actual SECRET KEY.
+
+C. Never place the secret key in HTML, JavaScript, GitHub, or public files.
+   Keep config/config.php private and outside public version control where possible.
+
+D. Register haripalletmachinery.com and www.haripalletmachinery.com if both
+   hostnames are used. Register localhost separately for local development.
+
+3. SERVER REQUIREMENTS
+- PHP cURL is recommended; allow_url_fopen is supported as a fallback.
+- Outbound HTTPS access to www.google.com must be allowed.
+- Existing database and SMTP configuration is preserved.
+- The backend fails closed if the secret key is missing or verification fails.
+  The enquiry is not inserted or emailed without successful CAPTCHA validation.
+
+4. TEST
+- Test on a PHP server, not by opening the HTML file directly.
+- Submit with CAPTCHA unchecked: submission must be blocked.
+- Submit with CAPTCHA checked: the enquiry should be saved and the existing
+  email notification workflow should run.
+- Repeat the test on production after adding production keys.

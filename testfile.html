@@ -1,0 +1,819 @@
+<style>
+  
+/* =========================================================
+   HPM FOUNDER & CEO MESSAGE
+   Premium No-Photo Design
+   Responsive: 320px - 2560px
+========================================================= */
+
+.hpm-founder-message {
+    --hpm-orange: #ff5a00;
+    --hpm-navy: #202b36;
+    --hpm-text: #626d78;
+    --hpm-light: #f5f7f9;
+
+    position: relative;
+    isolation: isolate;
+    width: 100%;
+    overflow: hidden;
+    padding: clamp(65px, 7vw, 115px) 20px;
+    background: #f7f8fa;
+    font-family: inherit;
+}
+
+.hpm-founder-container {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    max-width: 1240px;
+    margin: 0 auto;
+}
+
+/* Decorative Background */
+
+.hpm-founder-decoration {
+    position: absolute;
+    z-index: -1;
+    pointer-events: none;
+}
+
+.hpm-decoration-one {
+    top: 8%;
+    right: -100px;
+    width: 280px;
+    height: 280px;
+    border: 45px solid rgba(255, 90, 0, 0.045);
+    border-radius: 50%;
+}
+
+.hpm-decoration-two {
+    bottom: 10%;
+    left: -120px;
+    width: 300px;
+    height: 300px;
+    border: 1px solid rgba(32, 43, 54, 0.08);
+    border-radius: 50%;
+}
+
+/* Section Heading */
+
+.hpm-founder-header {
+    max-width: 790px;
+    margin: 0 auto 48px;
+    text-align: center;
+}
+
+.hpm-founder-eyebrow {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    margin-bottom: 18px;
+    color: var(--hpm-orange);
+    font-size: 12px;
+    font-weight: 800;
+    letter-spacing: 2.3px;
+    line-height: 1.5;
+}
+
+.hpm-eyebrow-line {
+    display: inline-block;
+    width: 34px;
+    height: 2px;
+    background: var(--hpm-orange);
+}
+
+.hpm-founder-header h2 {
+    margin: 0;
+    color: var(--hpm-navy);
+    font-size: clamp(30px, 4.2vw, 52px);
+    font-weight: 800;
+    line-height: 1.16;
+    letter-spacing: -1.5px;
+}
+
+.hpm-founder-header h2 span {
+    display: block;
+    color: var(--hpm-orange);
+}
+
+.hpm-founder-header-text {
+    max-width: 650px;
+    margin: 20px auto 0;
+    color: var(--hpm-text);
+    font-size: 16px;
+    line-height: 1.8;
+}
+
+/* Main Message Card */
+
+.hpm-founder-message-card {
+    position: relative;
+    display: grid;
+    grid-template-columns: 95px minmax(0, 1fr);
+    gap: 20px;
+    padding: clamp(28px, 5vw, 65px);
+    overflow: hidden;
+    background: #fff;
+    border: 1px solid rgba(32, 43, 54, 0.07);
+    border-radius: 18px;
+    box-shadow: 0 18px 55px rgba(32, 43, 54, 0.065);
+}
+
+.hpm-founder-message-card::before {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 6px;
+    height: 100%;
+    background: var(--hpm-orange);
+    content: "";
+}
+
+.hpm-founder-message-card::after {
+    position: absolute;
+    right: -75px;
+    bottom: -110px;
+    width: 260px;
+    height: 260px;
+    border: 35px solid rgba(255, 90, 0, 0.035);
+    border-radius: 50%;
+    content: "";
+    pointer-events: none;
+}
+
+.hpm-founder-quote-icon {
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    color: rgba(255, 90, 0, 0.17);
+    font-size: 75px;
+    line-height: 1;
+}
+
+.hpm-founder-message-content {
+    position: relative;
+    z-index: 1;
+    min-width: 0;
+}
+
+.hpm-message-label {
+    display: inline-block;
+    margin-bottom: 18px;
+    color: var(--hpm-orange);
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 2px;
+}
+
+.hpm-founder-description {
+    margin: 0 0 17px;
+    color: #5e6873;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 1.95;
+    overflow-wrap: break-word;
+}
+
+/* Founder Signature */
+
+.hpm-founder-signature {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    max-width: 470px;
+    margin-top: 35px;
+    padding-top: 25px;
+    border-top: 1px solid #e9edf0;
+}
+
+.hpm-signature-line {
+    flex: 0 0 4px;
+    align-self: stretch;
+    min-height: 58px;
+    background: var(--hpm-orange);
+    border-radius: 10px;
+}
+
+.hpm-signature-details {
+    flex: 1;
+    min-width: 0;
+}
+
+.hpm-signature-details h3 {
+    margin: 0 0 5px;
+    color: var(--hpm-navy);
+    font-size: 25px;
+    font-weight: 800;
+    line-height: 1.2;
+}
+
+.hpm-signature-details p {
+    margin: 0 0 4px;
+    color: var(--hpm-navy);
+    font-size: 13px;
+    font-weight: 700;
+}
+
+.hpm-signature-details span {
+    color: #89919a;
+    font-size: 12px;
+}
+
+.hpm-founder-mark {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex: 0 0 62px;
+    width: 62px;
+    height: 62px;
+    color: var(--hpm-orange);
+    background: rgba(255, 90, 0, 0.08);
+    border: 1px solid rgba(255, 90, 0, 0.15);
+    border-radius: 15px;
+    font-size: 25px;
+}
+
+/* Values Section */
+
+.hpm-founder-values {
+    margin-top: clamp(55px, 7vw, 85px);
+}
+
+.hpm-values-heading {
+    margin-bottom: 28px;
+    text-align: center;
+}
+
+.hpm-values-heading > span {
+    display: inline-block;
+    margin-bottom: 10px;
+    color: var(--hpm-orange);
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 2px;
+}
+
+.hpm-values-heading h3 {
+    margin: 0;
+    color: var(--hpm-navy);
+    font-size: clamp(23px, 3vw, 32px);
+    font-weight: 800;
+    line-height: 1.3;
+}
+
+/* Value Cards */
+
+.hpm-values-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 22px;
+}
+
+.hpm-value-card {
+    position: relative;
+    min-width: 0;
+    padding: 30px 27px;
+    background: #fff;
+    border: 1px solid #edf0f2;
+    border-radius: 14px;
+    box-shadow: 0 10px 30px rgba(32, 43, 54, 0.035);
+    transition:
+        transform 0.3s ease,
+        border-color 0.3s ease,
+        box-shadow 0.3s ease;
+}
+
+.hpm-value-card:hover {
+    transform: translateY(-7px);
+    border-color: rgba(255, 90, 0, 0.35);
+    box-shadow: 0 18px 38px rgba(32, 43, 54, 0.09);
+}
+
+.hpm-value-card-top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 15px;
+    margin-bottom: 25px;
+}
+
+.hpm-value-number {
+    color: #c5cbd0;
+    font-size: 14px;
+    font-weight: 800;
+    letter-spacing: 1px;
+}
+
+.hpm-value-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 52px;
+    height: 52px;
+    flex: 0 0 52px;
+    color: #fff;
+    background: var(--hpm-navy);
+    border-radius: 13px;
+    font-size: 21px;
+    transition: background 0.3s ease;
+}
+
+.hpm-value-card:hover .hpm-value-icon {
+    background: var(--hpm-orange);
+}
+
+.hpm-value-card h4 {
+    margin: 0 0 12px;
+    color: var(--hpm-navy);
+    font-size: 19px;
+    font-weight: 800;
+    line-height: 1.4;
+}
+
+.hpm-value-card p {
+    margin: 0;
+    color: var(--hpm-text);
+    font-size: 14px;
+    line-height: 1.85;
+}
+
+/* Bottom Brand Statement */
+
+.hpm-founder-bottom-line {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 14px;
+    margin-top: 50px;
+    padding: 22px 25px;
+    background: var(--hpm-navy);
+    border-radius: 12px;
+    text-align: center;
+}
+
+.hpm-bottom-line-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex: 0 0 32px;
+    width: 32px;
+    height: 32px;
+    color: #fff;
+    background: var(--hpm-orange);
+    border-radius: 50%;
+    font-size: 13px;
+}
+
+.hpm-founder-bottom-line p {
+    margin: 0;
+    color: #fff;
+    font-size: 14px;
+    line-height: 1.7;
+}
+
+.hpm-founder-bottom-line strong {
+    color: #ff8a4c;
+    font-weight: 800;
+}
+
+/* =========================================================
+   RESPONSIVE BREAKPOINTS
+========================================================= */
+
+/* Large laptops and smaller desktops */
+@media (max-width: 1199px) {
+    .hpm-founder-container {
+        max-width: 1050px;
+    }
+
+    .hpm-founder-message-card {
+        grid-template-columns: 75px minmax(0, 1fr);
+        gap: 15px;
+    }
+
+    .hpm-values-grid {
+        gap: 16px;
+    }
+
+    .hpm-value-card {
+        padding: 25px 22px;
+    }
+}
+
+/* Tablets */
+@media (max-width: 991px) {
+    .hpm-founder-message {
+        padding: 75px 22px;
+    }
+
+    .hpm-founder-header {
+        margin-bottom: 38px;
+    }
+
+    .hpm-founder-message-card {
+        grid-template-columns: 55px minmax(0, 1fr);
+        padding: 35px;
+    }
+
+    .hpm-founder-quote-icon {
+        font-size: 55px;
+    }
+
+    .hpm-values-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .hpm-value-card:last-child {
+        grid-column: 1 / -1;
+    }
+}
+
+/* Mobile landscape and small tablets */
+@media (max-width: 767px) {
+    .hpm-founder-message {
+        padding: 65px 18px;
+    }
+
+    .hpm-founder-header {
+        margin-bottom: 30px;
+    }
+
+    .hpm-founder-eyebrow {
+        font-size: 10px;
+        letter-spacing: 1.5px;
+    }
+
+    .hpm-founder-header h2 {
+        letter-spacing: -0.8px;
+    }
+
+    .hpm-founder-header-text {
+        margin-top: 15px;
+        font-size: 14px;
+        line-height: 1.75;
+    }
+
+    .hpm-founder-message-card {
+        grid-template-columns: 1fr;
+        gap: 12px;
+        padding: 28px 25px;
+        border-radius: 14px;
+    }
+
+    .hpm-founder-quote-icon {
+        justify-content: flex-start;
+        font-size: 45px;
+    }
+
+    .hpm-founder-description {
+        font-size: 14px;
+        line-height: 1.85;
+    }
+
+    .hpm-founder-signature {
+        margin-top: 25px;
+        gap: 14px;
+    }
+
+    .hpm-signature-details h3 {
+        font-size: 22px;
+    }
+
+    .hpm-founder-mark {
+        flex-basis: 52px;
+        width: 52px;
+        height: 52px;
+        font-size: 21px;
+    }
+
+    .hpm-founder-values {
+        margin-top: 55px;
+    }
+
+    .hpm-values-grid {
+        grid-template-columns: 1fr;
+        gap: 15px;
+    }
+
+    .hpm-value-card,
+    .hpm-value-card:last-child {
+        grid-column: auto;
+        padding: 24px;
+    }
+
+    .hpm-value-card-top {
+        margin-bottom: 17px;
+    }
+
+    .hpm-founder-bottom-line {
+        margin-top: 35px;
+        padding: 18px 16px;
+        text-align: left;
+    }
+}
+
+/* Small mobile devices */
+@media (max-width: 480px) {
+    .hpm-founder-message {
+        padding: 52px 14px;
+    }
+
+    .hpm-founder-header {
+        margin-bottom: 25px;
+    }
+
+    .hpm-founder-eyebrow {
+        gap: 8px;
+        font-size: 9px;
+        letter-spacing: 1.2px;
+    }
+
+    .hpm-eyebrow-line {
+        width: 22px;
+    }
+
+    .hpm-founder-header h2 {
+        font-size: clamp(27px, 8vw, 34px);
+        line-height: 1.2;
+    }
+
+    .hpm-founder-header-text {
+        font-size: 13px;
+    }
+
+    .hpm-founder-message-card {
+        padding: 23px 19px;
+    }
+
+    .hpm-founder-quote-icon {
+        font-size: 38px;
+    }
+
+    .hpm-message-label {
+        font-size: 10px;
+        letter-spacing: 1.5px;
+    }
+
+    .hpm-founder-description {
+        font-size: 13px;
+        line-height: 1.8;
+    }
+
+    .hpm-founder-signature {
+        gap: 11px;
+        padding-top: 20px;
+    }
+
+    .hpm-signature-details h3 {
+        font-size: 20px;
+    }
+
+    .hpm-signature-details p {
+        font-size: 12px;
+    }
+
+    .hpm-signature-details span {
+        font-size: 10px;
+    }
+
+    .hpm-founder-mark {
+        flex-basis: 44px;
+        width: 44px;
+        height: 44px;
+        font-size: 18px;
+        border-radius: 10px;
+    }
+
+    .hpm-values-heading h3 {
+        font-size: 23px;
+    }
+
+    .hpm-value-card {
+        padding: 22px 19px;
+    }
+
+    .hpm-value-card h4 {
+        font-size: 17px;
+    }
+
+    .hpm-value-card p {
+        font-size: 13px;
+    }
+
+    .hpm-founder-bottom-line {
+        align-items: flex-start;
+        gap: 10px;
+        padding: 16px 13px;
+    }
+
+    .hpm-bottom-line-icon {
+        flex-basis: 27px;
+        width: 27px;
+        height: 27px;
+        font-size: 11px;
+    }
+
+    .hpm-founder-bottom-line p {
+        font-size: 12px;
+    }
+}
+
+/* Very small mobile screens: 320px */
+@media (max-width: 360px) {
+    .hpm-founder-message {
+        padding-right: 11px;
+        padding-left: 11px;
+    }
+
+    .hpm-founder-header h2 {
+        font-size: 26px;
+    }
+
+    .hpm-founder-message-card {
+        padding: 20px 16px;
+    }
+
+    .hpm-founder-description {
+        font-size: 12px;
+    }
+
+    .hpm-signature-details h3 {
+        font-size: 18px;
+    }
+
+    .hpm-founder-mark {
+        flex-basis: 39px;
+        width: 39px;
+        height: 39px;
+    }
+}
+
+/* Reduced motion accessibility */
+@media (prefers-reduced-motion: reduce) {
+    .hpm-value-card,
+    .hpm-value-icon {
+        transition: none;
+    }
+
+    .hpm-value-card:hover {
+        transform: none;
+    }
+}
+
+</style>
+<!-- HPM FOUNDER & CEO MESSAGE START -->
+    <section class="hpm-founder-message">
+
+        <div class="hpm-founder-container">
+
+            <div class="hpm-founder-layout">
+
+                <!-- LEFT: FOUNDER IMAGE -->
+                <div class="hpm-founder-image-column">
+
+                    <div class="hpm-founder-image-wrapper">
+
+                        <img src="assets/images/about/haranath-founder.webp"
+                            alt="Haranath, Founder and CEO of HPM Pallet Machinery" class="hpm-founder-main-image"
+                            loading="lazy">
+
+                        <!-- Optional image label -->
+                        <div class="hpm-founder-image-label">
+                            <span class="hpm-founder-label-line"></span>
+                            <span>Leadership &amp; Experience</span>
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <!-- RIGHT: FOUNDER MESSAGE -->
+                <div class="hpm-founder-content-column">
+
+                    <div class="hpm-founder-content">
+
+                        <!-- Section Heading -->
+                        <div class="hpm-founder-heading">
+
+                            <p class="hpm-founder-subtitle">
+                                A MESSAGE FROM OUR FOUNDER
+                            </p>
+
+                            <h2 class="hpm-founder-title">
+                                Advancing Pallet Manufacturing Through Innovation
+                            </h2>
+
+                        </div>
+
+
+                        <!-- Introduction -->
+                        <p class="hpm-founder-description">
+                            At HPM, we believe that the future of pallet
+                            manufacturing lies in practical innovation,
+                            dependable machinery and efficient production
+                            processes. With over 10 years of experience in
+                            the pallet industry, our Founder and CEO,
+                            Haranath, leads our commitment to developing
+                            machinery solutions that address the evolving
+                            needs of pallet manufacturers and packaging
+                            businesses. Our goal is to improve operational
+                            efficiency, enhance the customer experience and
+                            support the continued growth of the pallet industry.
+                        </p>
+
+
+                        <!-- Founder Features -->
+                        <div class="hpm-founder-features">
+
+                            <!-- Feature 1 -->
+                            <div class="hpm-founder-feature">
+
+                                <div class="hpm-founder-feature-icon">
+                                    <i class="fa-solid fa-gears"></i>
+                                </div>
+
+                                <div class="hpm-founder-feature-content">
+
+                                    <h3>Quality and Engineering Excellence</h3>
+
+                                    <p>
+                                        We focus on dependable pallet
+                                        manufacturing machinery designed to
+                                        support consistent production and
+                                        meet practical industry requirements.
+                                    </p>
+
+                                </div>
+
+                            </div>
+
+
+                            <!-- Feature 2 -->
+                            <div class="hpm-founder-feature">
+
+                                <div class="hpm-founder-feature-icon">
+                                    <i class="fa-solid fa-lightbulb"></i>
+                                </div>
+
+                                <div class="hpm-founder-feature-content">
+
+                                    <h3>Continuous Innovation</h3>
+
+                                    <p>
+                                        We aim to advance pallet production
+                                        systems, develop improved equipment
+                                        solutions and make machinery more
+                                        efficient and user-friendly.
+                                    </p>
+
+                                </div>
+
+                            </div>
+
+
+                            <!-- Feature 3 -->
+                            <div class="hpm-founder-feature">
+
+                                <div class="hpm-founder-feature-icon">
+                                    <i class="fa-solid fa-handshake"></i>
+                                </div>
+
+                                <div class="hpm-founder-feature-content">
+
+                                    <h3>Customer Success and Sustainability</h3>
+
+                                    <p>
+                                        We strive to help customers achieve
+                                        their production goals while supporting
+                                        responsible resource use, reduced waste
+                                        and long-term business relationships.
+                                    </p>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+
+                        <!-- Founder Signature -->
+                        <div class="hpm-founder-signature">
+
+                            <h4>Haranath</h4>
+
+                            <p>Founder &amp; CEO, HPM</p>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+    <!-- HPM FOUNDER & CEO MESSAGE END -->

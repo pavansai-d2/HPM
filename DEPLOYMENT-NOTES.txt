@@ -1,0 +1,39 @@
+HPM WEBSITE PERFORMANCE + LIVE FIXES
+=====================================
+
+1) LIVE DATABASE PASSWORD (REQUIRED BEFORE UPLOAD)
+   Open config/config.php and replace:
+   PASTE_YOUR_CURRENT_GODADDY_DATABASE_PASSWORD_HERE
+   with the current password for the Plesk database user hpm_admin.
+   Do not add spaces around the password. Do not share this file publicly.
+
+   The live database host, database name, username and port have been set
+   from the Plesk screenshots supplied for this task. The password was
+   masked in the screenshot, so it cannot be filled in automatically.
+
+2) DATABASE CONTENT
+   This update does not drop, recreate, or migrate any database tables.
+   Keep your existing Plesk database and its current data.
+
+3) UPLOAD
+   Upload the CONTENTS of this HPM folder into the domain's httpdocs folder.
+   Back up the current httpdocs folder and database before replacing files.
+   Preserve config/config.php and includes/mail-config.php securely.
+
+4) CONTACT FORM
+   The thank-you popup appears after the server redirects back with
+   ?contact=success or ?contact=saved. The saved status means the enquiry
+   was stored but the optional email notification may not have sent.
+   CAPTCHA must remain configured with matching site and secret keys.
+
+5) LOCAL DEVELOPMENT
+   This package's config/config.php is configured for the LIVE Plesk
+   database host. Keep a separate local config for XAMPP with localhost,
+   hpm_catalogue, root and your local password.
+
+6) VERIFY AFTER DEPLOYMENT
+   - Open /admin/login.php and test login.
+   - If a database error remains, check Plesk > Websites & Domains >
+     Logs and the PHP error log. The exact error is logged server-side.
+   - Submit a contact test enquiry and confirm it appears in Admin > Enquiries.
+   - Test homepage, products, service pages and mobile navigation.

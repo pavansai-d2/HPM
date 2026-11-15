@@ -1,0 +1,297 @@
+/* HPM Admin Login page only. Loaded after admin.css so other admin screens remain unchanged. */
+.hpm-admin-login-page {
+    --hpm-login-orange: #ff5a00;
+    --hpm-login-orange-dark: #e64a00;
+    --hpm-login-ink: #202b36;
+    --hpm-login-muted: #6b7785;
+    --hpm-login-border: #e2e7ed;
+    --hpm-login-surface: #ffffff;
+    --hpm-login-background: #f3f5f8;
+
+    min-height: 100vh;
+    margin: 0;
+    color: var(--hpm-login-ink);
+    background:
+        radial-gradient(circle at 12% 12%, rgba(255, 90, 0, .09), transparent 30%),
+        radial-gradient(circle at 90% 88%, rgba(32, 43, 54, .07), transparent 28%),
+        var(--hpm-login-background);
+    font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+}
+
+.hpm-admin-login-page *,
+.hpm-admin-login-page *::before,
+.hpm-admin-login-page *::after {
+    box-sizing: border-box;
+}
+
+.hpm-login-shell {
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 42px 20px 24px;
+}
+
+.hpm-login-card {
+    width: min(100%, 460px);
+    padding: 42px 42px 28px;
+    background: var(--hpm-login-surface);
+    border: 1px solid rgba(32, 43, 54, .08);
+    border-radius: 18px;
+    box-shadow: 0 24px 70px rgba(32, 43, 54, .11);
+}
+
+.hpm-login-brand {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.hpm-login-logo-link {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 118px;
+    height: 86px;
+    margin-bottom: 16px;
+    text-decoration: none;
+}
+
+.hpm-login-logo {
+    display: block;
+    width: 100%;
+    max-width: 118px;
+    max-height: 86px;
+    object-fit: contain;
+}
+
+.hpm-login-brand-name {
+    margin: 0 0 20px;
+    color: var(--hpm-login-ink);
+    font-size: 13px;
+    font-weight: 800;
+    letter-spacing: .19em;
+    line-height: 1.4;
+    text-align: center;
+    text-transform: uppercase;
+}
+
+.hpm-login-brand-name span {
+    color: var(--hpm-login-orange);
+}
+
+.hpm-login-brand h1 {
+    margin: 0;
+    color: var(--hpm-login-ink);
+    font-size: clamp(27px, 4vw, 32px);
+    font-weight: 750;
+    letter-spacing: -.035em;
+    line-height: 1.2;
+    text-align: center;
+}
+
+.hpm-login-subtitle {
+    max-width: 320px;
+    margin: 10px 0 28px;
+    color: var(--hpm-login-muted);
+    font-size: 14px;
+    line-height: 1.65;
+    text-align: center;
+}
+
+.hpm-login-error {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    margin: 0 0 22px;
+    padding: 12px 14px;
+    color: #a62929;
+    background: #fff1f0;
+    border: 1px solid #ffd4d0;
+    border-radius: 9px;
+    font-size: 13px;
+    line-height: 1.55;
+}
+
+.hpm-login-error-icon {
+    display: inline-flex;
+    flex: 0 0 19px;
+    align-items: center;
+    justify-content: center;
+    width: 19px;
+    height: 19px;
+    margin-top: 1px;
+    color: #fff;
+    background: #c83b32;
+    border-radius: 50%;
+    font-size: 12px;
+    font-weight: 800;
+}
+
+.hpm-login-form {
+    display: flex;
+    flex-direction: column;
+    gap: 19px;
+    margin: 0;
+}
+
+.hpm-login-field {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.hpm-login-field label {
+    color: #303b47;
+    font-size: 13px;
+    font-weight: 700;
+    line-height: 1.4;
+}
+
+.hpm-login-field input {
+    display: block;
+    width: 100%;
+    min-height: 49px;
+    margin: 0;
+    padding: 12px 14px;
+    color: var(--hpm-login-ink);
+    background: #fff;
+    border: 1px solid #d8dee6;
+    border-radius: 8px;
+    outline: none;
+    box-shadow: none;
+    font: inherit;
+    font-size: 14px;
+    transition: border-color .2s ease, box-shadow .2s ease;
+}
+
+.hpm-login-field input::placeholder {
+    color: #9aa4b0;
+    opacity: 1;
+}
+
+.hpm-login-field input:hover {
+    border-color: #b8c2ce;
+}
+
+.hpm-login-field input:focus {
+    border-color: var(--hpm-login-orange);
+    box-shadow: 0 0 0 3px rgba(255, 90, 0, .13);
+}
+
+.hpm-login-submit {
+    display: flex;
+    width: 100%;
+    min-height: 51px;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    margin: 7px 0 0;
+    padding: 13px 18px;
+    color: #fff;
+    background: var(--hpm-login-orange);
+    border: 1px solid var(--hpm-login-orange);
+    border-radius: 8px;
+    cursor: pointer;
+    font: inherit;
+    font-size: 14px;
+    font-weight: 750;
+    transition: background .2s ease, border-color .2s ease, transform .2s ease, box-shadow .2s ease;
+}
+
+.hpm-login-submit:hover {
+    background: var(--hpm-login-orange-dark);
+    border-color: var(--hpm-login-orange-dark);
+    box-shadow: 0 8px 18px rgba(255, 90, 0, .2);
+    transform: translateY(-1px);
+}
+
+.hpm-login-submit:focus-visible {
+    outline: 3px solid rgba(255, 90, 0, .28);
+    outline-offset: 3px;
+}
+
+.hpm-login-submit-arrow {
+    font-size: 19px;
+    line-height: 1;
+    transition: transform .2s ease;
+}
+
+.hpm-login-submit:hover .hpm-login-submit-arrow {
+    transform: translateX(3px);
+}
+
+.hpm-login-card-footer {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    margin-top: 27px;
+    padding-top: 20px;
+    border-top: 1px solid #edf0f3;
+}
+
+.hpm-login-card-footer a {
+    color: #465361;
+    font-size: 12px;
+    font-weight: 650;
+    text-decoration: none;
+}
+
+.hpm-login-card-footer a:hover {
+    color: var(--hpm-login-orange);
+}
+
+.hpm-login-card-footer span {
+    color: #8993a0;
+    font-size: 11px;
+}
+
+.hpm-login-copyright {
+    margin: 22px 0 0;
+    color: #8b95a1;
+    font-size: 11px;
+    line-height: 1.6;
+    text-align: center;
+}
+
+@media (max-width: 480px) {
+    .hpm-login-shell {
+        justify-content: center;
+        padding: 24px 14px 18px;
+    }
+
+    .hpm-login-card {
+        padding: 32px 22px 23px;
+        border-radius: 14px;
+    }
+
+    .hpm-login-logo-link {
+        width: 104px;
+        height: 75px;
+        margin-bottom: 13px;
+    }
+
+    .hpm-login-logo {
+        max-width: 104px;
+        max-height: 75px;
+    }
+
+    .hpm-login-card-footer {
+        flex-direction: column;
+        justify-content: center;
+        text-align: center;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+
+    .hpm-login-field input,
+    .hpm-login-submit,
+    .hpm-login-submit-arrow {
+        transition: none;
+    }
+}

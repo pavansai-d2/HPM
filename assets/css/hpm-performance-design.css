@@ -1,0 +1,46 @@
+/* HPM visual refinement + performance layer. Loaded after the existing theme overrides. */
+:root{--hpm-primary:#ff5a00;--hpm-secondary:#202b36;--hpm-soft:#f5f6f8}
+
+/* Service and Our Works action icon: inline SVG avoids font-glyph substitution. */
+.tmp-icon-overlay-link-btn .hpm-arrow-icon{display:block;width:25px;height:25px;position:relative;z-index:2;color:#ff5a00;transition:transform .28s ease,color .28s ease}
+.tmp-icon-overlay-link-btn{display:inline-flex!important;align-items:center;justify-content:center;background:#fff!important;border:1px solid rgba(255,90,0,.18);box-shadow:0 8px 24px rgba(32,43,54,.13);transition:background .28s ease,border-color .28s ease,box-shadow .28s ease,transform .28s ease}
+.tmp-icon-overlay-link-btn::after{background:#fff!important;opacity:1!important}
+.tmp-icon-overlay-link-btn:hover{background:#ff5a00!important;border-color:#ff5a00;box-shadow:0 12px 28px rgba(255,90,0,.28);transform:translateY(-2px)}
+.tmp-icon-overlay-link-btn:hover .hpm-arrow-icon{color:#fff;transform:translateX(3px)}
+.tmp-icon-overlay-link-btn:hover::after{background:#ff5a00!important;border-color:#ff5a00!important}
+.service-wrapper-3 .image-area .content .tmp-icon-overlay-link-btn{z-index:5}
+.service-wrapper-3 .image-area .content .desc{position:relative;z-index:2}
+
+/* Why Choose Us: primary-colour icon artwork with a refined hover treatment. */
+.hpm-why-section .hpm-feature-card{border:1px solid rgba(32,43,54,.055);transition:transform .28s ease,box-shadow .28s ease,border-color .28s ease}
+.hpm-why-section .hpm-feature-icon{flex:0 0 78px;width:78px;height:78px;background:#fff7f2;border:1px solid rgba(255,90,0,.13);box-shadow:0 7px 22px rgba(32,43,54,.06);transition:background .28s ease,border-color .28s ease,transform .28s ease,box-shadow .28s ease}
+.hpm-why-section .hpm-feature-icon img{width:39px;height:39px;filter:none;transition:filter .28s ease,transform .28s ease}
+.hpm-why-section .hpm-feature-card:hover{transform:translateY(-5px);border-color:rgba(255,90,0,.28);box-shadow:0 15px 34px rgba(32,43,54,.095)}
+.hpm-why-section .hpm-feature-card:hover .hpm-feature-icon{background:#ff5a00;border-color:#ff5a00;transform:translateY(-2px) rotate(-4deg);box-shadow:0 9px 24px rgba(255,90,0,.23)}
+.hpm-why-section .hpm-feature-card:hover .hpm-feature-icon img{filter:brightness(0) invert(1);transform:scale(1.08)}
+
+/* Footer: white logo and clear contrast across every footer column. */
+.hpm-footer-layout-fix{background:#202b36!important;color:#fff}
+.hpm-footer-layout-fix .logo img{width:auto!important;max-width:250px!important;max-height:150px;object-fit:contain;object-position:left center}
+.hpm-footer-layout-fix .body.one .desc,.hpm-footer-layout-fix .body.one .desc p{color:#d7dde4!important;font-size:15px;line-height:1.75}
+.hpm-footer-layout-fix .footer-title{color:#fff!important}
+.hpm-footer-layout-fix .hpm-footer-company-links>a,.hpm-footer-layout-fix .hpm-footer-service-links>a{color:#e1e6ec!important}
+.hpm-footer-layout-fix .hpm-footer-company-links>a:hover,.hpm-footer-layout-fix .hpm-footer-service-links>a:hover{color:#ff5a00!important}
+.hpm-footer-layout-fix .hpm-footer-contact-content p,.hpm-footer-layout-fix .hpm-footer-contact-content a{color:#f1f3f6!important}
+.hpm-footer-layout-fix .hpm-footer-contact-label{color:#ff5a00!important}
+.hpm-footer-layout-fix .social-wrapper-1 a{color:#fff!important}
+.hpm-footer-layout-fix .social-wrapper-1 a:hover{color:#ff5a00!important}
+.hpm-footer-layout-fix .copyright-area-one,.hpm-footer-layout-fix .copyright-area-one p{color:#d7dde4!important}
+
+/* Remove blocking preloader visuals; pages render immediately. */
+.loader-wrapper{display:none!important;visibility:hidden!important;opacity:0!important;pointer-events:none!important}
+
+/* Fluid layout guardrails for compact phones through wide displays. */
+html{scroll-behavior:smooth}
+img{max-width:100%}
+.tmp-service-area .section-title-area-4 .right-side-text{max-width:680px}
+.tmp-service-area .section-title-area-4 .right-side-text .desc{line-height:1.75}
+@media(min-width:1600px){.tmp-service-area>.container-3,.tmp-working-process-area>.container-3{max-width:1680px}}
+@media(max-width:767px){.tmp-service-area .section-title-area-4{align-items:flex-start!important;gap:16px;flex-direction:column}.tmp-service-area .section-title-area-4 .right-side-text{max-width:none}.hpm-footer-layout-fix .logo img{max-width:220px!important}}
+@media(max-width:420px){.hpm-why-section .hpm-feature-card{gap:13px;padding:17px}.hpm-why-section .hpm-feature-icon{flex-basis:58px;width:58px;height:58px}.hpm-why-section .hpm-feature-icon img{width:31px;height:31px}.tmp-icon-overlay-link-btn.btn-xxl{min-width:58px;min-height:58px}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.hpm-why-section .hpm-feature-card,.hpm-why-section .hpm-feature-icon,.hpm-why-section .hpm-feature-icon img,.tmp-icon-overlay-link-btn,.tmp-icon-overlay-link-btn .hpm-arrow-icon{transition:none!important}}

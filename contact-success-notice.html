@@ -1,0 +1,51 @@
+<!-- Place this message container just above the contact form, inside .contact-form-area. -->
+<div id="hpmContactNotice" class="hpm-contact-notice" role="status" aria-live="polite" hidden></div>
+
+<style>
+.hpm-contact-notice {
+    padding: 13px 16px;
+    margin: 0 0 18px;
+    border-radius: 8px;
+    font-size: 14px;
+    line-height: 1.5;
+}
+.hpm-contact-notice.success {
+    color: #176b3a;
+    background: #eaf8ef;
+    border: 1px solid #bfe8cc;
+}
+.hpm-contact-notice.error {
+    color: #9b2c2c;
+    background: #fff0f0;
+    border: 1px solid #f2c4c4;
+}
+</style>
+
+<script>
+(function () {
+    const params = new URLSearchParams(window.location.search);
+    const result = params.get('contact');
+    const notice = document.getElementById('hpmContactNotice');
+
+    if (!notice || !result) return;
+
+    const messages = {
+        success: ['Thank you! Your enquiry has been submitted successfully. Our team will contact you soon.', 'success'],
+        saved: ['Thank you! Your enquiry has been received. Our team will contact you soon.', 'success'],
+        invalid: ['Please check the form fields and submit your enquiry again.', 'error'],
+        error: ['We could not submit your enquiry right now. Please try again or email info@haripalletmachinery.com.', 'error']
+    };
+
+    if (messages[result]) {
+        notice.textContent = messages[result][0];
+        notice.classList.add(messages[result][1]);
+        notice.hidden = false;
+        notice.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    }
+
+    // Remove the status query parameter without reloading the page.
+    params.delete('contact');
+    const query = params.toString();
+    history.replaceState({}, document.title, window.location.pathname + (query ? '?' + query : '') + window.location.hash);
+})();
+</script>

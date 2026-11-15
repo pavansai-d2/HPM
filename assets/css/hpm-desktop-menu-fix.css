@@ -1,0 +1,28 @@
+/* HPM desktop/mobile navigation breakpoint correction.
+   Desktop navigation is shown from 1200px upward; mobile drawer trigger is
+   reserved for tablet and smaller screens. This file must load LAST. */
+@media screen and (min-width: 1200px) {
+  html body header.header-one.header-seven.inner #menu-btn.menu-area,
+  html body header.header-one.header-seven #menu-btn.menu-area,
+  html body header.header-seven #menu-btn.menu-area {
+    display: none !important;
+    visibility: hidden !important;
+    opacity: 0 !important;
+    pointer-events: none !important;
+  }
+
+  html body header.header-one.header-seven.inner .header-mid-one-wrapper > .left > .nav-area,
+  html body header.header-one.header-seven .header-mid-one-wrapper > .left > .nav-area {
+    display: flex !important;
+    visibility: visible !important;
+  }
+}
+@media screen and (max-width: 1199.98px) {
+  html body header.header-one.header-seven.inner #menu-btn.menu-area,
+  html body header.header-one.header-seven #menu-btn.menu-area {
+    display: inline-flex !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    pointer-events: auto !important;
+  }
+}

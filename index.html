@@ -1,0 +1,3254 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description"
+    content="Discover Hari Pallet Machinery (HPM) for pallet making machines, pallet nailing equipment, wood processing machinery, heat treatment plants and customised pallet production solutions.">
+  <!-- Place favicon.ico in the root directory -->
+  <link rel="icon" type="image/svg+xml" href="assets/images/hpm-logo.svg" />
+  <title>Hari Pallet Machinery | Pallet Making Machines & Wood Processing Equipment</title>
+
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900&display=swap"
+    onload="
+        this.onload = null;
+        this.rel = 'stylesheet';
+      " />
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Exo:ital,wght@0,100..900&display=swap"
+    onload="
+        this.onload = null;
+        this.rel = 'stylesheet';
+      " />
+  <noscript>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900&display=swap" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Exo:ital,wght@0,100..900&display=swap" />
+  </noscript>
+
+  <!-- fontawesome css -->
+  <link rel="preload" href="assets/css/plugins/fontawesome.css" as="style" onload="this.rel = 'stylesheet'" />
+  <link rel="preload" href="assets/css/plugins/swiper.css" as="style" onload="this.rel = 'stylesheet'" />
+  <!-- <link rel="preload" href="assets/css/plugins/aos.css" as="style" onload="this.rel='stylesheet'"> -->
+  <link rel="preload" href="assets/css/plugins/unicons.css" as="style" onload="this.rel = 'stylesheet'" />
+  <link rel="preload" href="assets/css/plugins/metismenu.css" as="style" onload="this.rel = 'stylesheet'" />
+  <link rel="preload" href="assets/css/plugins/magnific-popup.css" as="style" onload="this.rel = 'stylesheet'" />
+  <link rel="preload" href="assets/css/plugins/hover-revel.css" as="style" onload="this.rel = 'stylesheet'" />
+  <link rel="preload" href="assets/css/plugins/timepickers.min.css" as="style" onload="this.rel = 'stylesheet'" />
+  <link rel="preload" href="assets/css/plugins/odometer.css" as="style" onload="this.rel = 'stylesheet'" />
+  <!-- bootstrap css -->
+  <link rel="preload" href="assets/css/vendor/bootstrap.min.css" as="style" onload="this.rel = 'stylesheet'" />
+  <link rel="preload" as="image" href="assets/images/banner/hpm-home-banner-1.webp" />
+
+  <style>
+    /* Use the approved HPM-designed homepage banner artwork. */
+    .slider-img-seven {
+      background-image: url("assets/images/banner/hpm-home-banner-1.webp");
+    }
+  </style>
+
+  <style>
+    /* =====================================================
+   HPM HOMEPAGE FEATURED PRODUCTS
+   Responsive Product Cards
+===================================================== */
+
+    .hpm-home-products {
+      width: 100%;
+      padding: clamp(55px, 6vw, 95px) 0;
+      background: #f8f9fa;
+    }
+
+    .hpm-home-products .container-3 {
+      width: 92%;
+      max-width: 1500px;
+      margin: 0 auto;
+    }
+
+    /* Heading */
+
+    .hpm-home-products__heading {
+      margin-bottom: 35px;
+      text-align: center;
+    }
+
+    .hpm-home-products__eyebrow {
+      color: #ff5a00;
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 1.5px;
+      margin-bottom: 12px;
+    }
+
+    .hpm-home-products__heading h2 {
+      color: #202b36;
+      font-size: clamp(28px, 3vw, 42px);
+      font-weight: 700;
+      margin-bottom: 12px;
+    }
+
+    .hpm-home-products__intro {
+      max-width: 680px;
+      margin: 0 auto;
+      color: #687381;
+      font-size: 15px;
+      line-height: 1.7;
+    }
+
+    /* Product grid */
+
+    .hpm-home-products__grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 25px;
+      align-items: stretch;
+    }
+
+    /* Product card */
+
+    .hpm-home-product-card {
+      display: flex;
+      flex-direction: column;
+
+      min-width: 0;
+      height: 100%;
+
+      background: #fff;
+      border: 1px solid #edf0f2;
+      border-radius: 10px;
+
+      overflow: hidden;
+
+      box-shadow: 0 5px 22px rgba(32, 43, 54, 0.045);
+
+      transition: transform .3s ease, box-shadow .3s ease;
+    }
+
+    .hpm-home-product-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 12px 30px rgba(32, 43, 54, 0.10);
+    }
+
+    /* Product image */
+
+    .hpm-home-product-card__image {
+      display: block;
+      position: relative;
+
+      width: 100%;
+      height: clamp(190px, 19vw, 260px);
+
+      overflow: hidden;
+      background: #eef1f3;
+    }
+
+    .hpm-home-product-card__image img {
+      display: block;
+      width: 100%;
+      height: 100%;
+
+      object-fit: cover;
+      object-position: center;
+
+      transition: transform .45s ease;
+    }
+
+    .hpm-home-product-card:hover .hpm-home-product-card__image img {
+      transform: scale(1.05);
+    }
+
+    /* Card body */
+
+    .hpm-home-product-card__body {
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+
+      padding: 22px;
+    }
+
+    .hpm-home-product-card__category {
+      color: #ff5a00;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: .5px;
+      text-transform: uppercase;
+      margin-bottom: 10px;
+    }
+
+    .hpm-home-product-card__body h3 {
+      font-size: 19px;
+      font-weight: 700;
+      line-height: 1.4;
+      margin: 0 0 12px;
+      color: #202b36;
+    }
+
+    .hpm-home-product-card__body p {
+      color: #687381;
+      font-size: 13px;
+      line-height: 1.7;
+      margin: 0 0 20px;
+    }
+
+    /* Actions */
+
+    .hpm-home-product-card__actions {
+      display: flex;
+      align-items: center;
+      margin-top: auto;
+    }
+
+    .hpm-home-product-card__details {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 9px;
+
+      width: 100%;
+      min-height: 45px;
+
+      padding: 11px 15px;
+
+      color: #fff;
+      background: #202b36;
+
+      border: 1px solid #202b36;
+      border-radius: 5px;
+
+      font-family: inherit;
+      font-size: 13px;
+      font-weight: 600;
+
+      cursor: pointer;
+      transition: all .3s ease;
+    }
+
+    .hpm-home-product-card__details:hover {
+      background: #ff5a00;
+      border-color: #ff5a00;
+      color: #fff;
+    }
+
+    /* View all */
+
+    .hpm-home-products__footer {
+      display: flex;
+      justify-content: center;
+      margin-top: 38px;
+    }
+
+    .hpm-home-products__view-all {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+
+      padding: 14px 28px;
+
+      background: #ff5a00;
+      color: #fff;
+
+      border-radius: 5px;
+
+      font-size: 14px;
+      font-weight: 600;
+      text-decoration: none;
+
+      transition: .3s ease;
+    }
+
+    .hpm-home-products__view-all:hover {
+      background: #202b36;
+      color: #fff;
+    }
+
+    /* Large desktop */
+
+    @media (min-width: 1920px) {
+      .hpm-home-products__grid {
+        gap: 30px;
+      }
+
+      .hpm-home-product-card__image {
+        height: 280px;
+      }
+    }
+
+    /* Laptop */
+
+    @media (min-width: 1200px) and (max-width: 1599px) {
+      .hpm-home-products .container-3 {
+        width: 94%;
+      }
+
+      .hpm-home-products__grid {
+        gap: 20px;
+      }
+
+      .hpm-home-product-card__image {
+        height: 210px;
+      }
+
+      .hpm-home-product-card__body {
+        padding: 18px;
+      }
+
+      .hpm-home-product-card__body h3 {
+        font-size: 17px;
+      }
+    }
+
+    /* Tablet */
+
+    @media (min-width: 576px) and (max-width: 991px) {
+      .hpm-home-products__grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 20px;
+      }
+
+      .hpm-home-product-card__image {
+        height: 220px;
+      }
+    }
+
+    /* Small tablet */
+
+    @media (max-width: 575px) {
+      .hpm-home-products {
+        padding: 48px 0;
+      }
+
+      .hpm-home-products .container-3 {
+        width: 92%;
+      }
+
+      .hpm-home-products__grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 12px;
+      }
+
+      .hpm-home-product-card__image {
+        height: 155px;
+      }
+
+      .hpm-home-product-card__body {
+        padding: 13px;
+      }
+
+      .hpm-home-product-card__category {
+        font-size: 9px;
+      }
+
+      .hpm-home-product-card__body h3 {
+        font-size: 14px;
+      }
+
+      .hpm-home-product-card__body p {
+        font-size: 11px;
+      }
+
+      .hpm-home-product-card__details {
+        font-size: 11px;
+        padding: 9px 5px;
+      }
+    }
+
+    /* 320px mobile */
+
+    @media (max-width: 359px) {
+      .hpm-home-products__grid {
+        grid-template-columns: 1fr;
+        gap: 18px;
+      }
+
+      .hpm-home-product-card__image {
+        height: 210px;
+      }
+
+      .hpm-home-product-card__body {
+        padding: 17px;
+      }
+
+      .hpm-home-product-card__body h3 {
+        font-size: 17px;
+      }
+    }
+
+
+    /* =====================================================
+   HPM FEATURED PRODUCT DETAILS POPUP
+===================================================== */
+
+    .hpm-featured-modal {
+      position: fixed;
+      inset: 0;
+      z-index: 999999;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      padding: 20px;
+
+      visibility: hidden;
+      opacity: 0;
+
+      transition: opacity .3s ease, visibility .3s ease;
+    }
+
+    .hpm-featured-modal.is-open {
+      visibility: visible;
+      opacity: 1;
+    }
+
+    .hpm-featured-modal__backdrop {
+      position: absolute;
+      inset: 0;
+      background: rgba(15, 22, 30, .78);
+      backdrop-filter: blur(5px);
+    }
+
+    .hpm-featured-modal__panel {
+      position: relative;
+      z-index: 2;
+
+      width: 100%;
+      max-width: 1000px;
+      max-height: 90vh;
+
+      overflow-y: auto;
+      overscroll-behavior: contain;
+
+      background: #fff;
+      border-radius: 14px;
+
+      transform: translateY(25px);
+      transition: transform .3s ease;
+
+      box-shadow: 0 20px 70px rgba(0, 0, 0, .25);
+    }
+
+    .hpm-featured-modal.is-open .hpm-featured-modal__panel {
+      transform: translateY(0);
+    }
+
+    /* Close button */
+
+    .hpm-featured-modal__close {
+      position: absolute;
+      top: 13px;
+      right: 15px;
+      z-index: 5;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      width: 38px;
+      height: 38px;
+
+      background: #202b36;
+      color: #fff;
+
+      border: 0;
+      border-radius: 50%;
+
+      font-size: 26px;
+      cursor: pointer;
+    }
+
+    .hpm-featured-modal__close:hover {
+      background: #ff5a00;
+    }
+
+    /* Modal layout */
+
+    .hpm-featured-modal__content {
+      display: grid;
+      grid-template-columns: minmax(0, .85fr) minmax(0, 1.15fr);
+      gap: 30px;
+
+      padding: 35px;
+    }
+
+    /* Image */
+
+    .hpm-featured-modal__image {
+      position: sticky;
+      top: 0;
+
+      height: 350px;
+      overflow: hidden;
+
+      border-radius: 10px;
+      background: #f1f3f5;
+    }
+
+    .hpm-featured-modal__image img {
+      display: block;
+      width: 100%;
+      height: 100%;
+
+      object-fit: contain;
+      object-position: center;
+    }
+
+    /* Details */
+
+    .hpm-featured-modal__details {
+      min-width: 0;
+    }
+
+    .hpm-featured-modal__category {
+      display: inline-block;
+
+      margin-bottom: 10px;
+
+      color: #ff5a00;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+    }
+
+    .hpm-featured-modal__details>h2 {
+      margin: 0 35px 14px 0;
+
+      color: #202b36;
+      font-size: clamp(23px, 3vw, 32px);
+      font-weight: 700;
+      line-height: 1.25;
+    }
+
+    .hpm-featured-modal__description {
+      color: #687381;
+      font-size: 14px;
+      line-height: 1.8;
+      margin-bottom: 22px;
+    }
+
+    /* Information sections */
+
+    .hpm-modal-info {
+      margin-bottom: 22px;
+      padding-bottom: 18px;
+      border-bottom: 1px solid #edf0f2;
+    }
+
+    .hpm-modal-info h3 {
+      color: #202b36;
+      font-size: 17px;
+      font-weight: 700;
+      margin: 0 0 12px;
+    }
+
+    .hpm-modal-info p {
+      color: #687381;
+      font-size: 13px;
+      line-height: 1.7;
+      margin: 0;
+    }
+
+    .hpm-modal-info ul {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 11px 15px;
+
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .hpm-modal-info ul li {
+      position: relative;
+      padding-left: 23px;
+
+      color: #596474;
+      font-size: 13px;
+      line-height: 1.6;
+    }
+
+    /* Specification rows */
+
+    .hpm-modal-specifications {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+    }
+
+    .hpm-modal-spec-row {
+      padding: 12px;
+
+      background: #f7f8fa;
+      border-radius: 6px;
+    }
+
+    .hpm-modal-spec-row span {
+      display: block;
+      color: #89919b;
+      font-size: 11px;
+      margin-bottom: 5px;
+    }
+
+    .hpm-modal-spec-row strong {
+      display: block;
+      color: #202b36;
+      font-size: 13px;
+      font-weight: 600;
+    }
+
+    /* WhatsApp enquiry */
+
+    .hpm-modal-enquiry {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+
+      gap: 15px;
+      padding: 18px;
+
+      background: #fff5ef;
+      border: 1px solid #ffe1d0;
+      border-radius: 9px;
+    }
+
+    .hpm-modal-enquiry h3 {
+      margin: 0 0 5px;
+      color: #202b36;
+      font-size: 15px;
+      font-weight: 700;
+    }
+
+    .hpm-modal-enquiry p {
+      margin: 0;
+      color: #687381;
+      font-size: 12px;
+      line-height: 1.5;
+    }
+
+    .hpm-modal-whatsapp {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 9px;
+
+      padding: 12px 17px;
+
+      background: #20a85a;
+      color: #fff !important;
+
+      border-radius: 5px;
+
+      font-size: 12px;
+      font-weight: 700;
+      text-decoration: none;
+
+      white-space: nowrap;
+      transition: .3s ease;
+    }
+
+    .hpm-modal-whatsapp:hover {
+      background: #168744;
+      color: #fff;
+    }
+
+    /* Tablet */
+
+    @media (max-width: 767px) {
+
+      .hpm-featured-modal {
+        padding: 12px;
+      }
+
+      .hpm-featured-modal__panel {
+        max-height: 94vh;
+      }
+
+      .hpm-featured-modal__content {
+        grid-template-columns: 1fr;
+        gap: 20px;
+        padding: 22px;
+      }
+
+      .hpm-featured-modal__image {
+        position: relative;
+        height: 260px;
+      }
+
+    }
+
+    /* Mobile */
+
+    @media (max-width: 480px) {
+
+      .hpm-featured-modal__content {
+        padding: 17px;
+        gap: 17px;
+      }
+
+      .hpm-featured-modal__image {
+        height: 210px;
+      }
+
+      .hpm-modal-info ul,
+      .hpm-modal-specifications {
+        grid-template-columns: 1fr;
+      }
+
+      .hpm-modal-enquiry {
+        align-items: stretch;
+        flex-direction: column;
+      }
+
+      .hpm-modal-whatsapp {
+        width: 100%;
+      }
+
+      .hpm-featured-modal__details>h2 {
+        font-size: 23px;
+      }
+
+    }
+
+    /* Prevent page scroll when popup is open */
+
+    body.hpm-modal-open {
+      overflow: hidden;
+    }
+
+
+    /* ==========================================
+   HPM MODAL - PROFESSIONAL CHECKMARK ICONS
+   No Font Awesome dependency
+========================================== */
+
+    .hpm-featured-modal .hpm-modal-info ul {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 13px 22px;
+
+      list-style: none !important;
+      padding: 0 !important;
+      margin: 0 !important;
+    }
+
+    .hpm-featured-modal .hpm-modal-info ul li {
+      position: relative;
+
+      display: block;
+
+      padding: 0 0 0 27px !important;
+      margin: 0 !important;
+
+      list-style: none !important;
+
+      color: #596474;
+      font-size: 14px;
+      line-height: 1.65;
+    }
+
+    /* Orange CSS checkmark */
+    .hpm-featured-modal .hpm-modal-info ul li::before {
+      content: "";
+
+      position: absolute;
+      left: 3px;
+      top: 4px;
+
+      width: 7px;
+      height: 13px;
+
+      border-right: 2px solid #ff5a00;
+      border-bottom: 2px solid #ff5a00;
+
+      transform: rotate(45deg);
+
+      display: block;
+    }
+
+    /* Prevent unwanted theme list icons */
+    .hpm-featured-modal .hpm-modal-info ul li::after {
+      content: none !important;
+      display: none !important;
+    }
+
+    /* Tablet and mobile */
+    @media (max-width: 767px) {
+      .hpm-featured-modal .hpm-modal-info ul {
+        grid-template-columns: 1fr;
+        gap: 12px;
+      }
+
+      .hpm-featured-modal .hpm-modal-info ul li {
+        font-size: 13px;
+      }
+    }
+  </style>
+
+  <!-- main css -->
+  <link rel="stylesheet" href="assets/css/style.css" />
+  <link rel="stylesheet" href="assets/css/hpm-navigation-responsive.css" />
+  <link rel="stylesheet" href="assets/css/hpm-hero-responsive.css" />
+  <link rel="stylesheet" href="assets/css/hpm-navigation-breadcrumb-overrides.css">
+  <meta name="robots" content="index,follow,max-image-preview:large">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "Hari Pallet Machinery",
+    "alternateName": "HPM",
+    "url": "https://haripalletmachinery.com/",
+    "logo": "https://haripalletmachinery.com/assets/images/hpm-logo.svg"
+  }
+  </script>
+  <link rel="stylesheet" href="assets/css/hpm-site-polish.css">
+  <link rel="stylesheet" href="assets/css/hpm-final-responsive-fix.css" />
+<link rel="stylesheet" href="assets/css/hpm-desktop-menu-fix.css" />
+  <link rel="stylesheet" href="assets/css/hpm-performance-design.css">
+</head>
+
+<body class="home-five home-green">
+  <!-- Header Start -->
+  
+  <!-- header area start -->
+  <header class="header-one header-seven inner header--sticky header-sticky-smooth">
+    <!-- header top -->
+    <div class="header-top overflow-visible">
+      <div class="row">
+        <div class="col-lg-12">
+          <div class="header-top-wrapper">
+            <!-- left area header top -->
+            <div class="left">
+              <!-- single map area -->
+              <div class="single-component info-con">
+                <div class="icon">
+                  <i class="fal fa-clock"></i>
+                </div>
+                <div class="info">
+                  <span>Mon - Sat (9:00 AM - 6:00 PM)</span>
+                </div>
+              </div>
+              <!-- single map area -->
+              <!-- single map area -->
+              <div class="single-component info-con">
+                <div class="icon">
+                  <i class="fal fa-phone"></i>
+                </div>
+                <div class="info">
+                  <span><a href="call-to:+971 542188600">+971 542188600</a></span>
+                </div>
+              </div>
+              <!-- single map area -->
+              <!-- single map area -->
+              <div class="single-component info-con">
+                <div class="icon">
+                  <i class="fal fa-map-marker-alt"></i>
+                </div>
+                <div class="info">
+                  <span>Near Sharjah Gas Plant, Al Sajja Industrial Area,
+                    Sharjah, UAE</span>
+                </div>
+              </div>
+              <!-- single map area -->
+            </div>
+            <!-- right area strat -->
+            <div class="right">
+              <ul class="social-wrapper-1 hover-bg-white">
+                <li class="single">
+                  <a target="_blank" href="https://www.facebook.com/"><i class="fab fa-facebook-f"></i></a>
+                </li>
+                <li class="single">
+                  <a target="_blank" href="https://x.com/"><i class="fab fa-twitter"></i></a>
+                </li>
+                <li class="single">
+                  <a target="_blank" href="https://www.instagram.com/"><i class="fab fa-instagram"></i></a>
+                </li>
+                <li>
+                  <a target="_blank" href="https://www.linkedin.com/"><i class="fa-brands fa-linkedin-in"></i></a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- header bottom -->
+    <!-- header style hear -->
+    <div class="header-main header-main-2">
+      <div class="row">
+        <div class="col-lg-12">
+          <div class="header-mid-one-wrapper wrapper-two">
+            <div class="left d-flex align-items-center">
+              <div class="logo-area shape-none">
+                <a href="index.html">
+                  <img decoding="async" src="assets/images/hpm-logo.svg" alt="logo" />
+                </a>
+              </div>
+              <div class="nav-area">
+                <ul class="mainmenu active">
+                  <li class="main-nav"><a href="index.html">Home</a></li>
+
+                  <li class="main-nav">
+                    <a href="about.html">About Us</a>
+                  </li>
+
+                  <li class="main-nav has-dropdown has-menu-child-item">
+                    <a href="services.html">Services</a>
+                    <ul class="submenu parent-nav">
+                      <li><a href="automation-services.html">Automation Services</a></li>
+                      <li><a href="metal-fabrication-works.html">Metal Fabrication Works</a></li>
+                      <li><a href="installation-and-commissioning.html">Installation &amp; Commissioning</a></li>
+                      <li><a href="repair-and-maintenance.html">Repair &amp; Maintenance</a></li>
+                      <li><a href="spare-parts-and-nailing-equipment.html">Spare Parts &amp; Nailing Equipment</a></li>
+                      <li><a href="warehouse-solutions.html">Warehouse Solutions</a></li>
+                      <li><a href="heat-treatment-plant-and-machine-customisation.html">Heat Treatment Plant &amp; Machine
+                          Customisation</a></li>
+                      <li><a href="pallet-product-line-solutions.html">Pallet Product line Solutions</a></li>
+                      <li><a href="technical-support.html">Technical Support</a></li>
+                    </ul>
+                  </li>
+
+                  <li class="main-nav hpm-products-menu has-dropdown has-menu-child-item">
+                    <a href="products.php">Products</a>
+
+                    <ul class="submenu parent-nav hpm-products-dropdown"></ul>
+                  </li>
+                  <li class="main-nav">
+                    <a href="contact.html">Contact Us</a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="header-right">
+              <div class="single-component">
+
+                <a href="https://wa.me/971542188600" target="_blank" rel="noopener noreferrer"
+                  class="tmp-btn btn-primary hover-icon-reverse hpm-whatsapp-quote" data-sal="slide-up-large"
+                  data-sal-duration="1000" data-sal-delay="600">
+
+                  <span class="icon-reverse-wrapper">
+
+                    <!-- WhatsApp + Text Group -->
+                    <span class="hpm-quote-content">
+                      <i class="fa-brands fa-whatsapp hpm-whatsapp-icon"></i>
+                      <span class="btn-text">Request a Quote</span>
+                    </span>
+
+                    <!-- Arrow Animation -->
+                    <span class="btn-icon">
+                      <i class="fa-solid fa-arrow-right"></i>
+                    </span>
+
+                    <span class="btn-icon">
+                      <i class="fa-solid fa-arrow-right"></i>
+                    </span>
+
+                  </span>
+                </a>
+
+                <div class="menu-area d-block d-xl-none" id="menu-btn">
+                  <div class="icon radius-small">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="16" viewBox="0 0 18 16" fill="none">
+                      <rect width="18" height="2" fill="#0C0A0A"></rect>
+                      <rect y="7" width="18" height="2" fill="#0C0A0A"></rect>
+                      <rect y="14" width="18" height="2" fill="#0C0A0A"></rect>
+                    </svg>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- header style hearm end -->
+  </header>
+  <!-- header area end -->
+
+  <!-- Header End -->
+
+  <!-- Banner Area Start -->
+  <section class="tmp-banner-slider-area banner-five pagination-controler">
+    <div class="swiper thumbBannerSlide">
+      <div class="swiper-wrapper">
+        <div class="swiper-slide">
+          <div class="banner-five-main-wrapper banner-style-default bg-style slider-img-three">
+            <div class="container-3">
+              <div class="row">
+                <div class="col-xl-7 col-lg-7 offset-xl-5 hpm-banner-right">
+                  <div class="banner-three-wrapper pt--200 hpm-banner-copy">
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="warm"></div>
+          </div>
+        </div>
+        <div class="swiper-slide">
+          <div class="banner-five-main-wrapper banner-style-default bg-style slider-img-seven">
+            <div class="container-3">
+              <div class="row">
+                <div class="col-xl-7 col-lg-7 offset-xl-5 hpm-banner-right">
+                  <div class="banner-three-wrapper pt--200 hpm-banner-copy">
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="warm"></div>
+          </div>
+        </div>
+        <div class="swiper-slide">
+          <div class="banner-five-main-wrapper banner-style-default bg-style slider-img-ten">
+            <div class="container-3">
+              <div class="row">
+                <div class="col-xl-7 col-lg-7 offset-xl-5 hpm-banner-right">
+                  <div class="banner-three-wrapper pt--200 hpm-banner-copy">
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="warm"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- HPM Hero Slider Navigation -->
+    <button class="hpm-banner-nav hpm-banner-prev" type="button" aria-label="Show previous banner">
+      <i class="fa-solid fa-chevron-left" aria-hidden="true"></i>
+    </button>
+    <button class="hpm-banner-nav hpm-banner-next" type="button" aria-label="Show next banner">
+      <i class="fa-solid fa-chevron-right" aria-hidden="true"></i>
+    </button>
+
+    <div class="swiper-pagination tmp-swiper-dot dot-color-white dot-transparent"></div>
+  </section>
+  <!-- Banner Area End -->
+
+  <!-- About Area Start -->
+  <section class="tmp-about-area area-3 tmp-section-gap pb--150">
+    <div class="container-3">
+      <div class="section-inner">
+        <div class="row align-items-center">
+          <div class="col-lg-6 mt--30">
+            <div class="left-side-content">
+              <div class="section-title-area-4">
+                <p class="sub-title cg" data-sal="slide-up-large" data-sal-duration="1000" data-sal-delay="100">
+                  ABOUT HPM
+                </p>
+                <h2 class="section-title tmp-title-split" data-sal="slide-up-large" data-sal-duration="1000"
+                  data-sal-delay="300">
+                  Pallet Machinery Solutions <br />
+                  Built Around Your Production Needs
+                </h2>
+              </div>
+              <p class="desc" data-sal="slide-up-large" data-sal-duration="1000" data-sal-delay="400">
+                HPM Packing & Packaging Machines Assembling Co. L.L.C.
+                provides machinery solutions for wooden pallet manufacturing
+                and wood processing. From pallet dismantling and timber
+                cutting to pallet assembly, nailing systems and heat treatment
+                equipment, we help businesses explore practical machinery for
+                their production requirements. Based in the UAE, HPM focuses
+                on equipment that supports efficient workflows, dependable
+                operation and the evolving needs of the pallet industry.
+              </p>
+              <ul class="about-feature-list mt--20" data-sal="slide-up" data-sal-duration="1000" data-sal-delay="400">
+                <li class="single">
+                  <div class="icon">
+                    <i class="far fa-check"></i>
+                  </div>
+                  <span>Wooden Pallet Manufacturing Machinery </span>
+                </li>
+                <li class="single">
+                  <div class="icon">
+                    <i class="far fa-check"></i>
+                  </div>
+                  <span>Automatic and Semi-Automatic Pallet Nailing Machines
+                  </span>
+                </li>
+                <li class="single">
+                  <div class="icon">
+                    <i class="far fa-check"></i>
+                  </div>
+                  <span>Wood Cutting and Processing Equipment </span>
+                </li>
+                <li class="single">
+                  <div class="icon">
+                    <i class="far fa-check"></i>
+                  </div>
+                  <span>Pallet Dismantling and Repair Solutions </span>
+                </li>
+                <li class="single">
+                  <div class="icon">
+                    <i class="far fa-check"></i>
+                  </div>
+                  <span>Pallet Heat Treatment Equipment</span>
+                </li>
+              </ul>
+              <div class="button-area-about">
+                <a href="about.html" class="tmp-btn btn-md btn-primary hover-icon-reverse" data-sal="slide-up"
+                  data-sal-duration="1000" data-sal-delay="500">
+                  <span class="icon-reverse-wrapper">
+                    <span class="btn-text">More About HPM</span>
+                    <span class="btn-icon"><i class="fa-solid fa-arrow-right"></i></span>
+                    <span class="btn-icon"><i class="fa-solid fa-arrow-right"></i></span>
+                  </span>
+                </a>
+                <div class="video-btn" data-sal="slide-up" data-sal-duration="1000" data-sal-delay="800">
+                  <span class="arrow">
+                    <a class="popup-youtube popup-video" href="https://www.youtube.com/watch?v=tyClpNOO9K0">
+                      <i class="fas fa-play"></i>
+                    </a>
+                  </span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-6 order-change">
+            <div class="about-image-area3 text-end">
+              <div class="counter-area">
+                <div class="counter-wrapper">
+                  <h3 class="title-main">
+                    <span class="counter"><span class="odometer" data-count="100">00</span></span><span
+                      class="prefix">+</span>
+                  </h3>
+                  <p class="disc">Successfull Project</p>
+                </div>
+              </div>
+              <div class="main-image">
+                <img loading="lazy" decoding="async" src="assets/images/usage/belt conveyor.webp" width="419" alt="" />
+                <img loading="lazy" decoding="async" src="assets/images/usage/semi-automatic-corner-chamfer-macking.webp" width="317" alt=""
+                  data-parallax='{"x": 0, "y": 30}' />
+              </div>
+              <img loading="lazy" decoding="async" src="assets/images/usage/manual hand stamp.webp" width="308" alt="" class="floating-img"
+                data-parallax='{"x": -60, "y": 0}' />
+              <div class="about-award-area">
+                <div class="award-inner">
+                  <ul class="star-rating-area">
+                    <li><i class="fas fa-star"></i></li>
+                    <li><i class="fas fa-star"></i></li>
+                    <li><i class="fas fa-star"></i></li>
+                    <li><i class="fas fa-star"></i></li>
+                    <li><i class="fas fa-star"></i></li>
+                  </ul>
+                  <h3 class="title">
+                    Best Quality Provider
+                  </h3>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- About Area End -->
+
+  <!-- Service Area Start -->
+  <section class="tmp-service-area area-3 tmp-section-gap">
+    <div class="container-3">
+      <div class="section-title-area-4 d-flex justify-content-between align-items-center">
+        <div class="left-side-content">
+          <p class="sub-title cg" data-sal="slide-up-large" data-sal-duration="1000" data-sal-delay="100">
+            OUR SERVICES
+          </p>
+          <h2 class="section-title tmp-title-split" data-sal="slide-up-large" data-sal-duration="1000"
+            data-sal-delay="300">
+            Industrial Automation &amp;
+            <br />
+            Pallet Machinery Services
+          </h2>
+        </div>
+        <div class="right-side-text" data-sal="slide-up-large" data-sal-duration="1000" data-sal-delay="100">
+          <p class="desc">
+            Explore industrial automation services, PLC programming, SCADA and HMI
+            development, industrial drives, machine communication and engineering
+            support for manufacturing operations. HPM also supports pallet machinery
+            installation, maintenance and production-line requirements.
+          </p>
+        </div>
+      </div>
+      <div class="section-inner mt--40">
+        <div class="slider-inner">
+          <div class="float-right">
+            <div class="swiper tmpServiceSlider">
+              <div class="swiper-wrapper">
+                <div class="swiper-slide">
+                  <div class="service-wrapper-3">
+                    <div class="top-content text-center">
+                      <h3>Automation &amp; Services</h3>
+                    </div>
+                    <div class="image-area">
+                      <a href="automation-services.html">
+                        <img loading="lazy" decoding="async" src="assets/images/usage/automation.webp" width="531" alt="" />
+                      </a>
+                      <div class="content">
+                        <a href="automation-services.html" class="tmp-icon-overlay-link-btn btn-bg-dark btn-xxl">
+                          <span class="tmp-btn-overlay">
+                            <svg class="hpm-arrow-icon" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4 12h15M13 5l7 7-7 7" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                          </span>
+                        </a>
+                        <p class="desc">
+                          Discover industrial automation services, PLC programming,
+                          SCADA and HMI development, machine control systems and
+                          production data solutions for efficient manufacturing.
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="swiper-slide">
+                  <div class="service-wrapper-3">
+                    <div class="top-content text-center">
+                      <h3>Metal Fabrication Works</h3>
+                    </div>
+                    <div class="image-area">
+                      <a href="metal-fabrication-works.html">
+                        <img loading="lazy" decoding="async" src="assets/images/usage/fabrication.webp" width="531" alt="" />
+                      </a>
+                      <div class="content">
+                        <a href="metal-fabrication-works.html"
+                          class="tmp-icon-overlay-link-btn btn-bg-dark btn-xxl">
+                          <span class="tmp-btn-overlay">
+                            <svg class="hpm-arrow-icon" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4 12h15M13 5l7 7-7 7" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                          </span>
+                        </a>
+                        <p class="desc">
+                          Maintain your pallet production equipment with
+                          repair and maintenance support designed to address
+                          equipment issues and operational requirements.
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="swiper-slide">
+                  <div class="service-wrapper-3">
+                    <div class="top-content text-center">
+                      <h3>Installation &amp; Commissioning</h3>
+                    </div>
+                    <div class="image-area">
+                      <a href="installation-and-commissioning.html">
+                        <img loading="lazy" decoding="async" src="assets/images/usage/installation.webp" width="531" alt="" />
+                      </a>
+                      <div class="content">
+                        <a href="installation-and-commissioning.html"
+                          class="tmp-icon-overlay-link-btn btn-bg-dark btn-xxl">
+                          <span class="tmp-btn-overlay">
+                            <svg class="hpm-arrow-icon" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4 12h15M13 5l7 7-7 7" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                          </span>
+                        </a>
+                        <p class="desc">
+                          Get support with pallet machinery installation,
+                          setup and commissioning to help prepare your
+                          equipment for production.
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="swiper-slide">
+                  <div class="service-wrapper-3">
+                    <div class="top-content text-center">
+                      <h3>Spare Parts &amp; Nailing Equipment</h3>
+                    </div>
+                    <div class="image-area">
+                      <a href="spare-parts-and-nailing-equipment.html">
+                        <img loading="lazy" decoding="async" src="assets/images/usage/spareparts.webp" width="531" alt="" />
+                      </a>
+                      <div class="content">
+                        <a href="spare-parts-and-nailing-equipment.html"
+                          class="tmp-icon-overlay-link-btn btn-bg-dark btn-xxl">
+                          <span class="tmp-btn-overlay">
+                            <svg class="hpm-arrow-icon" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4 12h15M13 5l7 7-7 7" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                          </span>
+                        </a>
+                        <p class="desc">
+                          Discover industrial automation services, PLC programming,
+                          SCADA and HMI development, machine control systems and
+                          production data solutions for efficient manufacturing.
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="swiper-slide">
+                  <div class="service-wrapper-3">
+                    <div class="top-content text-center">
+                      <h3>Repair &amp; Maintenance</h3>
+                    </div>
+                    <div class="image-area">
+                      <a href="repair-and-maintenance.html">
+                        <img loading="lazy" decoding="async" src="assets/images/usage/repair.webp" width="531" alt="" />
+                      </a>
+                      <div class="content">
+                        <a href="repair-and-maintenance.html" class="tmp-icon-overlay-link-btn btn-bg-dark btn-xxl">
+                          <span class="tmp-btn-overlay">
+                            <svg class="hpm-arrow-icon" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4 12h15M13 5l7 7-7 7" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                          </span>
+                        </a>
+                        <p class="desc">
+                          Maintain your pallet production equipment with
+                          repair and maintenance support designed to address
+                          equipment issues and operational requirements.
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="swiper-slide">
+                  <div class="service-wrapper-3">
+                    <div class="top-content text-center">
+                      <h3>Warehouse Solutions</h3>
+                    </div>
+                    <div class="image-area">
+                      <a href="warehouse-solutions.html">
+                        <img loading="lazy" decoding="async" src="assets/images/usage/warehouse-card.webp" width="531" alt="" />
+                      </a>
+                      <div class="content">
+                        <a href="warehouse-solutions.html" class="tmp-icon-overlay-link-btn btn-bg-dark btn-xxl">
+                          <span class="tmp-btn-overlay">
+                            <svg class="hpm-arrow-icon" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4 12h15M13 5l7 7-7 7" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                          </span>
+                        </a>
+                        <p class="desc">
+                          Explore warehouse solutions that support pallet
+                          handling, material movement and more organised
+                          workflows within your production facility.
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="swiper-slide">
+                  <div class="service-wrapper-3">
+                    <div class="top-content text-center">
+                      <h3>Technical Support</h3>
+                    </div>
+                    <div class="image-area">
+                      <a href="technical-support.html">
+                        <img loading="lazy" decoding="async" src="assets/images/usage/technical.webp" width="531" alt="" />
+                      </a>
+                      <div class="content">
+                        <a href="technical-support.html" class="tmp-icon-overlay-link-btn btn-bg-dark btn-xxl">
+                          <span class="tmp-btn-overlay">
+                            <svg class="hpm-arrow-icon" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4 12h15M13 5l7 7-7 7" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                          </span>
+                        </a>
+                        <p class="desc">
+                          Get technical guidance for pallet machinery,
+                          equipment operation and troubleshooting to help
+                          address production-related concerns.
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="swiper-slide">
+                  <div class="service-wrapper-3">
+                    <div class="top-content text-center">
+                      <h3>Pallet Production Line Solutions</h3>
+                    </div>
+                    <div class="image-area">
+                      <a href="pallet-product-line-solutions.html">
+                        <img loading="lazy" decoding="async" src="assets/images/usage/palletproduct.webp" width="531" alt="" />
+                      </a>
+                      <div class="content">
+                        <a href="pallet-product-line-solutions.html"
+                          class="tmp-icon-overlay-link-btn btn-bg-dark btn-xxl">
+                          <span class="tmp-btn-overlay">
+                            <svg class="hpm-arrow-icon" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4 12h15M13 5l7 7-7 7" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                          </span>
+                        </a>
+                        <p class="desc">
+                          Explore pallet manufacturing line solutions that
+                          bring together wood processing, pallet assembly and
+                          nailing equipment to suit your production
+                          requirements.
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="swiper-slide">
+                  <div class="service-wrapper-3">
+                    <div class="top-content text-center">
+                      <h3>Heat Treatment &amp; Machine Customisation</h3>
+                    </div>
+                    <div class="image-area">
+                      <a href="heat-treatment-plant-and-machine-customisation.html">
+                        <img loading="lazy" decoding="async" src="assets/images/usage/heattreatment.webp" width="531" alt="" />
+                      </a>
+                      <div class="content">
+                        <a href="heat-treatment-plant-and-machine-customisation.html"
+                          class="tmp-icon-overlay-link-btn btn-bg-dark btn-xxl">
+                          <span class="tmp-btn-overlay">
+                            <svg class="hpm-arrow-icon" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4 12h15M13 5l7 7-7 7" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                          </span>
+                        </a>
+                        <p class="desc">
+                          Discover pallet heat treatment equipment and
+                          machinery customisation options based on your
+                          production process and operational requirements.
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="slider-button">
+            <div class="swiper-btn swiper-button-prev">
+              <div class="custom-overfolow-btn">
+                <i class="invers-icon fal fa-arrow-left"></i>
+                <i class="invers-icon-top fal fa-arrow-left"></i>
+              </div>
+            </div>
+            <div class="swiper-btn swiper-button-next">
+              <div class="custom-overfolow-btn">
+                <i class="invers-icon fal fa-arrow-right"></i>
+                <i class="invers-icon-top fal fa-arrow-right"></i>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="container-3 pt--60">
+      <div class="section-inner">
+        <div class="row g-5">
+          <div class="col-lg-4 col-md-6" data-sal="slide-up" data-sal-duration="1000" data-sal-delay="200">
+            <div class="service-list-wrapper">
+              <h4 class="title">
+                <a href="products.php">Explore Pallet Machinery</a>
+              </h4>
+              <a href="products.php" class="tmp-btn btn-primary hover-white hover-icon-reverse btn-sm">
+                <span class="icon-reverse-wrapper">
+                  <span class="btn-text">View Products</span>
+                  <span class="btn-icon"><i class="fa-solid fa-arrow-right"></i></span>
+                  <span class="btn-icon"><i class="fa-solid fa-arrow-right"></i></span>
+                </span>
+              </a>
+            </div>
+          </div>
+          <div class="col-lg-4 col-md-6" data-sal="slide-up" data-sal-duration="1000" data-sal-delay="400">
+            <div class="service-list-wrapper">
+              <h4 class="title">
+                <a href="service.html">Our Machinery Services</a>
+              </h4>
+              <a href="services.html" class="tmp-btn btn-primary hover-white hover-icon-reverse btn-sm">
+                <span class="icon-reverse-wrapper">
+                  <span class="btn-text">Explore Services</span>
+                  <span class="btn-icon"><i class="fa-solid fa-arrow-right"></i></span>
+                  <span class="btn-icon"><i class="fa-solid fa-arrow-right"></i></span>
+                </span>
+              </a>
+            </div>
+          </div>
+          <div class="col-lg-4 col-md-6" data-sal="slide-up" data-sal-duration="1000" data-sal-delay="600">
+            <div class="service-list-wrapper">
+              <h4 class="title">
+                <a href="contact.html">Discuss Your Requirements</a>
+              </h4>
+              <a href="contact.html" class="tmp-btn btn-primary hover-white hover-icon-reverse btn-sm">
+                <span class="icon-reverse-wrapper">
+                  <span class="btn-text">Request a Quote</span>
+                  <span class="btn-icon"><i class="fa-solid fa-arrow-right"></i></span>
+                  <span class="btn-icon"><i class="fa-solid fa-arrow-right"></i></span>
+                </span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- Service Area End -->
+
+  <!-- Working Process Area Start -->
+  <section class="tmp-working-process-area tmp-section-gap">
+    <div class="container-3">
+      <div class="section-title-area-3">
+        <p class="sub-title cg" data-sal="slide-up" data-sal-duration="800" data-sal-delay="100">
+          How We Work
+        </p>
+        <h2 class="section-title tmp-title-split" data-sal="slide-up" data-sal-duration="800" data-sal-delay="300">
+          Our Pallet Machinery<br />Process
+        </h2>
+      </div>
+      <div class="section-inner mt--60">
+        <div class="row g-5">
+          <div class="col-lg-4 col-md-6 col-sm-6 col-12" data-sal="slide-right" data-sal-duration="800"
+            data-sal-delay="200">
+            <div class="working-process-wrapper6 cp-none">
+              <div class="content">
+                <p class="number">01</p>
+                <h3 class="title">
+                  <a href="#"> Understand Your Requirements</a>
+                </h3>
+                <p class="desc">
+                  We begin by understanding your pallet manufacturing
+                  requirements, production capacity, timber processing needs
+                  and available workspace. This helps us identify suitable
+                  wooden pallet making machines, nailing equipment and
+                  production line solutions for your operation.
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-4 col-md-6 col-sm-6 col-12" data-sal="slide-right" data-sal-duration="800"
+            data-sal-delay="500">
+            <div class="working-process-wrapper6 cp-none">
+              <div class="content">
+                <p class="number">02</p>
+                <h3 class="title">
+                  <a href="#">Select the Right Machinery</a>
+                </h3>
+                <p class="desc">
+                  Explore suitable pallet manufacturing machinery, including
+                  wood cross-cutting machines, pallet nailing systems,
+                  dismantling equipment and heat treatment solutions. We help
+                  you evaluate available options against your production and
+                  equipment needs.
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-4 col-md-6 col-sm-6 col-12" data-sal="slide-right" data-sal-duration="800"
+            data-sal-delay="800">
+            <div class="working-process-wrapper6 cp-none">
+              <div class="content">
+                <p class="number">03</p>
+                <h3 class="title">
+                  <a href="#"> Installation &amp; Ongoing Support</a>
+                </h3>
+                <p class="desc">
+                  Move forward with your machinery requirements and discuss
+                  installation, commissioning, spare parts, repair and
+                  maintenance, and technical support with our team. Service
+                  arrangements are confirmed according to the equipment and
+                  project scope.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="section-bottom-video-area bg-2 mt--60">
+        <a class="rounded-player-2 popup-video position-center with-animation btn-white-color"
+          href="https://www.youtube.com/watch?v=_BVC6ms0mQY">
+          <span class="play-icon"></span>
+        </a>
+      </div>
+    </div>
+  </section>
+  <!-- Working Process Area End -->
+
+  <!-- Project Area Start -->
+
+  <!-- Our Works / Pallet Machinery Showcase Start -->
+  <section class="tmp-working-process-area tmp-section-gap project-bg">
+    <div class="container-3">
+      <!-- Section Heading -->
+      <div class="section-title-area-4">
+        <p class="sub-title cg" data-sal="slide-up-large" data-sal-duration="1000" data-sal-delay="100">
+          OUR WORKS
+        </p>
+
+        <h2 class="section-title tmp-title-split" data-sal="slide-up-large" data-sal-duration="1000"
+          data-sal-delay="300">
+          Pallet Manufacturing
+          <br />
+          Machinery &amp; Solutions
+        </h2>
+
+        <p class="desc" data-sal="slide-up-large" data-sal-duration="1000" data-sal-delay="400">
+          Explore HPM's range of pallet manufacturing machinery, wood
+          processing equipment and production solutions. From pallet
+          dismantling and timber cutting to automated pallet nailing and heat
+          treatment equipment, discover machinery designed for different
+          pallet production needs.
+        </p>
+      </div>
+    </div>
+
+    <div class="container-2">
+      <div class="section-inner mt--80 mt_md--40 mt_sm--30">
+        <ul class="working-list-area">
+          <!-- Work 1: Pallet Making Machine -->
+          <li class="working-process-wrapper3" data-sal="slide-up" data-sal-duration="1000" data-sal-delay="200">
+            <a href="products.php">
+              <div class="left-area">
+                <h3 class="number">1</h3>
+
+                <h4 class="title">
+                  Pallet Making Machine
+                  <svg width="75" height="22" viewBox="0 0 75 22" fill="none" xmlns="http://www.w3.org/2000/svg"
+                    aria-hidden="true">
+                    <path d="M2 11H68M58 2L68 11L58 20" stroke="currentColor" stroke-width="2" fill="none" />
+                  </svg>
+                </h4>
+              </div>
+
+              <div class="mid-area">
+                <p class="desc">
+                  Explore pallet making machines and wooden pallet assembly
+                  equipment designed to support reliable pallet manufacturing,
+                  consistent nailing and efficient production workflows.
+                </p>
+              </div>
+
+              <div class="image-area">
+                <img src="assets/images/usage/hpm-work-1.webp" width="375" loading="lazy" decoding="async"
+                  alt="Pallet dismantling machine for wooden pallet repair and wood recovery" />
+
+                <div class="tmp-icon-overlay-link-btn btn-bg-dark btn-xxl">
+                  <span class="tmp-btn-overlay">
+                    <svg class="hpm-arrow-icon" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4 12h15M13 5l7 7-7 7" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                  </span>
+                </div>
+              </div>
+            </a>
+          </li>
+
+          <!-- Work 2: Wood Cutting, Processing & Finishing Machine -->
+          <li class="working-process-wrapper3" data-sal="slide-up" data-sal-duration="1000" data-sal-delay="400">
+            <a href="products.php">
+              <div class="left-area">
+                <h3 class="number">2</h3>
+
+                <h4 class="title">
+                  Wood Cutting, Processing & Finishing Machine
+                  <svg width="75" height="22" viewBox="0 0 75 22" fill="none" xmlns="http://www.w3.org/2000/svg"
+                    aria-hidden="true">
+                    <path d="M2 11H68M58 2L68 11L58 20" stroke="currentColor" stroke-width="2" fill="none" />
+                  </svg>
+                </h4>
+              </div>
+
+              <div class="mid-area">
+                <p class="desc">
+                  Discover wood cutting, timber processing and finishing
+                  machinery for accurate component sizing and preparation
+                  across wooden pallet manufacturing operations.
+                </p>
+              </div>
+
+              <div class="image-area">
+                <img src="assets/images/usage/hpm-work-2.webp" width="375" loading="lazy" decoding="async"
+                  alt="Automatic wooden pallet nailing machine for pallet manufacturing" />
+
+                <div class="tmp-icon-overlay-link-btn btn-bg-dark btn-xxl">
+                  <span class="tmp-btn-overlay">
+                    <svg class="hpm-arrow-icon" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4 12h15M13 5l7 7-7 7" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                  </span>
+                </div>
+              </div>
+            </a>
+          </li>
+
+          <!-- Work 3: Wood Treatment & Marking Equipment -->
+          <li class="working-process-wrapper3" data-sal="slide-up" data-sal-duration="1000" data-sal-delay="600">
+            <a href="products.php">
+              <div class="left-area">
+                <h3 class="number">3</h3>
+
+                <h4 class="title">
+                  Wood Treatment & Marking Equipment
+                  <svg width="75" height="22" viewBox="0 0 75 22" fill="none" xmlns="http://www.w3.org/2000/svg"
+                    aria-hidden="true">
+                    <path d="M2 11H68M58 2L68 11L58 20" stroke="currentColor" stroke-width="2" fill="none" />
+                  </svg>
+                </h4>
+              </div>
+
+              <div class="mid-area">
+                <p class="desc">
+                  Explore pallet heat treatment chambers and wood marking
+                  equipment that support applicable export packaging processes,
+                  including ISPM 15 treatment requirements where relevant.
+                </p>
+              </div>
+
+              <div class="image-area">
+                <img src="assets/images/usage/hpm-work-3.webp" width="375" loading="lazy" decoding="async"
+                  alt="Wooden pallet heat treatment chamber for applicable export treatment requirements" />
+
+                <div class="tmp-icon-overlay-link-btn btn-bg-dark btn-xxl">
+                  <span class="tmp-btn-overlay">
+                    <svg class="hpm-arrow-icon" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4 12h15M13 5l7 7-7 7" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                  </span>
+                </div>
+              </div>
+            </a>
+          </li>
+
+          <!-- Work 4: Wood Cross Cutting Machine -->
+          <li class="working-process-wrapper3" data-sal="slide-up" data-sal-duration="1000" data-sal-delay="800">
+            <a href="products.php">
+              <div class="left-area">
+                <h3 class="number">4</h3>
+
+                <h4 class="title">
+                  Material Handling Equipment
+                  <svg width="75" height="22" viewBox="0 0 75 22" fill="none" xmlns="http://www.w3.org/2000/svg"
+                    aria-hidden="true">
+                    <path d="M2 11H68M58 2L68 11L58 20" stroke="currentColor" stroke-width="2" fill="none" />
+                  </svg>
+                </h4>
+              </div>
+
+              <div class="mid-area">
+                <p class="desc">
+                  Explore material handling and pallet production support
+                  equipment designed to help move, position and manage materials
+                  across workshop and manufacturing workflows.
+                </p>
+              </div>
+
+              <div class="image-area">
+                <img src="assets/images/usage/hpm-work-4.webp" width="375" loading="lazy" decoding="async"
+                  alt="Wood cross cutting machine for timber preparation in pallet manufacturing" />
+
+                <div class="tmp-icon-overlay-link-btn btn-bg-dark btn-xxl">
+                  <span class="tmp-btn-overlay">
+                    <svg class="hpm-arrow-icon" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4 12h15M13 5l7 7-7 7" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                  </span>
+                </div>
+              </div>
+            </a>
+          </li>
+        </ul>
+      </div>
+      <div class="hpm-home-products__footer">
+        <a href="products.php" class="hpm-home-products__view-all">
+          View All Categories <span aria-hidden="true">→</span>
+        </a>
+      </div>
+    </div>
+  </section>
+  <!-- Our Works / Pallet Machinery Showcase End -->
+
+  <!-- Project Area End -->
+
+  <!-- HPM Featured Products Section Start -->
+  <section class="hpm-home-products" aria-labelledby="hpm-home-products-title">
+    <div class="container-3">
+      <div class="hpm-home-products__heading">
+        <div>
+          <p class="hpm-home-products__eyebrow">HPM PRODUCTS</p>
+          <h2 id="hpm-home-products-title">Explore Our Machinery</h2>
+          <p class="hpm-home-products__intro">
+            Discover pallet manufacturing machines, wood processing equipment and specialised machinery for your
+            production needs.
+          </p>
+        </div>
+      </div>
+
+      <div class="hpm-home-products__grid">
+        <!-- Product 1 -->
+
+        <article class="hpm-home-product-card">
+
+          <a class="hpm-home-product-card__image" href="products.php"
+            aria-label="Explore semi-automatic pallet making machines">
+
+            <img src="assets/images/usage/semi-automatic pallet making machine.webp"
+              alt="Semi-automatic wooden pallet making machine" loading="lazy">
+          </a>
+
+          <div class="hpm-home-product-card__body">
+
+            <span class="hpm-home-product-card__category">
+              Pallet Manufacturing Machinery
+            </span>
+
+            <h3>
+              Semi Automatic Pallet Making Machine
+            </h3>
+
+            <p>
+              Semi-automatic equipment for efficient wooden pallet
+              assembly and production workflows.
+            </p>
+
+            <div class="hpm-home-product-card__actions">
+
+              <!-- Replace 1 with the actual database product ID -->
+              <button type="button" class="hpm-home-product-card__details" data-hpm-product="pallet-machine">
+                View Details <span>→</span>
+              </button>
+
+            </div>
+
+          </div>
+
+        </article>
+
+
+        <!-- Product 2 -->
+
+        <article class="hpm-home-product-card">
+
+          <a class="hpm-home-product-card__image" href="products.php"
+            aria-label="Explore semi-automatic pallet making machines">
+
+            <img src="assets/images/usage/cnc wood cutting machine.webp"
+              alt="CNC wood cutting machinery for precise timber processing" loading="lazy">
+          </a>
+
+          <div class="hpm-home-product-card__body">
+
+            <span class="hpm-home-product-card__category">
+              Pallet Manufacturing Machinery
+            </span>
+
+            <h3>
+              CNC Wood Cutting Machine
+            </h3>
+
+            <p>
+              Precision CNC machinery for efficient timber processing and pallet component cutting.
+            </p>
+
+            <div class="hpm-home-product-card__actions">
+
+              <!-- Replace 1 with the actual database product ID -->
+              <button type="button" class="hpm-home-product-card__details" data-hpm-product="cnc-cutting">
+                View Details <span>→</span>
+              </button>
+
+            </div>
+
+          </div>
+
+        </article>
+
+        <!-- Product 3 -->
+
+        <article class="hpm-home-product-card">
+
+          <a class="hpm-home-product-card__image" href="products.php"
+            aria-label="Explore semi-automatic pallet making machines">
+
+            <img src="assets/images/usage/semi-automatic wood stamping machine.webp"
+              alt="Semi-automatic wood stamping machinery for efficient pallet production" loading="lazy">
+          </a>
+
+          <div class="hpm-home-product-card__body">
+
+            <span class="hpm-home-product-card__category">
+              Pallet Manufacturing Machinery
+            </span>
+
+            <h3>
+              Semi Automatic Wood Stamping Machine
+            </h3>
+
+            <p>
+              Semi-automatic wood stamping machinery for efficient pallet production.
+            </p>
+
+            <div class="hpm-home-product-card__actions">
+
+              <!-- Replace 1 with the actual database product ID -->
+              <button type="button" class="hpm-home-product-card__details"
+                data-hpm-product="semi-automatic-wood-stamping">
+                View Details <span>→</span>
+              </button>
+
+            </div>
+
+          </div>
+
+        </article>
+      </div>
+
+      <div class="hpm-home-products__footer">
+        <a href="products.php" class="hpm-home-products__view-all">
+          View All Products <span aria-hidden="true">→</span>
+        </a>
+      </div>
+    </div>
+  </section>
+  <!-- HPM Featured Products Section End -->
+
+  <!-- HPM PRODUCT DETAILS MODAL START -->
+  <div class="hpm-featured-modal" id="hpmFeaturedModal" aria-hidden="true">
+
+    <div class="hpm-featured-modal__backdrop" data-hpm-close></div>
+
+    <div class="hpm-featured-modal__panel" role="dialog" aria-modal="true" aria-labelledby="hpmModalTitle"
+      tabindex="-1">
+
+      <!-- Close -->
+      <button type="button" class="hpm-featured-modal__close" aria-label="Close product details" data-hpm-close>
+        &times;
+      </button>
+
+      <!-- Modal content -->
+      <div class="hpm-featured-modal__content" id="hpmFeaturedModalContent">
+
+        <!-- Image -->
+        <div class="hpm-featured-modal__image">
+          <img loading="lazy" decoding="async" id="hpmModalImage" src="" alt="">
+        </div>
+
+        <!-- Details -->
+        <div class="hpm-featured-modal__details">
+
+          <span class="hpm-featured-modal__category" id="hpmModalCategory"></span>
+
+          <h2 id="hpmModalTitle"></h2>
+
+          <p class="hpm-featured-modal__description" id="hpmModalDescription"></p>
+
+          <!-- Features -->
+          <div class="hpm-modal-info">
+            <h3>Key Features &amp; Benefits</h3>
+            <ul id="hpmModalFeatures"></ul>
+          </div>
+
+          <!-- Applications -->
+          <div class="hpm-modal-info">
+            <h3>Applications</h3>
+            <p id="hpmModalApplications"></p>
+          </div>
+
+          <!-- Specifications -->
+          <div class="hpm-modal-info">
+            <h3>Technical Specifications</h3>
+            <div id="hpmModalSpecifications" class="hpm-modal-specifications"></div>
+          </div>
+
+          <!-- Enquiry -->
+          <div class="hpm-modal-enquiry">
+
+            <div>
+              <h3>Interested in this machinery?</h3>
+              <p>Contact our team for specifications,
+                pricing and customised solutions.</p>
+            </div>
+
+            <a href="#" id="hpmModalWhatsapp" target="_blank" rel="noopener noreferrer" class="hpm-modal-whatsapp">
+
+              <i class="fa-brands fa-whatsapp"></i>
+              Enquire on WhatsApp
+
+            </a>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+  <!-- HPM PRODUCT DETAILS MODAL END -->
+
+  <!-- HPM Testimonials / Customer Trust Area Start -->
+  <section class="tmp-testimonials-area2 tmp-section-gapTop pb--60 bg-white">
+    <div class="container-3">
+      <!-- Section Heading -->
+      <div class="section-title-area-3">
+        <p class="sub-title cg" data-sal="slide-up" data-sal-duration="800" data-sal-delay="100">
+          WHY CHOOSE HPM
+        </p>
+
+        <h2 class="section-title tmp-title-split" data-sal="slide-up" data-sal-duration="800" data-sal-delay="300">
+          Your Partner for
+          <br />
+          Pallet Machinery Solutions
+        </h2>
+
+        <p class="desc">
+          Explore machinery and support solutions for wooden pallet
+          manufacturing, timber processing, pallet assembly and heat
+          treatment. HPM helps businesses identify equipment options suited to
+          their production requirements.
+        </p>
+      </div>
+
+      <!-- Trust Slider -->
+      <div class="slider-inner mt--60">
+        <div class="swiper tmpTestimonialSlider2">
+          <div class="swiper-wrapper">
+            <!-- Trust Point 1 -->
+            <div class="swiper-slide">
+              <div class="testimonial-wrapper2 v2">
+                <div class="author-area">
+                  <div class="image">
+                    <img src="assets/images/testimonials/07.webp" alt="Pallet manufacturing machinery" loading="lazy"
+                      decoding="async" />
+                  </div>
+
+                  <div class="author-content">
+                    <h3 class="title">Machinery for Pallet Production</h3>
+                    <p class="designation">Equipment Solutions</p>
+                  </div>
+                </div>
+
+                <p class="desc">
+                  Explore equipment for different stages of wooden pallet
+                  manufacturing, including pallet assembly, nailing and timber
+                  processing. Discuss your production requirements with HPM to
+                  identify suitable machinery options.
+                </p>
+              </div>
+            </div>
+
+            <!-- Trust Point 2 -->
+            <div class="swiper-slide">
+              <div class="testimonial-wrapper2 v2">
+                <div class="author-area">
+                  <div class="image">
+                    <img src="assets/images/testimonials/08.webp" alt="Industrial wood processing equipment"
+                      loading="lazy" decoding="async" />
+                  </div>
+
+                  <div class="author-content">
+                    <h3 class="title">Wood Processing Equipment</h3>
+                    <p class="designation">Timber Preparation</p>
+                  </div>
+                </div>
+
+                <p class="desc">
+                  Discover machinery for timber cutting and pallet production
+                  workflows. HPM can help you explore available equipment
+                  based on your timber dimensions, application and
+                  manufacturing needs.
+                </p>
+              </div>
+            </div>
+
+            <!-- Trust Point 3 -->
+            <div class="swiper-slide">
+              <div class="testimonial-wrapper2 v2">
+                <div class="author-area">
+                  <div class="image">
+                    <img src="assets/images/testimonials/07.webp" alt="Pallet nailing and assembly equipment"
+                      loading="lazy" decoding="async" />
+                  </div>
+
+                  <div class="author-content">
+                    <h3 class="title">Pallet Assembly &amp; Nailing</h3>
+                    <p class="designation">Production Equipment</p>
+                  </div>
+                </div>
+
+                <p class="desc">
+                  Explore manual, semi-automatic and automatic pallet assembly
+                  and nailing equipment where available. Share your pallet
+                  design and production goals to discuss appropriate machine
+                  options with the HPM team.
+                </p>
+              </div>
+            </div>
+
+            <!-- Trust Point 4 -->
+            <div class="swiper-slide">
+              <div class="testimonial-wrapper2 v2">
+                <div class="author-area">
+                  <div class="image">
+                    <img src="assets/images/testimonials/08.webp" alt="Pallet machinery service and technical support"
+                      loading="lazy" decoding="async" />
+                  </div>
+
+                  <div class="author-content">
+                    <h3 class="title">Machinery Service &amp; Support</h3>
+                    <p class="designation">Customer Assistance</p>
+                  </div>
+                </div>
+
+                <p class="desc">
+                  From Installation & Commissioning enquiries to
+                  maintenance, spare parts and technical support, contact HPM
+                  to discuss the services available for your machinery and
+                  project.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Slider Navigation -->
+          <div class="swiper-navigation-area">
+            <div class="swiper-btn swiper-button-prev" aria-label="Previous items">
+              <i class="fal fa-arrow-left"></i>
+            </div>
+
+            <div class="swiper-btn swiper-button-next" aria-label="Next items">
+              <i class="fal fa-arrow-right"></i>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- HPM Testimonials / Customer Trust Area End -->
+
+  <!-- Cta Area Start -->
+  <section class="tmp-career-area company-histry-video-area tmp-section-gapBottom bg-white">
+    <div class="container-3">
+      <div class="section-inner">
+        <div class="row">
+          <div class="col-lg-6">
+            <div class="content-area">
+              <h2 class="title" data-sal="slide-up" data-sal-duration="800" data-sal-delay="100">
+                Planning Your Pallet Production Setup?
+              </h2>
+              <p class="desc" data-sal="slide-up" data-sal-duration="800" data-sal-delay="300">
+                Tell HPM about your machinery requirements and explore
+                equipment options for your pallet manufacturing operation.
+              </p>
+              <a href="contact.html" class="tmp-btn btn-primary hover-icon-reverse" data-sal="slide-up-large"
+                data-sal-duration="1000" data-sal-delay="500">
+                <span class="icon-reverse-wrapper">
+                  <span class="btn-text">Discuss Your Requirements</span>
+                  <span class="btn-icon"><i class="fa-solid fa-arrow-right"></i></span>
+                  <span class="btn-icon"><i class="fa-solid fa-arrow-right"></i></span>
+                </span>
+              </a>
+            </div>
+          </div>
+        </div>
+        <a class="rounded-player-2 popup-video position-right-top-center with-animation btn-white-color"
+          href="https://www.youtube.com/watch?v=Yxt72aDjFgY">
+          <span class="play-icon"></span>
+        </a>
+      </div>
+    </div>
+  </section>
+  <!-- Career Area End -->
+
+  <!-- HPM FAQ & Contact Area Start -->
+  <section class="tmp-contact-area tmp-section">
+    <div class="container-3">
+      <!-- FAQ Section -->
+      <div class="tmp-faq-area pb--60">
+        <div class="section-inner">
+          <div class="faq-content-area">
+            <div class="row justify-content-between">
+              <div class="col-lg-5">
+                <div class="section-title-area-4">
+                  <p class="sub-title cg" data-sal="slide-up-large" data-sal-duration="800" data-sal-delay="100">
+                    PALLET MACHINERY FAQS
+                  </p>
+
+                  <h2 class="section-title" data-sal="slide-up-large" data-sal-duration="800" data-sal-delay="200">
+                    Your Questions,
+                    <br />
+                    Our Expert Guidance
+                  </h2>
+
+                  <p class="desc">
+                    Looking for wooden pallet making machines, pallet nailing
+                    equipment, wood processing machinery or heat treatment
+                    solutions? Find answers to common questions about HPM's
+                    products and services.
+                  </p>
+                </div>
+              </div>
+
+              <div class="col-lg-6">
+                <div class="accordion-one" id="hpmFaqAccordion">
+                  <!-- FAQ 1 -->
+                  <div class="accordion-item">
+                    <h3 class="accordion-header" id="hpmHeadingOne">
+                      <button class="accordion-button" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#hpmCollapseOne" aria-expanded="true" aria-controls="hpmCollapseOne">
+                        What types of pallet manufacturing machinery does HPM
+                        offer?
+                      </button>
+                    </h3>
+
+                    <div id="hpmCollapseOne" class="accordion-collapse collapse show" role="region"
+                      aria-labelledby="hpmHeadingOne" data-bs-parent="#hpmFaqAccordion">
+                      <div class="accordion-body">
+                        <p class="desc">
+                          HPM's machinery range includes pallet dismantling
+                          machines, pallet nailing equipment, wood
+                          cross-cutting machines, heat treatment equipment and
+                          other solutions for wooden pallet production.
+                          Contact our team to discuss equipment suited to your
+                          requirements.
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- FAQ 2 -->
+                  <div class="accordion-item">
+                    <h3 class="accordion-header" id="hpmHeadingTwo">
+                      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#hpmCollapseTwo" aria-expanded="false" aria-controls="hpmCollapseTwo">
+                        How can I choose the right pallet making machine?
+                      </button>
+                    </h3>
+
+                    <div id="hpmCollapseTwo" class="accordion-collapse collapse" role="region"
+                      aria-labelledby="hpmHeadingTwo" data-bs-parent="#hpmFaqAccordion">
+                      <div class="accordion-body">
+                        <p class="desc">
+                          The right machine depends on your pallet design,
+                          production volume, timber dimensions, available
+                          workspace and automation requirements. Share these
+                          details with HPM so our team can help you explore
+                          suitable machinery options.
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- FAQ 3 -->
+                  <div class="accordion-item">
+                    <h3 class="accordion-header" id="hpmHeadingThree">
+                      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#hpmCollapseThree" aria-expanded="false" aria-controls="hpmCollapseThree">
+                        Does HPM provide machinery installation and
+                        maintenance?
+                      </button>
+                    </h3>
+
+                    <div id="hpmCollapseThree" class="accordion-collapse collapse" role="region"
+                      aria-labelledby="hpmHeadingThree" data-bs-parent="#hpmFaqAccordion">
+                      <div class="accordion-body">
+                        <p class="desc">
+                          HPM lists Installation & Commissioning, repair and
+                          maintenance, and technical support among its
+                          services. Contact us to confirm the availability and
+                          scope of support for your specific machine and
+                          location.
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- FAQ 4 -->
+                  <div class="accordion-item">
+                    <h3 class="accordion-header" id="hpmHeadingFour">
+                      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#hpmCollapseFour" aria-expanded="false" aria-controls="hpmCollapseFour">
+                        Can I enquire about pallet heat treatment equipment?
+                      </button>
+                    </h3>
+
+                    <div id="hpmCollapseFour" class="accordion-collapse collapse" role="region"
+                      aria-labelledby="hpmHeadingFour" data-bs-parent="#hpmFaqAccordion">
+                      <div class="accordion-body">
+                        <p class="desc">
+                          Yes. You can contact HPM to enquire about wood
+                          pallet heat treatment equipment and your intended
+                          application. If your pallets are intended for
+                          export, explain the destination market and
+                          applicable treatment requirements so the appropriate
+                          equipment and compliance details can be discussed.
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- FAQ 5 -->
+                  <div class="accordion-item">
+                    <h3 class="accordion-header" id="hpmHeadingFive">
+                      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#hpmCollapseFive" aria-expanded="false" aria-controls="hpmCollapseFive">
+                        How can I request a price quotation for pallet
+                        machinery?
+                      </button>
+                    </h3>
+
+                    <div id="hpmCollapseFive" class="accordion-collapse collapse" role="region"
+                      aria-labelledby="hpmHeadingFive" data-bs-parent="#hpmFaqAccordion">
+                      <div class="accordion-body">
+                        <p class="desc">
+                          Complete the enquiry form below with your contact
+                          details, required machine and project information.
+                          You can also email info@haripalletmachinery.com or
+                          call +971 54 218 8600 to discuss your requirements.
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- FAQ 6 -->
+                  <div class="accordion-item">
+                    <h3 class="accordion-header" id="hpmHeadingSix">
+                      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#hpmCollapseSix" aria-expanded="false" aria-controls="hpmCollapseSix">
+                        Can I enquire about spare parts and pallet nailing
+                        equipment?
+                      </button>
+                    </h3>
+
+                    <div id="hpmCollapseSix" class="accordion-collapse collapse" role="region"
+                      aria-labelledby="hpmHeadingSix" data-bs-parent="#hpmFaqAccordion">
+                      <div class="accordion-body">
+                        <p class="desc">
+                          You can contact HPM about pallet nailing equipment,
+                          nail guns and relevant machinery spare parts.
+                          Include the machine model and part details in your
+                          enquiry, if available, to help our team understand
+                          your needs.
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- HPM FAQ & Contact Area End -->
+
+  <!-- tmp footer area start -->
+  <footer class="tmp-footer-area footer-one footer-five footer-bg hpm-footer-layout-fix">
+    <div class="container-3">
+      <!-- Footer CTA -->
+      <div class="footer-cta-area cta-two">
+        <div class="cta-image-area">
+          <img loading="lazy" decoding="async" src="assets/images/cta/02.webp" width="390" alt="" />
+          <img loading="lazy" decoding="async" src="assets/images/cta/cta-round2.svg" alt="" />
+          <img loading="lazy" decoding="async" src="assets/images/cta/solar1.webp" alt="" />
+          <img loading="lazy" decoding="async" src="assets/images/cta/solar2.webp" alt="" />
+        </div>
+
+        <div class="cta-area-inner">
+          <h3 class="cta-title">
+            Join the Future of Construction <br />
+            Contact Us Now
+          </h3>
+
+          <div class="cta-button-area">
+            <a href="contact.html" class="tmp-btn btn-primary bg-white button-flip btn-md">
+              <span data-text="GET A QUOTE">GET A QUOTE</span>
+            </a>
+          </div>
+        </div>
+
+        <div class="shape-area">
+          <img loading="lazy" decoding="async" src="assets/images/cta/cta-round.svg" alt="" />
+          <img loading="lazy" decoding="async" src="assets/images/cta/cta-round.svg" alt="" />
+        </div>
+      </div>
+
+      <!-- Footer Main Content -->
+      <div class="row">
+        <div class="col-lg-12 p-0">
+          <div class="main-footer-one-area">
+            <!-- Footer Column 1: Logo, Description and Pallet Animation -->
+            <div class="single-footer-inner logo-area">
+              <div class="body one">
+                <div class="logo mb--20">
+                  <a href="index.html">
+                    <img decoding="async" src="assets/images/hpm-logo-white.webp" alt="Hari Pallet Machinery" />
+                  </a>
+                </div>
+
+                <p class="desc">
+                  We provide reliable pallet machinery, precision engineering
+                  and industrial solutions built for performance.
+                </p>
+
+                <ul class="social-wrapper-1 hover-bg-white">
+                  <li>
+                    <a href="https://www.facebook.com/" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
+                      <i class="fab fa-facebook-f"></i>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="https://x.com/" target="_blank" rel="noopener noreferrer" aria-label="X">
+                      <i class="fab fa-twitter"></i>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer"
+                      aria-label="Instagram">
+                      <i class="fab fa-instagram"></i>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="https://www.linkedin.com/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+                      <i class="fab fa-linkedin-in"></i>
+                    </a>
+                  </li>
+                </ul>
+
+                <!-- HPM Footer Contact Details START -->
+                <div class="hpm-footer-contact-details">
+
+                  <!-- Working Hours -->
+                  <div class="hpm-footer-contact-item">
+                    <span class="hpm-footer-contact-icon">
+                      <i class="fa-regular fa-clock"></i>
+                    </span>
+
+                    <div class="hpm-footer-contact-content">
+                      <span class="hpm-footer-contact-label">Working Hours</span>
+                      <p>Mon - Sat (9:00 AM - 6:00 PM)</p>
+                    </div>
+                  </div>
+
+                  <!-- Phone Number -->
+                  <div class="hpm-footer-contact-item">
+                    <span class="hpm-footer-contact-icon">
+                      <i class="fa-solid fa-phone"></i>
+                    </span>
+
+                    <div class="hpm-footer-contact-content">
+                      <span class="hpm-footer-contact-label">Call Us</span>
+                      <p>
+                        <a href="tel:+971542188600">+971 542188600</a>
+                      </p>
+                    </div>
+                  </div>
+
+                  <!-- Address -->
+                  <div class="hpm-footer-contact-item">
+                    <span class="hpm-footer-contact-icon">
+                      <i class="fa-solid fa-location-dot"></i>
+                    </span>
+
+                    <div class="hpm-footer-contact-content">
+                      <span class="hpm-footer-contact-label">Our Address</span>
+                      <p>
+                        <a href="https://www.google.com/maps/search/?api=1&query=Near+Sharjah+Gas+Plant%2C+Al+Sajja+Industrial+Area%2C+Sharjah%2C+UAE"
+                          target="_blank" rel="noopener noreferrer">
+                          Near Sharjah Gas Plant, Al Sajja Industrial Area,
+                          Sharjah, UAE
+                        </a>
+                      </p>
+                    </div>
+                  </div>
+                </div>
+                <!-- HPM Footer Contact Details END -->
+
+              </div>
+            </div>
+
+            <!-- Column 2: HPM Company -->
+            <div class="single-footer-inner company">
+              <div class="body two">
+
+                <h3 class="footer-title">Company</h3>
+
+                <div class="use-full-link-wrapper hpm-footer-company-links">
+
+                  <a href="about.html" class="single hover-moving-primary">
+                    <i class="fa-solid fa-building" aria-hidden="true"></i>
+                    <span>About Us</span>
+                  </a>
+
+                  <a href="services.html" class="single hover-moving-primary">
+                    <i class="fa-solid fa-gears" aria-hidden="true"></i>
+                    <span>Services</span>
+                  </a>
+
+                  <a href="products.php" class="single hover-moving-primary">
+                    <i class="fa-solid fa-industry" aria-hidden="true"></i>
+                    <span>Products</span>
+                  </a>
+
+                  <a href="contact.html" class="single hover-moving-primary">
+                    <i class="fa-solid fa-envelope" aria-hidden="true"></i>
+                    <span>Contact Us</span>
+                  </a>
+
+                </div>
+              </div>
+            </div>
+            <!-- Company Column End -->
+
+            <!-- Column 3: HPM Services -->
+            <div class="single-footer-inner service">
+              <div class="body three">
+                <h3 class="footer-title">Services</h3>
+
+                <div class="use-full-link-wrapper hpm-footer-service-links">
+
+                  <a href="automation-services.html" class="single hover-moving-primary">
+                    <i class="fa-solid fa-gears" aria-hidden="true"></i>
+                    <span>Automation Services</span>
+                  </a>
+
+                  <a href="metal-fabrication-works.html" class="single hover-moving-primary">
+                    <i class="fa-solid fa-industry" aria-hidden="true"></i>
+                    <span>Metal Fabrication Works</span>
+                  </a>
+
+                  <a href="installation-and-commissioning.html" class="single hover-moving-primary">
+                    <i class="fa-solid fa-screwdriver-wrench" aria-hidden="true"></i>
+                    <span>Installation &amp; Commissioning</span>
+                  </a>
+
+                  <a href="repair-and-maintenance.html" class="single hover-moving-primary">
+                    <i class="fa-solid fa-toolbox" aria-hidden="true"></i>
+                    <span>Repair &amp; Maintenance</span>
+                  </a>
+
+                  <a href="spare-parts-and-nailing-equipment.html" class="single hover-moving-primary">
+                    <i class="fa-solid fa-screwdriver" aria-hidden="true"></i>
+                    <span>Spare Parts &amp; Nailing Equipment</span>
+                  </a>
+
+                  <a href="warehouse-solutions.html" class="single hover-moving-primary">
+                    <i class="fa-solid fa-warehouse" aria-hidden="true"></i>
+                    <span>Warehouse Solutions</span>
+                  </a>
+
+                  <a href="heat-treatment-plant-and-machine-customisation.html" class="single hover-moving-primary">
+                    <i class="fa-solid fa-temperature-high" aria-hidden="true"></i>
+                    <span>Heat Treatment Plant &amp; Machine Customisation</span>
+                  </a>
+
+                  <a href="technical-support.html" class="single hover-moving-primary">
+                    <i class="fa-solid fa-headset" aria-hidden="true"></i>
+                    <span>Technical Support</span>
+                  </a>
+
+                  <a href="pallet-product-line-solutions.html" class="single hover-moving-primary">
+                    <i class="fa-solid fa-boxes-stacked" aria-hidden="true"></i>
+                    <span>Pallet Product Line Solutions</span>
+                  </a>
+
+                </div>
+              </div>
+            </div>
+            <!-- Services Column End -->
+
+            <!-- Column 4: Location Map (body four) -->
+
+            <!-- HPM FOOTER LOCATION START -->
+            <div class="single-footer-inner contact footer-contact-map">
+              <div class="body four">
+
+                <h3 class="footer-title">Our Location</h3>
+
+                <div class="footer-map-wrapper">
+                  <div class="footer-map">
+
+                    <iframe
+                      src="https://www.google.com/maps/embed?pb=!1m13!1m8!1m3!1d7212.87267239118!2d55.6700168!3d25.3231353!3m2!1i1024!2i768!4f13.1!3m2!1m1!2s!5e0!3m2!1sen!2sin!4v1794015337682!5m2!1sen!2sin"
+                      title="Hari Pallet Machinery - Sharjah, UAE" width="600" height="450" style="border:0;"
+                      allowfullscreen loading="lazy" referrerpolicy="strict-origin-when-cross-origin">
+                    </iframe>
+
+                  </div>
+                </div>
+
+                <!-- GET DIRECTIONS BUTTON -->
+                <a href="https://www.google.com/maps/dir/?api=1&destination=25.3231353,55.6700168"
+                  class="hpm-footer-directions" target="_blank" rel="noopener noreferrer">
+
+                  <i class="fa-solid fa-location-arrow" aria-hidden="true"></i>
+
+                  <span>Get Directions</span>
+
+                  <i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i>
+                </a>
+
+                <!-- WORKER AND PALLET JACK ANIMATION -->
+                <div class="footer-truck-strip footer-map-truck" role="img" aria-label="Worker moving a pallet jack">
+
+                  <div class="footer-truck-track">
+                    <div class="footer-truck-unit">
+
+                      <i class="fa-solid fa-person-walking footer-worker" aria-hidden="true"></i>
+
+                      <i class="fa-solid fa-dolly footer-pallet-truck" aria-hidden="true"></i>
+
+                    </div>
+                  </div>
+
+                  <div class="footer-truck-floor"></div>
+
+                </div>
+
+              </div>
+            </div>
+            <!-- HPM FOOTER LOCATION END -->
+          </div>
+        </div>
+      </div>
+
+      <!-- Copyright -->
+      <div class="copyright-area-one">
+        <div class="row justify-content-between">
+          <div class="col-lg-6 col-md-12 col-sm-12">
+            <div class="wrapper text-start text-md-center text-lg-start">
+              <p>
+                &copy; Copyright <span id="year"></span> by
+                <a class="hover-moving-primary" href="index.html">
+                  HPM Packing & Packaging Machines Assembling Co.LLC
+                </a>
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+  <!-- tmp footer area end -->
+
+  <!-- header style two -->
+
+  <!-- side bar for desktop -->
+  <div id="side-bar" class="side-bar hpm-mobile-drawer" aria-label="Mobile navigation">
+    <div class="hpm-mobile-drawer-header">
+      <a class="hpm-mobile-drawer-logo" href="index.html" aria-label="Hari Pallet Machinery home">
+        <img decoding="async" src="assets/images/hpm-logo.svg" alt="Hari Pallet Machinery">
+      </a>
+      <button type="button" class="close-icon-menu hpm-mobile-close" aria-label="Close navigation menu">
+        <span class="hpm-close-glyph" aria-hidden="true">×</span></button>
+    </div>
+
+    <div class="mobile-menu d-block d-xl-none">
+      <nav class="nav-main mainmenu-nav hpm-mobile-nav" aria-label="Mobile main navigation">
+        <ul class="hpm-mobile-menu-list" id="hpm-mobile-menu">
+          <li><a href="index.html" class="hpm-mobile-main-link">Home</a></li>
+          <li><a href="about.html" class="hpm-mobile-main-link">About Us</a></li>
+
+          <li class="hpm-mobile-has-submenu">
+            <div class="hpm-mobile-menu-row">
+              <a href="services.html" class="hpm-mobile-main-link">Services</a>
+              <button type="button" class="hpm-mobile-submenu-toggle" aria-expanded="false"
+                aria-label="Open Services submenu">
+                <span class="hpm-submenu-glyph" aria-hidden="true">+</span>
+              </button>
+            </div>
+            <ul class="hpm-mobile-submenu" hidden>
+              <li><a href="automation-services.html">Automation Services</a></li>
+              <li><a href="metal-fabrication-works.html">Metal Fabrication Works</a></li>
+              <li><a href="installation-and-commissioning.html">Installation & Commissioning</a></li>
+              <li><a href="repair-and-maintenance.html">Repair and Maintenance</a></li>
+              <li><a href="spare-parts-and-nailing-equipment.html">Spare Parts and Nailing Equipment</a></li>
+              <li><a href="warehouse-solutions.html">Warehouse Solutions</a></li>
+              <li><a href="heat-treatment-plant-and-machine-customisation.html">Heat Treatment Plant and Machine
+                  Customisation</a></li>
+              <li><a href="technical-support.html">Technical Support</a></li>
+              <li><a href="pallet-product-line-solutions.html">Pallet Product Line Solutions</a></li>
+            </ul>
+          </li>
+
+          <li class="hpm-mobile-has-submenu">
+            <div class="hpm-mobile-menu-row">
+              <a href="products.php" class="hpm-mobile-main-link">Products</a>
+              <button type="button" class="hpm-mobile-submenu-toggle" aria-expanded="false"
+                aria-label="Open Products categories">
+                <span class="hpm-submenu-glyph" aria-hidden="true">+</span>
+              </button>
+            </div>
+            <ul class="hpm-mobile-submenu hpm-mobile-product-categories" hidden></ul>
+          </li>
+
+          <li><a href="contact.html" class="hpm-mobile-main-link">Contact Us</a></li>
+        </ul>
+      </nav>
+
+      <section class="hpm-mobile-contact" aria-labelledby="hpm-mobile-contact-title">
+        <h3 id="hpm-mobile-contact-title">Contact Information</h3>
+        <a href="tel:+971542188600"><i class="fa-solid fa-phone" aria-hidden="true"></i><span>+971 54 218
+            8600</span></a>
+        <a href="mailto:info@haripalletmachinery.com"><i class="fa-regular fa-envelope"
+            aria-hidden="true"></i><span>info@haripalletmachinery.com</span></a>
+        <p><i class="fa-solid fa-location-dot" aria-hidden="true"></i><span>Near Sharjah Gas Plant, Al Sajja Industrial
+            Area, Sharjah, UAE</span></p>
+        <p><i class="fa-regular fa-clock" aria-hidden="true"></i><span>Monday – Saturday: 9:00 AM – 6:00 PM</span></p>
+      </section>
+
+      <div class="hpm-mobile-social">
+        <span>Find With Us</span>
+        <div class="hpm-mobile-social-links">
+          <a href="https://www.facebook.com/" target="_blank" rel="noopener noreferrer" aria-label="Facebook"><i
+              class="fa-brands fa-facebook-f"></i></a>
+          <a href="https://x.com/" target="_blank" rel="noopener noreferrer" aria-label="X"><i
+              class="fa-brands fa-twitter"></i></a>
+          <a href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><i
+              class="fa-brands fa-instagram"></i></a>
+          <a href="https://www.linkedin.com/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i
+              class="fa-brands fa-linkedin-in"></i></a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- mobile navigation drawer end -->
+
+  <!-- side bar for desktop -->
+  <div id="side-bar2" class="side-bar side-bar2">
+    <!-- inner menu area desktop start -->
+    <div class="inner-main-wrapper-desk style-one-sidebar d-none d-lg-block">
+      <div class="header-area-wrapper">
+        <a href="index.html" class="logo">
+          <img decoding="async" src="assets/images/hpm-logo.svg" alt="logo">
+        </a>
+        <a href="index.html" class="logo logo-yellow">
+          <img decoding="async" src="assets/images/hpm-logo.svg" alt="logo">
+        </a>
+        <button class="close-icon-menu" aria-label="close"><i class="far fa-times"></i></button>
+      </div>
+      <div class="header-bottom-qhick-action">
+        <p class="disc">
+          HPM is a Pallet Machinery manufacturing company based in Dubai, UAE. We provide reliable pallet machinery,
+          precision engineering and industrial solutions built for performance.
+        </p>
+        <div class="info-list-wrapper">
+          <ul>
+            <li><a href="tel:+971542188600"><i class="fa-solid fa-phone"></i><span class="hover-moving-primary">+971
+                  542188600</span></a></li>
+            <li><a href="mailto:info@haripalletmachinery.com"><i class="fa-regular fa-envelope"></i><span
+                  class="hover-moving-primary">info@haripalletmachinery.com</span></a></li>
+          </ul>
+          <ul class="mt--20">
+            <li><a href="#"><i class="fa-solid fa-location-crosshairs"></i><span class="hover-moving-primary">Near
+                  Sharjah
+                  Gas Plant Al Sajja Industrial Area Sharjah,</span></a></li>
+            <li><a href="#"><i class="fa-regular fa-clock-three"></i>(Mon–Sat: 9:00–6:00)</a></li>
+          </ul>
+        </div>
+
+        <nav class="side-bar-nav">
+          <ul class="navbar-nav">
+            <li>
+              <a class="hover-moving-primary" href="index.html">Home</a>
+            </li>
+            <li>
+              <a class="hover-moving-primary" href="about.html">About Us</a>
+            </li>
+            <li>
+              <a class="hover-moving-primary" href="services.html">Services</a>
+            </li>
+            <li>
+              <a class="hover-moving-primary" href="products.html">Products</a>
+            </li>
+            <li>
+              <a class="hover-moving-primary" href="contact.html">Contact Us</a>
+            </li>
+          </ul>
+        </nav>
+
+        <div class="social-share-wrapper-1">
+          <span class="short-title">Find With Us</span>
+          <ul class="social-stylle-one justify-content-start mt--20">
+            <li><a href="#"><i class="fa-brands fa-facebook-f"></i></a></li>
+            <li><a href="#"><i class="fa-brands fa-twitter"></i></a></li>
+            <li><a href="#"><i class="fa-brands fa-instagram"></i></a></li>
+            <li><a href="#"><i class="fa-brands fa-linkedin-in"></i></a></li>
+          </ul>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <div class="mouse-cursor cursor-outer"></div>
+  <div class="mouse-cursor cursor-inner"></div>
+
+  <div id="anywhere-home" class=""></div>
+
+  
+  <div id="elevate-load">
+    
+  </div>
+  
+
+  <div class="scrollbar-v show-on-scroll"></div>
+  <div class="float-text show-on-scroll">
+    <span><a href="#">Scroll to top</a></span>
+  </div>
+
+  <!-- HPM Floating Contact Actions -->
+  <div class="hpm-floating-contact-left" aria-label="whatsapp Hari Pallet Machinery">
+    <!-- Left: WhatsApp -->
+    <a class="hpm-whatsapp" href="mailto:info@haripalletmachinery.com" target="_blank" rel="noopener noreferrer"
+      aria-label="WhatsApp Hari Pallet Machinery" title="mail">
+      <i class="fa fa-envelope" aria-hidden="true"></i>
+    </a>
+  </div>
+
+  <div class="hpm-floating-contact-right" aria-label="Contact Hari Pallet Machinery">
+    <!-- Right: Call -->
+    <a class="hpm-call" href="tel:+971 542188600" aria-label="Call Hari Pallet Machinery" title="Call us">
+      <i class="fas fa-phone" aria-hidden="true"></i>
+    </a>
+  </div>
+  <!-- HPM Floating Contact Actions -->
+
+  <!-- jquery js -->
+  <script src="assets/js/plugins/jquery-3.7.1.min.js" defer></script>
+  <!-- jquery ui -->
+
+  <script src="assets/js/vendor/jqueryui.js" defer></script>
+
+  <!-- swiper js -->
+  <script src="assets/js/plugins/swiper.js" defer></script>
+  <!-- metismenu js -->
+  <script src="assets/js/plugins/metismenu.js" defer></script>
+  <!-- waypoint js -->
+  <script src="assets/js/vendor/waypoint.js" defer></script>
+  <!-- waw -->
+  <script src="assets/js/vendor/waw.js" defer></script>
+  <!-- jquery ui js -->
+
+  <!-- magnifying ui js -->
+  <script src="assets/js/plugins/magnific-popup.js" defer></script>
+  <!-- sal animation -->
+  <script src="assets/js/vendor/sal.min.js" defer></script>
+  <!-- bootstrap JS -->
+  <script src="assets/js/plugins/bootstrap.min.js" defer></script>
+  <!-- contact form js -->
+  <script src="assets/js/plugins/contact-form.js" defer></script>
+  <!-- Smooth Scroll js -->
+  <script src="assets/js/plugins/smooth-scroll.js" defer></script>
+
+
+  <!-- gsap js -->
+  <!-- <script src="assets/js/plugins/gsap.min.js" defer></script>
+    <script src="assets/js/plugins/scrolltigger.js" defer></script>
+    <script src="assets/js/plugins/split-text.js" defer></script> -->
+
+
+  <script src="assets/js/plugins/scroll-paralax.js" defer></script>
+
+  <!-- odometer js -->
+  <script src="assets/js/plugins/odometer.js" defer></script>
+  <!-- main js -->
+  <script src="assets/js/main.js" defer></script>
+  <script src="assets/js/hpm-products-navigation.js" defer></script>
+
+  <!-- header style two End -->
+
+  <script>
+    // Optional progressive enhancement: reveal cards as they enter the viewport.
+    // Cards remain visible if IntersectionObserver is not supported.
+    document.addEventListener('DOMContentLoaded', function () {
+      var cards = document.querySelectorAll('.hpm-home-product-card');
+      if (!('IntersectionObserver' in window) || !cards.length) return;
+
+      var observer = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('is-visible');
+            observer.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.12 });
+
+      cards.forEach(function (card) {
+        card.classList.add('hpm-card-reveal');
+        observer.observe(card);
+      });
+    });
+  </script>
+
+  <script>
+
+    /* ==========================================================
+       HPM HOMEPAGE FEATURED PRODUCTS
+       Static Product Details + Modal + WhatsApp
+    ========================================================== */
+
+    document.addEventListener("DOMContentLoaded", function () {
+
+      const modal = document.getElementById("hpmFeaturedModal");
+
+      if (!modal) return;
+
+      const panel = modal.querySelector(".hpm-featured-modal__panel");
+
+      const image = document.getElementById("hpmModalImage");
+      const category = document.getElementById("hpmModalCategory");
+      const title = document.getElementById("hpmModalTitle");
+      const description = document.getElementById("hpmModalDescription");
+      const features = document.getElementById("hpmModalFeatures");
+      const applications = document.getElementById("hpmModalApplications");
+      const specifications = document.getElementById("hpmModalSpecifications");
+      const whatsapp = document.getElementById("hpmModalWhatsapp");
+
+      let previousFocus = null;
+
+      const whatsappNumber = "971542188600";
+
+      /* ======================================================
+         STATIC PRODUCT CONTENT
+         Edit these descriptions as required.
+         Do not enter unverified machine specifications.
+      ====================================================== */
+
+      const products = {
+
+        /* PRODUCT 1 */
+        "pallet-machine": {
+
+          name: "Semi Automatic Pallet Making Machine",
+
+          category: "Pallet Manufacturing Machinery",
+
+          image: "assets/images/usage/semi-automatic pallet making machine.webp",
+
+          alt: "Semi automatic wooden pallet making machinery",
+
+          description:
+            "Improve your wooden pallet manufacturing workflow with semi-automatic pallet making machinery from HPM. Designed to support organised assembly operations, this equipment helps manufacturers streamline pallet production while maintaining practical working efficiency.",
+
+          features: [
+            "Semi-automatic pallet assembly workflow",
+            "Designed for wooden pallet manufacturing",
+            "Supports organised production operations",
+            "Practical equipment configuration",
+            "Suitable for manufacturing facilities",
+            "Machinery solutions tailored to requirements"
+          ],
+
+          applications:
+            "Wooden pallet manufacturing units, packaging industries, timber processing facilities and industrial pallet assembly operations.",
+
+          specifications: [
+            ["Machine Type", "Semi-Automatic"],
+            ["Application", "Wooden Pallet Assembly"],
+            ["Material", "Wood / Timber"],
+            ["Operation", "Production Assembly"],
+            ["Configuration", "Based on requirements"],
+            ["Capacity", "Confirm with HPM"],
+            ["Dimensions", "Confirm with HPM"],
+            ["Power Requirements", "Confirm with HPM"]
+          ]
+
+        },
+
+
+        /* PRODUCT 2 */
+        "cnc-cutting": {
+
+          name: "CNC Wood Cutting Machine",
+
+          category: "Wood Processing Machinery",
+
+          image: "assets/images/usage/cnc wood cutting machine.webp",
+
+          alt: "CNC wood cutting machinery for precise timber processing",
+
+          description:
+            "Achieve more organised and precise wood processing with machinery solutions from HPM. Designed for pallet component preparation and timber processing applications, CNC wood cutting equipment can be configured to support different production requirements.",
+
+          features: [
+            "Designed for wood processing operations",
+            "Supports pallet component preparation",
+            "Precision-oriented cutting applications",
+            "Suitable for timber processing facilities",
+            "Production-focused machine configuration",
+            "Customisation based on application"
+          ],
+
+          applications:
+            "Woodworking facilities, wooden pallet manufacturing, timber processing industries and pallet component preparation units.",
+
+          specifications: [
+            ["Machine Type", "CNC Wood Cutting"],
+            ["Application", "Timber Processing"],
+            ["Material", "Wood / Timber"],
+            ["Operation", "Cutting and Processing"],
+            ["Control System", "Confirm with HPM"],
+            ["Cutting Capacity", "Confirm with HPM"],
+            ["Dimensions", "Confirm with HPM"],
+            ["Power Requirements", "Confirm with HPM"]
+          ]
+
+        },
+
+
+        /* PRODUCT 3 */
+        "semi-automatic-wood-stamping": {
+
+          name: "Semi Automatic Wood Stamping Machine",
+
+          category: "Custom Machinery Solutions",
+
+          image: "assets/images/usage/semi-automatic wood stamping machine.webp",
+
+          alt: "Semi-automatic wood stamping machinery for efficient pallet production",
+
+          description:
+            "Every pallet manufacturing facility has different operational requirements. HPM provides customised machinery solutions and equipment configurations to support material movement, production workflows and individual manufacturing needs.",
+
+          features: [
+            "Customised machinery solutions",
+            "Production workflow integration",
+            "Material handling applications",
+            "Designed around facility requirements",
+            "Industrial equipment solutions",
+            "Application-specific configurations"
+          ],
+
+          applications:
+            "Pallet manufacturing plants, industrial production facilities, packaging operations, material handling and timber processing industries.",
+
+          specifications: [
+            ["Equipment Type", "Custom Machinery"],
+            ["Application", "Pallet Production"],
+            ["Configuration", "Customised"],
+            ["Integration", "Based on Facility Layout"],
+            ["Material Handling", "Based on Requirement"],
+            ["Working Capacity", "Confirm with HPM"],
+            ["Dimensions", "Confirm with HPM"],
+            ["Power Requirements", "Confirm with HPM"]
+          ]
+
+        },
+
+
+        /* PRODUCT 4 */
+        "heat-treatment": {
+
+          name: "Pallet Heat Treatment Plant",
+
+          category: "Heat Treatment Equipment",
+
+          image: "assets/images/usage/heat-treatment-chamber.webp",
+
+          alt: "Industrial wooden pallet heat treatment chamber",
+
+          description:
+            "Support wooden pallet treatment requirements with HPM heat treatment plant solutions. Equipment configurations can be discussed according to pallet dimensions, production volumes and applicable treatment requirements.",
+
+          features: [
+            "Designed for wooden pallet treatment",
+            "Industrial chamber-based equipment",
+            "Configuration based on pallet dimensions",
+            "Supports treatment workflow requirements",
+            "Suitable for pallet manufacturing facilities",
+            "Customised solutions available"
+          ],
+
+          applications:
+            "Wooden pallet manufacturing facilities, export packaging operations, timber processing industries and businesses requiring compliant wood packaging treatment.",
+
+          specifications: [
+            ["Equipment Type", "Heat Treatment Plant"],
+            ["Application", "Wooden Pallet Treatment"],
+            ["Chamber Configuration", "Confirm with HPM"],
+            ["Temperature Range", "Confirm with HPM"],
+            ["Treatment Capacity", "Confirm with HPM"],
+            ["Pallet Dimensions", "Based on Requirement"],
+            ["Control System", "Confirm with HPM"],
+            ["Power Requirements", "Confirm with HPM"]
+          ]
+
+        }
+
+      };
+
+      /* ======================================================
+         OPEN PRODUCT MODAL
+      ====================================================== */
+
+      function openProduct(productKey, trigger) {
+
+        const product = products[productKey];
+
+        if (!product) {
+          console.error("HPM product not found:", productKey);
+          return;
+        }
+
+        previousFocus = trigger;
+
+        // Image
+        image.src = product.image;
+        image.alt = product.alt;
+
+        image.onerror = function () {
+          this.onerror = null;
+          this.src = "assets/images/usage/product-19.webp";
+        };
+
+        // Basic information
+        category.textContent = product.category;
+        title.textContent = product.name;
+        description.textContent = product.description;
+        applications.textContent = product.applications;
+
+        // Features
+        features.replaceChildren();
+
+        product.features.forEach(function (feature) {
+
+          const li = document.createElement("li");
+
+          li.textContent = feature;
+
+          features.appendChild(li);
+
+        });
+
+        // Technical specifications
+        specifications.replaceChildren();
+
+        product.specifications.forEach(function (spec) {
+
+          const row = document.createElement("div");
+
+          row.className = "hpm-modal-spec-row";
+
+          const label = document.createElement("span");
+          label.textContent = spec[0];
+
+          const value = document.createElement("strong");
+          value.textContent = spec[1];
+
+          row.appendChild(label);
+          row.appendChild(value);
+
+          specifications.appendChild(row);
+
+        });
+
+        // WhatsApp enquiry
+        const message =
+          "Hello HPM, I am interested in " +
+          product.name +
+          ". Please share the complete technical specifications, " +
+          "pricing, available configurations and delivery details.";
+
+        whatsapp.href =
+          "https://wa.me/" +
+          whatsappNumber +
+          "?text=" +
+          encodeURIComponent(message);
+
+        // Show modal
+        modal.classList.add("is-open");
+        modal.setAttribute("aria-hidden", "false");
+
+        document.body.classList.add("hpm-modal-open");
+
+        panel.scrollTop = 0;
+
+        // Move keyboard focus to modal
+        const closeButton = modal.querySelector(".hpm-featured-modal__close");
+
+        if (closeButton) {
+          closeButton.focus();
+        }
+
+      }
+
+      /* ======================================================
+         CLOSE PRODUCT MODAL
+      ====================================================== */
+
+      function closeProduct() {
+
+        if (!modal.classList.contains("is-open")) return;
+
+        modal.classList.remove("is-open");
+
+        modal.setAttribute("aria-hidden", "true");
+
+        document.body.classList.remove("hpm-modal-open");
+
+        if (previousFocus && typeof previousFocus.focus === "function") {
+          previousFocus.focus();
+        }
+
+      }
+
+      /* ======================================================
+         VIEW DETAILS BUTTON CLICK
+      ====================================================== */
+
+      document.addEventListener("click", function (event) {
+
+        const button = event.target.closest("[data-hpm-product]");
+
+        if (button) {
+
+          const productKey = button.getAttribute("data-hpm-product");
+
+          openProduct(productKey, button);
+
+          return;
+        }
+
+        // Close button or backdrop
+        if (event.target.closest("[data-hpm-close]")) {
+
+          closeProduct();
+
+        }
+
+      });
+
+      /* ======================================================
+         ESCAPE KEY TO CLOSE
+      ====================================================== */
+
+      document.addEventListener("keydown", function (event) {
+
+        if (
+          event.key === "Escape" &&
+          modal.classList.contains("is-open")
+        ) {
+
+          closeProduct();
+
+        }
+
+      });
+
+      /* ======================================================
+         BASIC KEYBOARD FOCUS CONTAINMENT
+      ====================================================== */
+
+      modal.addEventListener("keydown", function (event) {
+
+        if (event.key !== "Tab" || !modal.classList.contains("is-open")) {
+          return;
+        }
+
+        const focusable = modal.querySelectorAll(
+          'button:not([disabled]), a[href], [tabindex]:not([tabindex="-1"])'
+        );
+
+        const first = focusable[0];
+        const last = focusable[focusable.length - 1];
+
+        if (!first || !last) return;
+
+        if (event.shiftKey && document.activeElement === first) {
+
+          event.preventDefault();
+          last.focus();
+
+        } else if (!event.shiftKey && document.activeElement === last) {
+
+          event.preventDefault();
+          first.focus();
+
+        }
+
+      });
+
+    });
+
+  </script>
+  <script src="assets/js/hpm-global-navigation.js" defer></script>
+  <script src="assets/js/hpm-site-polish.js" defer></script>
+</body>
+
+</html>

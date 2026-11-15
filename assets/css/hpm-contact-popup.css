@@ -1,0 +1,42 @@
+
+/* HPM contact form submission modal */
+.hpm-contact-modal[hidden] { display: none !important; }
+.hpm-contact-modal {
+  position: fixed; inset: 0; z-index: 999999;
+  display: grid; place-items: center; padding: 22px;
+}
+.hpm-contact-modal__backdrop {
+  position: absolute; inset: 0; background: rgba(13, 25, 37, .68);
+  backdrop-filter: blur(5px);
+}
+.hpm-contact-modal__dialog {
+  position: relative; width: min(100%, 480px); padding: 42px 34px 34px;
+  border-radius: 20px; background: #fff; text-align: center;
+  box-shadow: 0 24px 80px rgba(0,0,0,.24); animation: hpmModalIn .24s ease-out;
+}
+.hpm-contact-modal__close {
+  position: absolute; top: 12px; right: 15px; width: 38px; height: 38px;
+  border: 0; border-radius: 50%; background: #f1f3f5; color: #202b36;
+  font-size: 27px; line-height: 1; cursor: pointer;
+}
+.hpm-contact-modal__icon {
+  display: grid; place-items: center; width: 64px; height: 64px;
+  margin: 0 auto 18px; border-radius: 50%; background: #e9f8ef;
+  color: #168348; font-size: 32px; font-weight: 800;
+}
+.hpm-contact-modal.is-error .hpm-contact-modal__icon { background: #fff0ed; color: #d63d2f; }
+.hpm-contact-modal__dialog h2 { margin: 0 0 12px; color: #202b36; font-size: clamp(22px, 4vw, 27px); line-height: 1.25; }
+.hpm-contact-modal__dialog p { margin: 0 auto 25px; max-width: 370px; color: #66717d; font-size: 15px; line-height: 1.7; }
+.hpm-contact-modal__button {
+  min-height: 48px; padding: 0 25px; border: 0; border-radius: 8px;
+  background: #ff5a00; color: #fff; font-weight: 700; cursor: pointer;
+  transition: background .2s ease, transform .2s ease;
+}
+.hpm-contact-modal__button:hover { background: #e64a00; transform: translateY(-1px); }
+body.hpm-contact-modal-open { overflow: hidden; }
+@keyframes hpmModalIn { from { opacity: 0; transform: translateY(12px) scale(.98); } to { opacity: 1; transform: none; } }
+@media (max-width: 480px) {
+  .hpm-contact-modal { padding: 16px; }
+  .hpm-contact-modal__dialog { padding: 38px 22px 26px; }
+}
+@media (prefers-reduced-motion: reduce) { .hpm-contact-modal__dialog { animation: none; } }

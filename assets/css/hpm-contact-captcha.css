@@ -1,0 +1,42 @@
+/* HPM contact form - Google reCAPTCHA and submission feedback */
+.hpm-captcha-wrapper {
+    display: block;
+    width: 100%;
+    margin: 4px 0 18px;
+    min-height: 78px;
+}
+.hpm-captcha-wrapper .g-recaptcha {
+    max-width: 100%;
+    overflow: visible;
+}
+.hpm-captcha-error {
+    margin: 8px 0 0;
+    color: #b42318;
+    font-size: 13px;
+    line-height: 1.45;
+}
+.hpm-captcha-error[hidden] { display: none !important; }
+.hpm-form-feedback {
+    padding: 13px 15px;
+    margin: 0 0 18px;
+    border-radius: 6px;
+    font-size: 14px;
+    line-height: 1.5;
+}
+.hpm-form-feedback.success {
+    color: #176b35;
+    background: #e8f7ed;
+    border: 1px solid #b7e4c7;
+}
+.hpm-form-feedback.error {
+    color: #9b1c1c;
+    background: #fff0f0;
+    border: 1px solid #f3c2c2;
+}
+@media (max-width: 400px) {
+    .hpm-captcha-wrapper .g-recaptcha {
+        transform: scale(.88);
+        transform-origin: left top;
+        margin-bottom: -9px;
+    }
+}

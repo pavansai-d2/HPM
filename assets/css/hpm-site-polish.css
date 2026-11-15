@@ -1,0 +1,279 @@
+/* HPM global responsive polish — shared across all public pages */
+:root {
+  --hpm-primary: #ff5a00;
+  --hpm-secondary: #202b36;
+  --hpm-navy: #0d3765
+}
+
+.tmp-bread-crumb-area.bg-image-breadcrumb {
+  min-height: clamp(260px, 34vw, 470px);
+  height: auto !important;
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  background-color: #f5f1f8 !important;
+  background-image: linear-gradient(110deg, rgba(255, 90, 0, .10), rgba(32, 43, 54, .10)), url('../images/banner/aboutus.webp') !important;
+  background-position: center !important;
+  background-repeat: no-repeat !important;
+  background-size: contain !important;
+}
+
+.tmp-bread-crumb-area.bg-image-breadcrumb:before,
+.tmp-bread-crumb-area.bg-image-breadcrumb:after {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  pointer-events: none;
+}
+
+.tmp-bread-crumb-area.bg-image-breadcrumb:before {
+  width: clamp(180px, 24vw, 360px);
+  height: clamp(180px, 24vw, 360px);
+  left: -8%;
+  top: -30%;
+  border-radius: 44% 56% 63% 37%;
+  background: radial-gradient(circle at 35% 35%, rgba(255, 90, 0, .26), rgba(255, 90, 0, .02) 68%);
+}
+
+.tmp-bread-crumb-area.bg-image-breadcrumb:after {
+  width: clamp(220px, 28vw, 420px);
+  height: clamp(180px, 23vw, 340px);
+  right: -8%;
+  bottom: -38%;
+  border-radius: 58% 42% 38% 62%;
+  background: radial-gradient(circle at 55% 45%, rgba(13, 55, 101, .18), rgba(13, 55, 101, .015) 70%);
+}
+
+.tmp-bread-crumb-area.bg-image-breadcrumb .breadcrumb-inner {
+  padding-block: clamp(65px, 9vw, 125px) !important
+}
+
+.tmp-bread-crumb-area.bg-image-breadcrumb .breadcrumb-inner .title,
+.tmp-bread-crumb-area.bg-image-breadcrumb .breadcrumb-inner .meta a,
+.tmp-bread-crumb-area.bg-image-breadcrumb .breadcrumb-inner .meta span {
+  color: var(--hpm-secondary) !important
+}
+
+.tmp-bread-crumb-area.bg-image-breadcrumb .breadcrumb-inner .meta i {
+  color: var(--hpm-primary) !important
+}
+
+.tmp-bread-crumb-area.bg-image-breadcrumb .breadcrumb-inner .meta {
+  justify-content: center;
+  gap: 12px
+}
+
+header .nav-area .mainmenu>li.has-dropdown .submenu a:hover,
+header .nav-area .mainmenu>li.has-dropdown .submenu a.active {
+  color: var(--hpm-primary) !important
+}
+
+#side-bar .mobile-menu {
+  position: relative;
+  padding-top: 76px
+}
+
+#side-bar .hpm-mobile-brand {
+  position: absolute;
+  top: 15px;
+  left: 24px;
+  display: flex;
+  align-items: center;
+  height: 48px
+}
+
+#side-bar .hpm-mobile-brand img {
+  width: 105px;
+  height: 48px;
+  object-fit: contain
+}
+
+#side-bar .close-icon-menu {
+  color: var(--hpm-secondary) !important;
+  background: #fff !important;
+  border: 1px solid #e7ebef !important
+}
+
+#side-bar .mobile-menu .mainmenu>li>a.main {
+  color: var(--hpm-secondary) !important
+}
+
+#side-bar .mobile-menu .mainmenu>li.has-droupdown {
+  position: relative
+}
+
+#side-bar .mobile-menu .hpm-submenu-toggle {
+  position: absolute;
+  right: 12px;
+  top: 0;
+  width: 46px;
+  height: 48px;
+  border: 0;
+  background: transparent;
+  color: var(--hpm-secondary);
+  font-size: 23px;
+  z-index: 3
+}
+
+#side-bar .mobile-menu .hpm-submenu-toggle:focus-visible {
+  outline: 2px solid var(--hpm-primary)
+}
+
+#side-bar .mobile-menu .submenu a {
+  color: var(--hpm-secondary) !important
+}
+
+#side-bar .mobile-menu .submenu a:hover,
+#side-bar .mobile-menu .submenu a.active {
+  color: var(--hpm-primary) !important
+}
+
+.hpm-product-image img,
+.hpm-modal-product img,
+.hpm-before-after img {
+  transition: transform .45s ease
+}
+
+.hpm-product-card:hover .hpm-product-image img,
+.hpm-before-after figure:hover img {
+  transform: scale(1.045)
+}
+
+.hpm-before-after {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+  margin: 18px 0 8px
+}
+
+.hpm-before-after figure {
+  margin: 0;
+  padding: 10px;
+  border: 1px solid #e7ebef;
+  border-radius: 9px;
+  background: #f7f8fa;
+  overflow: hidden
+}
+
+.hpm-before-after img {
+  display: block;
+  width: 100%;
+  height: 190px;
+  object-fit: contain;
+  background: #fff;
+  border-radius: 6px
+}
+
+.hpm-before-after figcaption {
+  padding: 9px 2px 0;
+  color: var(--hpm-secondary);
+  font-size: 13px;
+  font-weight: 700;
+  text-align: center
+}
+
+.hpm-modal-product h2,
+.hpm-modal-product h3 {
+  color: var(--hpm-secondary) !important
+}
+
+.hpm-modal-product h2 {
+  border-color: var(--hpm-primary) !important
+}
+
+@media(max-width:767px) {
+  .tmp-bread-crumb-area.bg-image-breadcrumb {
+    min-height: 240px;
+    background-size: contain !important;
+    background-position: center !important
+  }
+
+  .tmp-bread-crumb-area.bg-image-breadcrumb .breadcrumb-inner {
+    padding-block: 54px !important
+  }
+
+  .hpm-before-after {
+    grid-template-columns: 1fr
+  }
+
+  .hpm-before-after img {
+    height: 210px
+  }
+}
+
+@media(prefers-reduced-motion:reduce) {
+
+  .hpm-product-image img,
+  .hpm-modal-product img,
+  .hpm-before-after img {
+    transition: none !important
+  }
+}
+
+/* Preserve complete HPM banner artwork across viewports */
+.tmp-banner-slider-area .banner-five-main-wrapper.bg-style {
+  background-size: contain !important;
+  background-position: center center !important;
+  background-repeat: no-repeat !important;
+  background-color: #f4f4f4
+}
+
+.tmp-banner-slider-area .swiper-slide {
+  background: #f4f4f4
+}
+
+.tmp-banner-slider-area .banner-five-main-wrapper {
+  min-height: clamp(250px, 48vw, 760px) !important
+}
+
+.tmp-banner-slider-area .banner-five-main-wrapper .hpm-banner-copy {
+  display: none !important
+}
+
+.tmp-banner-slider-area video.banner-background-video {
+  width: 100%;
+  height: 100%;
+  object-fit: contain !important;
+  object-position: center;
+  background: #f4f4f4
+}
+
+@media(max-width:767px) {
+  .tmp-banner-slider-area .banner-five-main-wrapper {
+    min-height: clamp(190px, 62vw, 390px) !important
+  }
+}
+
+.hpm-category-section[hidden] {
+  display: none !important
+}
+
+.hpm-modal-media {
+  min-width: 0
+}
+
+.hpm-modal-product .hpm-modal-main-image {
+  display: block;
+  width: 100%;
+  max-height: 330px;
+  object-fit: contain;
+  padding: 10px;
+  background: #f6f7f8;
+  border-radius: 8px
+}
+
+#side-bar .close-icon-menu {
+  position: absolute;
+  top: 14px;
+  right: 18px;
+  z-index: 20;
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center
+}
+
+#side-bar .mobile-menu .mainmenu>li>a.main {
+  padding-right: 60px
+}

@@ -1,0 +1,365 @@
+/* =========================================================
+   HPM FINAL SITE-WIDE RESPONSIVE FIX
+   Load after style.css, navigation-responsive.css and site-polish.css.
+   ========================================================= */
+
+:root {
+  --hpm-ink: #202b36;
+  --hpm-orange: #ff5a00;
+  --hpm-line: #e2e7ec;
+}
+
+/* -------------------- DESKTOP NAVIGATION -------------------- */
+header.header-seven .mainmenu > li > a,
+header.header-seven .mainmenu > li.active > a,
+header.header-seven .mainmenu > li.is-current > a,
+header.header-seven .mainmenu > li > a[aria-current="page"] {
+  color: var(--hpm-ink) !important;
+}
+
+header.header-seven .mainmenu > li > a:hover,
+header.header-seven .mainmenu > li > a:focus-visible,
+header.header-seven .mainmenu > li:hover > a {
+  color: var(--hpm-orange) !important;
+}
+
+header.header-seven .mainmenu .submenu a {
+  color: var(--hpm-ink) !important;
+}
+header.header-seven .mainmenu .submenu a:hover,
+header.header-seven .mainmenu .submenu a:focus-visible {
+  color: var(--hpm-orange) !important;
+}
+
+header.header-seven .mainmenu > li.hpm-products-menu.active > a,
+header.header-seven .mainmenu > li.hpm-products-menu.is-current > a {
+  color: var(--hpm-ink) !important;
+}
+
+/* Product category list: preserve the theme dropdown layout. */
+.hpm-products-dropdown:empty,
+.hpm-mobile-product-categories:empty {
+  display: none !important;
+}
+header.header-seven .mainmenu > li.hpm-products-menu > .hpm-products-dropdown {
+  min-width: 260px;
+}
+
+/* -------------------- MOBILE DRAWER -------------------- */
+#side-bar.hpm-mobile-drawer .hpm-mobile-menu-list a,
+#side-bar.hpm-mobile-drawer .hpm-mobile-menu-list a[aria-current="page"],
+#side-bar.hpm-mobile-drawer .hpm-mobile-menu-list a.is-current {
+  color: var(--hpm-ink) !important;
+  background: transparent !important;
+}
+#side-bar.hpm-mobile-drawer .hpm-mobile-menu-list a:hover,
+#side-bar.hpm-mobile-drawer .hpm-mobile-menu-list a:focus-visible {
+  color: var(--hpm-orange) !important;
+}
+#side-bar.hpm-mobile-drawer .hpm-mobile-menu-row {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+  gap: 14px !important;
+}
+#side-bar.hpm-mobile-drawer .hpm-mobile-submenu-toggle {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  flex: 0 0 40px !important;
+  width: 40px !important;
+  height: 40px !important;
+  min-width: 40px !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  border: 1px solid var(--hpm-line) !important;
+  border-radius: 50% !important;
+  background: #f4f6f8 !important;
+  color: var(--hpm-ink) !important;
+  box-shadow: none !important;
+  cursor: pointer !important;
+}
+#side-bar.hpm-mobile-drawer .hpm-submenu-glyph {
+  display: block !important;
+  color: inherit !important;
+  font: 400 24px/1 Arial, sans-serif !important;
+}
+#side-bar.hpm-mobile-drawer .hpm-mobile-submenu-toggle:hover,
+#side-bar.hpm-mobile-drawer .hpm-mobile-submenu-toggle:focus-visible {
+  border-color: var(--hpm-orange) !important;
+  background: #fff4ed !important;
+  color: var(--hpm-orange) !important;
+}
+#side-bar.hpm-mobile-drawer .hpm-mobile-submenu[hidden] {
+  display: none !important;
+}
+#side-bar.hpm-mobile-drawer .hpm-mobile-submenu:not([hidden]) {
+  display: block !important;
+  padding: 0 0 12px 14px !important;
+}
+#side-bar.hpm-mobile-drawer .hpm-mobile-submenu a {
+  display: block !important;
+  padding: 10px 12px !important;
+  border-left: 2px solid var(--hpm-line) !important;
+  color: #52606d !important;
+  font-size: 14px !important;
+  line-height: 1.45 !important;
+}
+#side-bar.hpm-mobile-drawer .hpm-mobile-submenu a:hover,
+#side-bar.hpm-mobile-drawer .hpm-mobile-submenu a:focus-visible {
+  border-left-color: var(--hpm-orange) !important;
+  color: var(--hpm-orange) !important;
+  background: #fff7f2 !important;
+}
+
+/* Theme's icon pseudo-element was drawing an unwanted dot/circle. */
+#side-bar.hpm-mobile-drawer .hpm-mobile-submenu-toggle::before,
+#side-bar.hpm-mobile-drawer .hpm-mobile-submenu-toggle::after,
+#side-bar.hpm-mobile-drawer .hpm-mobile-submenu-toggle i::after,
+#side-bar.hpm-mobile-drawer .hpm-mobile-close::before,
+#side-bar.hpm-mobile-drawer .hpm-mobile-close::after {
+  content: none !important;
+  display: none !important;
+}
+#side-bar.hpm-mobile-drawer .hpm-mobile-close {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  width: 44px !important;
+  height: 44px !important;
+  min-width: 44px !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  border: 1px solid var(--hpm-line) !important;
+  border-radius: 50% !important;
+  background: #fff !important;
+  color: var(--hpm-ink) !important;
+  box-shadow: none !important;
+}
+#side-bar.hpm-mobile-drawer .hpm-close-glyph {
+  display: block !important;
+  color: inherit !important;
+  font: 400 31px/1 Arial, sans-serif !important;
+}
+#side-bar.hpm-mobile-drawer .hpm-mobile-social-links .fa-twitter {
+  display: inline-block !important;
+  font-family: "Font Awesome 5 Brands", "Font Awesome 6 Brands", sans-serif !important;
+  font-style: normal !important;
+  font-weight: 400 !important;
+}
+
+/* -------------------- COMPACT, FULL-WIDTH BREADCRUMB -------------------- */
+/* The source aboutus.png is mostly blank white artwork with narrow orange
+   strips at its edges. Use a designed CSS backdrop instead of scaling that
+   oversized artwork into a tall empty panel. */
+.tmp-bread-crumb-area.bg-image-breadcrumb {
+  position: relative !important;
+  isolation: isolate !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  width: 100% !important;
+  max-width: none !important;
+  min-width: 0 !important;
+  height: auto !important;
+  min-height: clamp(225px, 20vw, 300px) !important;
+  margin: 0 !important;
+  padding: 28px 0 !important;
+  overflow: hidden !important;
+  background: linear-gradient(115deg, #fff8f3 0%, #f4f5f7 52%, #f0edf1 100%) !important;
+  background-image: none !important;
+}
+.tmp-bread-crumb-area.bg-image-breadcrumb::before,
+.tmp-bread-crumb-area.bg-image-breadcrumb::after {
+  content: "" !important;
+  position: absolute !important;
+  z-index: 0 !important;
+  display: block !important;
+  height: 16px !important;
+  background: var(--hpm-orange) !important;
+  opacity: .96 !important;
+  pointer-events: none !important;
+}
+.tmp-bread-crumb-area.bg-image-breadcrumb::before {
+  top: 0 !important;
+  right: 0 !important;
+  width: clamp(150px, 24vw, 380px) !important;
+  clip-path: polygon(0 0, 100% 0, 100% 100%, 9% 100%) !important;
+}
+.tmp-bread-crumb-area.bg-image-breadcrumb::after {
+  bottom: 0 !important;
+  left: 0 !important;
+  width: clamp(180px, 30vw, 460px) !important;
+  clip-path: polygon(0 0, 91% 0, 100% 100%, 0 100%) !important;
+}
+.tmp-bread-crumb-area.bg-image-breadcrumb > .container-3 {
+  position: relative !important;
+  z-index: 1 !important;
+  width: 100% !important;
+  max-width: 1320px !important;
+  margin: 0 auto !important;
+  padding: 0 20px !important;
+}
+.tmp-bread-crumb-area.bg-image-breadcrumb .row {
+  width: 100% !important;
+  margin: 0 !important;
+}
+.tmp-bread-crumb-area.bg-image-breadcrumb .col-lg-12 {
+  width: 100% !important;
+  padding: 0 !important;
+}
+.tmp-bread-crumb-area.bg-image-breadcrumb .breadcrumb-inner {
+  position: relative !important;
+  z-index: 2 !important;
+  width: 100% !important;
+  max-width: 100% !important;
+  margin: 0 auto !important;
+  padding: 0 !important;
+  text-align: center !important;
+}
+.tmp-bread-crumb-area.bg-image-breadcrumb .breadcrumb-inner.ptb--100,
+.tmp-bread-crumb-area.bg-image-breadcrumb .breadcrumb-inner.ptb_sm--100 {
+  padding-top: 0 !important;
+  padding-bottom: 0 !important;
+}
+.tmp-bread-crumb-area.bg-image-breadcrumb .breadcrumb-inner .title {
+  margin: 0 0 13px !important;
+  color: var(--hpm-ink) !important;
+  font-size: clamp(30px, 4vw, 52px) !important;
+  font-weight: 750 !important;
+  line-height: 1.15 !important;
+  overflow-wrap: anywhere !important;
+}
+.tmp-bread-crumb-area.bg-image-breadcrumb .breadcrumb-inner .meta {
+  display: flex !important;
+  flex-wrap: wrap !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 7px 12px !important;
+  margin: 0 !important;
+}
+.tmp-bread-crumb-area.bg-image-breadcrumb .breadcrumb-inner .meta a {
+  color: #66717d !important;
+}
+.tmp-bread-crumb-area.bg-image-breadcrumb .breadcrumb-inner .meta a.prev,
+.tmp-bread-crumb-area.bg-image-breadcrumb .breadcrumb-inner .meta a i,
+.tmp-bread-crumb-area.bg-image-breadcrumb .breadcrumb-inner .meta span i {
+  color: var(--hpm-orange) !important;
+}
+.tmp-bread-crumb-area.bg-image-breadcrumb .breadcrumb-inner .meta a.next {
+  color: var(--hpm-ink) !important;
+  opacity: 1 !important;
+}
+
+@media (max-width: 991.98px) {
+  .tmp-bread-crumb-area.bg-image-breadcrumb {
+    min-height: 220px !important;
+    padding: 24px 0 !important;
+  }
+}
+@media (max-width: 767.98px) {
+  .tmp-bread-crumb-area.bg-image-breadcrumb {
+    min-height: 195px !important;
+    padding: 22px 0 !important;
+  }
+  .tmp-bread-crumb-area.bg-image-breadcrumb .breadcrumb-inner .title {
+    margin-bottom: 9px !important;
+    font-size: clamp(25px, 7vw, 34px) !important;
+  }
+  .tmp-bread-crumb-area.bg-image-breadcrumb .breadcrumb-inner .meta {
+    font-size: 14px !important;
+    gap: 5px 8px !important;
+  }
+}
+@media (max-width: 360px) {
+  .tmp-bread-crumb-area.bg-image-breadcrumb {
+    min-height: 180px !important;
+  }
+}
+
+/* -------------------- HOME HERO: KEEP THE ORIGINAL IMAGE RATIO -------------------- */
+/* The supplied 6912 x 2880 banners are 2.4:1 images with all text baked in.
+   Keep the full image visible at every width; do not force a tall mobile hero. */
+.tmp-banner-slider-area.banner-five {
+  position: relative !important;
+  display: block !important;
+  width: 100% !important;
+  height: auto !important;
+  min-height: 0 !important;
+  max-height: none !important;
+  aspect-ratio: 2.4 / 1 !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  overflow: hidden !important;
+  background: #f5f5f5 !important;
+}
+.tmp-banner-slider-area.banner-five .thumbBannerSlide,
+.tmp-banner-slider-area.banner-five .swiper-wrapper,
+.tmp-banner-slider-area.banner-five .swiper-slide {
+  width: 100% !important;
+  height: 100% !important;
+  min-height: 0 !important;
+}
+.tmp-banner-slider-area.banner-five .swiper-slide {
+  overflow: hidden !important;
+}
+.tmp-banner-slider-area.banner-five .banner-five-main-wrapper {
+  position: relative !important;
+  display: block !important;
+  width: 100% !important;
+  height: 100% !important;
+  min-height: 0 !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  background-repeat: no-repeat !important;
+  background-position: center center !important;
+  background-size: 100% 100% !important;
+  overflow: hidden !important;
+}
+.tmp-banner-slider-area.banner-five .container-3,
+.tmp-banner-slider-area.banner-five .row {
+  height: 100% !important;
+  min-height: 0 !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+.tmp-banner-slider-area.banner-five .warm,
+.tmp-banner-slider-area.banner-five .banner-five-main-wrapper::before,
+.tmp-banner-slider-area.banner-five .banner-five-main-wrapper::after {
+  display: none !important;
+  content: none !important;
+}
+.tmp-banner-slider-area.banner-five .hpm-banner-copy {
+  display: none !important;
+}
+.tmp-banner-slider-area.banner-five .swiper-pagination {
+  bottom: 10px !important;
+}
+@media (max-width: 767.98px) {
+  .tmp-banner-slider-area.banner-five {
+    aspect-ratio: 2.4 / 1 !important;
+    min-height: 0 !important;
+    max-height: none !important;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .tmp-banner-slider-area.banner-five *,
+  .tmp-banner-slider-area.banner-five *::before,
+  .tmp-banner-slider-area.banner-five *::after {
+    animation-duration: .01ms !important;
+    transition-duration: .01ms !important;
+  }
+}
+
+
+/* HPM: hide the mobile drawer trigger on wide desktop displays (1440–2560px). */
+@media screen and (min-width: 1440px) and (max-width: 2560px) {
+  .header-seven .menu-area#menu-btn,
+  .header-seven #menu-btn,
+  .header-seven .menu-area,
+  .header-seven .hpm-mobile-menu-trigger {
+    display: none !important;
+    visibility: hidden !important;
+    pointer-events: none !important;
+  }
+}

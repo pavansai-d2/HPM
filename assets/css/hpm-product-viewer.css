@@ -1,0 +1,1017 @@
+/* HPM PRODUCT DETAIL VIEWER — load after hpm-commerce.css */
+
+/* Modal layout */
+.hpm-modal {
+  z-index: 9990;
+  padding: clamp(8px, 2vw, 24px);
+}
+.hpm-modal-panel {
+  width: min(1240px, calc(100vw - 32px));
+  max-width: 1240px;
+  max-height: calc(100vh - 32px);
+  overflow: auto;
+  padding: clamp(18px, 2.6vw, 34px);
+  border-radius: 16px;
+  box-shadow: 0 24px 90px rgba(5, 15, 28, .28);
+}
+.hpm-modal-close {
+  position: sticky;
+  float: right;
+  top: 0;
+  margin: -8px -8px 0 10px;
+}
+body.hpm-product-modal-open,
+body.hpm-lightbox-open {
+  overflow: hidden;
+}
+.hpm-product-detail-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1.03fr) minmax(0, .97fr);
+  align-items: start;
+  gap: clamp(22px, 3vw, 42px);
+  padding-top: 8px;
+}
+.hpm-modal-media,
+.hpm-product-detail-copy {
+  min-width: 0;
+}
+.hpm-product-detail-copy {
+  padding-top: 6px;
+}
+.hpm-product-detail-copy h2 {
+  margin: 8px 0 18px;
+  padding: 0 34px 16px 0;
+  border-bottom: 1px solid #dce3ea;
+  color: #202b36;
+  font-size: clamp(25px, 2.8vw, 38px);
+  line-height: 1.2;
+}
+.hpm-product-detail-copy h3 {
+  margin: 24px 0 10px;
+  color: #202b36;
+  font-size: 20px;
+  font-weight: 700;
+}
+.hpm-product-detail-copy p,
+.hpm-product-detail-copy li {
+  color: #65717d;
+  font-size: 15px;
+  line-height: 1.8;
+}
+.hpm-product-short {
+  color: #34445d !important;
+  font-weight: 600;
+}
+.hpm-product-specifications ul {
+  margin: 0;
+  padding-left: 20px;
+}
+.hpm-product-specifications li {
+  margin-bottom: 5px;
+}
+.hpm-product-loading {
+  padding: 55px 15px;
+  color: #65717d;
+  text-align: center;
+}
+
+/* Main + gallery image carousel */
+.hpm-product-slider {
+  position: relative;
+  overflow: hidden;
+  border: 1px solid #e5eaf0;
+  border-radius: 14px;
+  background: #f5f7f9;
+  isolation: isolate;
+}
+.hpm-product-slides {
+  position: relative;
+  min-height: clamp(240px, 32vw, 480px);
+}
+.hpm-product-slide {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  padding: 12px;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateX(14px);
+  transition: opacity .45s ease, transform .45s ease, visibility .45s;
+}
+.hpm-product-slide.is-active {
+  position: relative;
+  opacity: 1;
+  visibility: visible;
+  transform: translateX(0);
+}
+.hpm-product-slide-open {
+  position: relative;
+  display: grid;
+  width: 100%;
+  min-height: 220px;
+  padding: 0;
+  place-items: center;
+  overflow: hidden;
+  border: 0;
+  border-radius: 9px;
+  background: #fff;
+  cursor: zoom-in;
+}
+.hpm-product-slide-open img {
+  display: block;
+  width: 100%;
+  height: clamp(220px, 31vw, 450px);
+  object-fit: contain;
+  animation: hpmImageAppear .55s ease both;
+}
+@keyframes hpmImageAppear {
+  from { opacity: .35; transform: scale(.975); }
+  to { opacity: 1; transform: scale(1); }
+}
+.hpm-product-zoom-label {
+  position: absolute;
+  right: 12px;
+  bottom: 12px;
+  padding: 7px 11px;
+  border-radius: 20px;
+  background: rgba(32, 43, 54, .82);
+  color: #fff;
+  font-size: 11px;
+  font-weight: 600;
+  opacity: 0;
+  transform: translateY(5px);
+  transition: .2s ease;
+}
+.hpm-product-slide-open:hover .hpm-product-zoom-label,
+.hpm-product-slide-open:focus-visible .hpm-product-zoom-label {
+  opacity: 1;
+  transform: translateY(0);
+}
+.hpm-slider-arrow {
+  position: absolute;
+  z-index: 3;
+  top: 50%;
+  display: grid;
+  width: 40px;
+  height: 40px;
+  place-items: center;
+  border: 1px solid rgba(255,255,255,.7);
+  border-radius: 50%;
+  background: rgba(32,43,54,.76);
+  color: #fff;
+  font-size: 29px;
+  line-height: 1;
+  transform: translateY(-50%);
+  cursor: pointer;
+  transition: background .2s ease, transform .2s ease;
+}
+.hpm-slider-arrow:hover {
+  background: #ff5a00;
+  transform: translateY(-50%) scale(1.06);
+}
+.hpm-slider-prev { left: 12px; }
+.hpm-slider-next { right: 12px; }
+.hpm-slider-dots {
+  position: absolute;
+  z-index: 4;
+  left: 50%;
+  bottom: 14px;
+  display: flex;
+  gap: 7px;
+  transform: translateX(-50%);
+}
+.hpm-slider-dot {
+  width: 8px;
+  height: 8px;
+  padding: 0;
+  border: 0;
+  border-radius: 50px;
+  background: rgba(32,43,54,.35);
+  cursor: pointer;
+  transition: width .2s ease, background .2s ease;
+}
+.hpm-slider-dot.is-active {
+  width: 22px;
+  background: #ff5a00;
+}
+.hpm-slider-count {
+  position: absolute;
+  right: 12px;
+  top: 12px;
+  z-index: 3;
+  padding: 5px 9px;
+  border-radius: 20px;
+  background: rgba(32,43,54,.78);
+  color: #fff;
+  font-size: 11px;
+}
+.hpm-product-image-empty {
+  display: grid;
+  min-height: 260px;
+  place-items: center;
+  color: #778494;
+  background: #f5f7f9;
+  border: 1px dashed #cbd5e1;
+  border-radius: 12px;
+}
+
+/* Optional before / after images: compact thumbnails, intentionally no labels/cards */
+.hpm-optional-image-strip {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 12px;
+}
+.hpm-optional-image {
+  width: clamp(92px, 23%, 142px);
+  height: 82px;
+  padding: 5px;
+  overflow: hidden;
+  border: 1px solid #e3e8ee;
+  border-radius: 8px;
+  background: #fff;
+  cursor: zoom-in;
+  transition: border-color .2s ease, transform .2s ease, box-shadow .2s ease;
+}
+.hpm-optional-image:hover {
+  border-color: #ff5a00;
+  box-shadow: 0 7px 18px rgba(32,43,54,.1);
+  transform: translateY(-2px);
+}
+.hpm-optional-image img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+/* Product video — appears only when admin has saved a URL */
+.hpm-product-video {
+  margin-top: 24px;
+}
+.hpm-product-video h3 {
+  margin-top: 0;
+}
+.hpm-video-frame {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  aspect-ratio: 16 / 9;
+  border-radius: 10px;
+  background: #101820;
+}
+.hpm-video-frame iframe {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+.hpm-direct-video {
+  display: block;
+  width: 100%;
+  max-height: 420px;
+  border-radius: 10px;
+  background: #101820;
+}
+.hpm-video-watch-link {
+  display: inline-block;
+  margin-top: 9px;
+  color: #e95400;
+  font-size: 13px;
+  font-weight: 700;
+  text-decoration: none;
+}
+.hpm-video-watch-link:hover { text-decoration: underline; }
+.hpm-product-whatsapp {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 9px;
+  margin-top: 25px;
+  padding: 14px 20px;
+  border: 0;
+  border-radius: 6px;
+  background: #20a65a;
+  color: #fff !important;
+  font-weight: 700;
+  text-decoration: none !important;
+  transition: background .2s ease, transform .2s ease;
+}
+.hpm-product-whatsapp:hover {
+  background: #168749;
+  color: #fff;
+  transform: translateY(-2px);
+}
+
+/* Full-size zoom viewer */
+.hpm-image-lightbox {
+  position: fixed;
+  inset: 0;
+  z-index: 100000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 68px 22px 52px;
+  background: rgba(5, 10, 17, .96);
+  animation: hpmViewerFade .2s ease both;
+}
+@keyframes hpmViewerFade { from { opacity: 0; } to { opacity: 1; } }
+.hpm-lightbox-stage {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+.hpm-lightbox-img {
+  display: block;
+  max-width: 100%;
+  max-height: 100%;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  transform: translate(0,0) scale(1);
+  transform-origin: center;
+  transition: transform .18s ease;
+  cursor: zoom-in;
+  user-select: none;
+  -webkit-user-drag: none;
+}
+.hpm-lightbox-img.is-zoomed {
+  cursor: grab;
+  transition: none;
+}
+.hpm-lightbox-img.is-zoomed:active { cursor: grabbing; }
+.hpm-lightbox-close {
+  position: absolute;
+  top: 16px;
+  right: 20px;
+  z-index: 2;
+  width: 44px;
+  height: 44px;
+  border: 1px solid rgba(255,255,255,.3);
+  border-radius: 50%;
+  background: rgba(255,255,255,.12);
+  color: #fff;
+  font-size: 30px;
+  line-height: 1;
+  cursor: pointer;
+}
+.hpm-lightbox-tools {
+  position: absolute;
+  top: 18px;
+  left: 50%;
+  z-index: 2;
+  display: flex;
+  gap: 7px;
+  transform: translateX(-50%);
+}
+.hpm-lightbox-tools button {
+  min-width: 40px;
+  height: 38px;
+  padding: 0 12px;
+  border: 1px solid rgba(255,255,255,.28);
+  border-radius: 7px;
+  background: rgba(255,255,255,.12);
+  color: #fff;
+  cursor: pointer;
+}
+.hpm-lightbox-close:hover,
+.hpm-lightbox-tools button:hover { background: rgba(255,255,255,.25); }
+.hpm-lightbox-help {
+  position: absolute;
+  bottom: 12px;
+  left: 50%;
+  width: calc(100% - 24px);
+  margin: 0;
+  color: rgba(255,255,255,.75);
+  font-size: 12px;
+  text-align: center;
+  transform: translateX(-50%);
+}
+
+@media (max-width: 850px) {
+  .hpm-modal-panel {
+    width: min(760px, calc(100vw - 20px));
+    max-height: calc(100vh - 20px);
+  }
+  .hpm-product-detail-layout {
+    grid-template-columns: 1fr;
+    gap: 22px;
+  }
+  .hpm-product-slides { min-height: 280px; }
+  .hpm-product-slide-open img { height: min(58vw, 430px); }
+  .hpm-product-detail-copy h2 { font-size: 29px; }
+}
+@media (max-width: 520px) {
+  .hpm-modal { padding: 6px; }
+  .hpm-modal-panel {
+    width: calc(100vw - 12px);
+    max-height: calc(100vh - 12px);
+    padding: 15px;
+    border-radius: 12px;
+  }
+  .hpm-modal-close { width: 34px; height: 34px; font-size: 23px; }
+  .hpm-product-detail-layout { gap: 17px; }
+  .hpm-product-slides { min-height: 220px; }
+  .hpm-product-slide { padding: 7px; }
+  .hpm-product-slide-open img { height: 58vw; max-height: 310px; }
+  .hpm-slider-arrow { width: 34px; height: 34px; font-size: 24px; }
+  .hpm-product-detail-copy h2 { font-size: 24px; }
+  .hpm-product-detail-copy h3 { font-size: 18px; }
+  .hpm-product-detail-copy p,
+  .hpm-product-detail-copy li { font-size: 14px; }
+  .hpm-optional-image { width: 92px; height: 70px; }
+  .hpm-product-whatsapp { width: 100%; }
+  .hpm-image-lightbox { padding: 66px 8px 50px; }
+  .hpm-lightbox-close { top: 10px; right: 10px; width: 38px; height: 38px; }
+  .hpm-lightbox-tools { top: 10px; left: 10px; transform: none; }
+  .hpm-lightbox-tools button { min-width: 34px; height: 36px; padding: 0 9px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .hpm-product-slide,
+  .hpm-product-slide-open img,
+  .hpm-optional-image,
+  .hpm-image-lightbox { animation: none !important; transition: none !important; }
+
+
+/* =========================================================
+   HPM PRODUCT MODAL — SIMPLE ORIGINAL LAYOUT
+   These selectors match hpm-commerce.js exactly.
+========================================================= */
+
+body.hpm-modal-open,
+body.hpm-lightbox-open {
+    overflow: hidden;
+}
+
+/* Keep the existing white modal appearance */
+.hpm-modal {
+    z-index: 9990;
+    padding: 20px;
+}
+
+.hpm-modal-panel {
+    width: min(1100px, calc(100vw - 40px));
+    max-width: 1100px;
+    max-height: 90vh;
+    overflow: auto;
+    padding: clamp(18px, 3vw, 32px);
+    border-radius: 10px;
+    background: #fff;
+    box-shadow: 0 20px 65px rgba(5, 15, 28, .22);
+}
+
+.hpm-modal-close {
+    position: sticky;
+    float: right;
+    top: 0;
+    z-index: 5;
+    width: 38px;
+    height: 38px;
+    margin: -8px -8px 8px 12px;
+    border: 0;
+    border-radius: 50%;
+    background: #eef1f4;
+    color: #202b36;
+    font-size: 25px;
+    line-height: 1;
+    cursor: pointer;
+}
+
+/* Image first, product details underneath — simple original style */
+.hpm-modal-layout {
+    display: block;
+    clear: both;
+    width: 100%;
+}
+
+.hpm-modal-media {
+    display: block;
+    width: 100%;
+    min-width: 0;
+    margin: 0 0 18px;
+}
+
+.hpm-modal-image-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    min-height: 220px;
+    max-height: 390px;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    border: 1px solid #e7ebef;
+    border-radius: 2px;
+    background: #fff;
+    text-align: center;
+    cursor: pointer;
+    appearance: none;
+    -webkit-appearance: none;
+}
+
+.hpm-modal-image-button:hover,
+.hpm-modal-image-button:focus,
+.hpm-modal-image-button:focus-visible {
+    outline: none;
+    box-shadow: none;
+}
+
+.hpm-modal-main-image {
+    display: block;
+    width: auto;
+    height: auto;
+    max-width: 100%;
+    max-height: 388px;
+    margin: 0 auto;
+    object-fit: contain;
+    object-position: center;
+    border: 0;
+    border-radius: 0;
+    background: #fff;
+}
+
+/* No hover text, icon, overlay or cursor-zoom styling */
+.hpm-image-zoom-hint {
+    display: none !important;
+}
+
+/* Product text keeps the original straightforward styling */
+.hpm-modal-details {
+    display: block;
+    width: 100%;
+    clear: both;
+}
+
+.hpm-modal-category {
+    display: block;
+    margin: 0 0 7px;
+    color: #34445d;
+    font-size: 15px;
+    line-height: 1.5;
+}
+
+.hpm-modal-details h2 {
+    margin: 0 0 18px;
+    padding: 0;
+    color: #202b36;
+    font-size: clamp(27px, 3.2vw, 42px);
+    line-height: 1.2;
+    font-weight: 600;
+}
+
+.hpm-modal-short-description,
+.hpm-modal-description p,
+.hpm-modal-specifications li {
+    color: #34445d;
+    font-size: 15px;
+    line-height: 1.75;
+}
+
+.hpm-modal-description h3,
+.hpm-modal-specifications h3 {
+    margin: 28px 0 12px;
+    color: #202b36;
+    font-size: clamp(22px, 2.5vw, 30px);
+    line-height: 1.25;
+    font-weight: 600;
+}
+
+.hpm-modal-specifications ul {
+    margin: 0;
+    padding-left: 20px;
+}
+
+.hpm-modal-specifications li {
+    margin-bottom: 5px;
+}
+
+.hpm-modal-whatsapp {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    margin-top: 18px;
+    padding: 12px 18px;
+    border-radius: 4px;
+    background: #20a65a;
+    color: #fff !important;
+    font-weight: 700;
+    text-decoration: none !important;
+}
+
+/* Full-size image viewer: image + close button only */
+.hpm-image-lightbox {
+    position: fixed;
+    inset: 0;
+    z-index: 100000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 58px 24px 24px;
+    background: rgba(5, 10, 17, .96);
+}
+
+.hpm-lightbox-stage {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+.hpm-lightbox-image {
+    display: block;
+    width: auto;
+    height: auto;
+    max-width: 96vw;
+    max-height: 88vh;
+    object-fit: contain;
+    object-position: center;
+    margin: auto;
+    border: 0;
+    background: transparent;
+    user-select: none;
+    -webkit-user-drag: none;
+    cursor: default;
+    transform-origin: center center;
+}
+
+.hpm-lightbox-image.is-zoomed {
+    cursor: grab;
+}
+
+.hpm-lightbox-image.is-zoomed:active {
+    cursor: grabbing;
+}
+
+/* Hide any legacy control/help elements if present */
+.hpm-lightbox-toolbar,
+.hpm-lightbox-hint,
+.hpm-lightbox-tools,
+.hpm-lightbox-help {
+    display: none !important;
+}
+
+.hpm-lightbox-close {
+    position: absolute;
+    top: 16px;
+    right: 20px;
+    z-index: 2;
+    display: grid;
+    place-items: center;
+    width: 42px;
+    height: 42px;
+    padding: 0;
+    border: 1px solid rgba(255,255,255,.3);
+    border-radius: 50%;
+    background: rgba(255,255,255,.12);
+    color: #fff;
+    font-size: 28px;
+    line-height: 1;
+    cursor: pointer;
+}
+
+.hpm-lightbox-close:hover {
+    background: #ff5a00;
+    border-color: #ff5a00;
+}
+
+@media (max-width: 767px) {
+    .hpm-modal {
+        padding: 8px;
+    }
+
+    .hpm-modal-panel {
+        width: calc(100vw - 16px);
+        max-height: calc(100vh - 16px);
+        padding: 15px;
+        border-radius: 8px;
+    }
+
+    .hpm-modal-image-button {
+        min-height: 180px;
+        max-height: 300px;
+    }
+
+    .hpm-modal-main-image {
+        max-height: 298px;
+    }
+
+    .hpm-modal-details h2 {
+        font-size: 27px;
+    }
+
+    .hpm-modal-short-description,
+    .hpm-modal-description p,
+    .hpm-modal-specifications li {
+        font-size: 14px;
+    }
+
+    .hpm-image-lightbox {
+        padding: 58px 10px 12px;
+    }
+
+    .hpm-lightbox-image {
+        max-width: 98vw;
+        max-height: 86vh;
+    }
+
+    .hpm-lightbox-close {
+        top: 10px;
+        right: 12px;
+        width: 38px;
+        height: 38px;
+    }
+}
+}
+
+/* Optional product media: render only when an admin has supplied the files. */
+.hpm-optional-media {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+  margin-top: 22px;
+}
+.hpm-optional-media .hpm-optional-image {
+  display: flex;
+  flex-direction: column;
+  gap: 9px;
+  width: 100%;
+  min-width: 0;
+  padding: 10px;
+  border: 1px solid #e4e9ef;
+  border-radius: 10px;
+  background: #f7f8fa;
+  color: #202b36;
+  cursor: zoom-in;
+  text-align: center;
+  font: inherit;
+  font-weight: 700;
+}
+.hpm-optional-media .hpm-optional-image img {
+  display: block;
+  width: 100%;
+  height: clamp(110px, 15vw, 180px);
+  object-fit: contain;
+  border-radius: 6px;
+  background: #fff;
+}
+.hpm-optional-media .hpm-optional-image span { color: #f05a00; font-size: 14px; }
+.hpm-product-video { margin-top: 26px; }
+.hpm-product-video h3 { margin-bottom: 12px; color: #202b36; font-size: 20px; }
+.hpm-video-frame { aspect-ratio: 16 / 9; }
+@media (max-width: 520px) {
+  .hpm-optional-media { gap: 9px; }
+  .hpm-optional-media .hpm-optional-image { padding: 7px; }
+  .hpm-optional-media .hpm-optional-image img { height: 105px; }
+}
+
+/* Keep the approved two-column product detail layout on desktop. */
+@media (min-width: 900px) {
+  .hpm-modal-layout {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1.08fr);
+    align-items: start;
+    gap: clamp(24px, 3vw, 44px);
+  }
+  .hpm-modal-media {
+    margin: 0;
+  }
+  .hpm-modal-details {
+    min-width: 0;
+    padding-top: 2px;
+  }
+}
+@media (max-width: 899px) {
+  .hpm-modal-layout {
+    display: flex;
+    flex-direction: column;
+    gap: 22px;
+  }
+  .hpm-modal-media,
+  .hpm-modal-details {
+    width: 100%;
+  }
+}
+
+/* ==========================================
+   HPM PRODUCT MODAL - WHATSAPP CTA BUTTON
+========================================== */
+
+.hpm-modal .hpm-modal-whatsapp,
+.hpm-modal .hpm-product-whatsapp {
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 10px !important;
+
+    width: fit-content;
+    min-width: 240px;
+    min-height: 52px;
+
+    margin: 22px 0 8px !important;
+    padding: 14px 24px !important;
+
+    background: #20a65a !important;
+    border: 1px solid #20a65a !important;
+    border-radius: 6px !important;
+
+    color: #ffffff !important;
+    font-family: inherit;
+    font-size: 15px !important;
+    font-weight: 700 !important;
+    line-height: 1.4 !important;
+    text-align: center;
+    text-decoration: none !important;
+    white-space: nowrap;
+
+    box-shadow: 0 4px 12px rgba(32, 166, 90, 0.14);
+    cursor: pointer;
+
+    transition:
+        background-color .25s ease,
+        border-color .25s ease,
+        box-shadow .25s ease,
+        transform .25s ease;
+}
+
+/* WhatsApp icon */
+.hpm-modal .hpm-modal-whatsapp i,
+.hpm-modal .hpm-product-whatsapp i {
+    display: inline-block;
+    color: #ffffff !important;
+    font-size: 19px !important;
+    line-height: 1;
+}
+
+/* Hover effect */
+.hpm-modal .hpm-modal-whatsapp:hover,
+.hpm-modal .hpm-product-whatsapp:hover {
+    background: #168749 !important;
+    border-color: #168749 !important;
+    color: #ffffff !important;
+    text-decoration: none !important;
+    box-shadow: 0 7px 18px rgba(32, 166, 90, 0.23);
+    transform: translateY(-2px);
+}
+
+/* Keyboard accessibility */
+.hpm-modal .hpm-modal-whatsapp:focus-visible,
+.hpm-modal .hpm-product-whatsapp:focus-visible {
+    outline: 3px solid rgba(32, 166, 90, 0.3);
+    outline-offset: 3px;
+}
+
+/* Mobile responsive */
+@media (max-width: 575px) {
+    .hpm-modal .hpm-modal-whatsapp,
+    .hpm-modal .hpm-product-whatsapp {
+        display: flex !important;
+        width: 100%;
+        min-width: 0;
+        min-height: 50px;
+        margin-top: 18px !important;
+        padding: 13px 18px !important;
+        font-size: 14px !important;
+    }
+}
+
+
+/* ==========================================
+   HPM PRODUCT MODAL - BRAND HEADING COLORS
+========================================== */
+
+:root {
+    --hpm-orange: #ff5a00;
+    --hpm-ink: #202b36;
+}
+
+/* Product category */
+.hpm-modal .hpm-modal-category {
+    color: var(--hpm-orange) !important;
+    font-weight: 700;
+}
+
+/* Main product title */
+.hpm-modal .hpm-modal-details h2,
+.hpm-modal .hpm-product-detail-copy h2 {
+    color: var(--hpm-ink) !important;
+    font-weight: 700;
+}
+
+/* Description heading */
+.hpm-modal .hpm-modal-description h3,
+.hpm-modal .hpm-product-detail-copy h3 {
+    color: var(--hpm-orange) !important;
+    font-weight: 700;
+}
+
+/* Specifications heading */
+.hpm-modal .hpm-modal-specifications h3 {
+    color: var(--hpm-orange) !important;
+    font-weight: 700;
+}
+
+/* Product video heading */
+.hpm-modal .hpm-product-video h3 {
+    color: var(--hpm-orange) !important;
+    font-weight: 700;
+}
+
+/* Optional Before / After labels */
+.hpm-modal .hpm-optional-image span {
+    color: var(--hpm-orange) !important;
+}
+
+/* Keep body content in secondary text shade */
+.hpm-modal .hpm-modal-short-description,
+.hpm-modal .hpm-modal-description p,
+.hpm-modal .hpm-modal-specifications li {
+    color: var(--hpm-ink) !important;
+}
+
+
+/* =========================================================
+   HPM SPECIFICATIONS — FORCE VISIBLE BULLETS IN PRODUCT POPUP
+   Keep this block at the VERY END of hpm-product-viewer.css.
+   The theme stylesheet resets list markers globally, so use
+   a controlled bullet while retaining a real semantic UL.
+========================================================= */
+.hpm-modal .hpm-modal-specifications {
+    display: block !important;
+    width: 100% !important;
+    margin: 24px 0 0 !important;
+    text-align: left !important;
+}
+
+.hpm-modal .hpm-modal-specifications h3 {
+    display: table !important;
+    width: auto !important;
+    margin: 0 0 16px !important;
+    padding: 0 0 7px !important;
+    border: 0 !important;
+    border-bottom: 1px solid #ff5a00 !important;
+    color: #ff5a00 !important;
+    font-size: 25px !important;
+    font-weight: 500 !important;
+    line-height: 1.3 !important;
+    text-align: left !important;
+}
+
+.hpm-modal .hpm-modal-specifications ul.hpm-specification-list {
+    display: block !important;
+    list-style: none !important;
+    margin: 0 !important;
+    padding: 0 0 0 20px !important;
+    text-align: left !important;
+}
+
+.hpm-modal .hpm-modal-specifications ul.hpm-specification-list > li {
+    display: block !important;
+    position: relative !important;
+    list-style: none !important;
+    margin: 0 0 5px !important;
+    padding: 0 0 0 1px !important;
+    color: #343a40 !important;
+    font-size: 16px !important;
+    font-weight: 400 !important;
+    line-height: 1.65 !important;
+    text-align: left !important;
+}
+
+.hpm-modal .hpm-modal-specifications ul.hpm-specification-list > li::before {
+    content: "" !important;
+    position: absolute !important;
+    left: -19px !important;
+    top: .68em !important;
+    width: 7px !important;
+    height: 7px !important;
+    border-radius: 50% !important;
+    background: #343a40 !important;
+    transform: translateY(-50%) !important;
+}
+
+@media (max-width: 575px) {
+    .hpm-modal .hpm-modal-specifications {
+        margin-top: 20px !important;
+    }
+
+    .hpm-modal .hpm-modal-specifications h3 {
+        font-size: 22px !important;
+        margin-bottom: 12px !important;
+    }
+
+    .hpm-modal .hpm-modal-specifications ul.hpm-specification-list {
+        padding-left: 19px !important;
+    }
+
+    .hpm-modal .hpm-modal-specifications ul.hpm-specification-list > li {
+        font-size: 14px !important;
+        line-height: 1.65 !important;
+    }
+}
