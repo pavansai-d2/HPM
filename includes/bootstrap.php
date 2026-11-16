@@ -6,25 +6,32 @@ declare(strict_types=1);
 // --------------------------------------------------
 // 1. SESSION CONFIGURATION
 // --------------------------------------------------
-if (session_status() === PHP_SESSION_DISABLED) {
-    error_log('[HPM Session] PHP sessions are disabled.');
-    http_response_code(500);
-    exit('Session service is unavailable. Check the PHP configuration.');
-}
+// Public visitor pages (products.php, api/*.php, contact-submit.php) define
+// HPM_PUBLIC before including this file. They do not need a PHP session, and
+// skipping it makes them faster (no session file lock, no Set-Cookie header,
+// and the response is allowed to be cached/revalidated by the browser).
+// Admin pages never define HPM_PUBLIC, so they keep their secure session.
+if (!defined('HPM_PUBLIC')) {
+    if (session_status() === PHP_SESSION_DISABLED) {
+        error_log('[HPM Session] PHP sessions are disabled.');
+        http_response_code(500);
+        exit('Session service is unavailable. Check the PHP configuration.');
+    }
 
-if (session_status() === PHP_SESSION_NONE) {
-    session_name('HPM_ADMIN_SESSION');
+    if (session_status() === PHP_SESSION_NONE) {
+        session_name('HPM_ADMIN_SESSION');
 
-    session_set_cookie_params([
-        'lifetime' => 0,
-        'path' => '/',
-        'secure' => !empty($_SERVER['HTTPS'])
-            && $_SERVER['HTTPS'] !== 'off',
-        'httponly' => true,
-        'samesite' => 'Lax',
-    ]);
+        session_set_cookie_params([
+            'lifetime' => 0,
+            'path' => '/',
+            'secure' => !empty($_SERVER['HTTPS'])
+                && $_SERVER['HTTPS'] !== 'off',
+            'httponly' => true,
+            'samesite' => 'Lax',
+        ]);
 
-    session_start();
+        session_start();
+    }
 }
 
 // --------------------------------------------------
@@ -142,6 +149,98 @@ function e(mixed $value): string
         ENT_QUOTES | ENT_SUBSTITUTE,
         'UTF-8'
     );
+}
+
+// --------------------------------------------------
+// 6b. ADMIN FLASH MESSAGES (success / error popups)
+// --------------------------------------------------
+// flash_set() stores one message in the session; the next admin page shows it
+// once as a popup (see admin/flash-popup.php) and then forgets it, so a page
+// refresh never repeats an old message.
+function flash_set(string $type, string $message): void
+{
+    if (session_status() !== PHP_SESSION_ACTIVE) {
+        return;
+    }
+    $_SESSION['hpm_flash'] = [
+        'type' => $type === 'error' ? 'error' : 'success',
+        'message' => $message,
+    ];
+}
+
+function flash_pull(): ?array
+{
+    if (session_status() !== PHP_SESSION_ACTIVE || empty($_SESSION['hpm_flash'])) {
+        return null;
+    }
+    $flash = $_SESSION['hpm_flash'];
+    unset($_SESSION['hpm_flash']);
+    return is_array($flash) ? $flash : null;
+}
+
+// --------------------------------------------------
+// 6c. VISITOR IP ADDRESS (used by the contact form rate limiter)
+// --------------------------------------------------
+// REMOTE_ADDR is trusted by default. Forwarded headers (Cloudflare / load
+// balancer) are only trusted when the direct connection comes from a private
+// or reserved address, so a visitor cannot fake their IP to dodge the limit.
+function hpm_client_ip(): string
+{
+    $remote = (string) ($_SERVER['REMOTE_ADDR'] ?? '');
+    $isPublic = filter_var(
+        $remote,
+        FILTER_VALIDATE_IP,
+        FILTER_FLAG_NO_PRIV_RANGE | FILTER_FLAG_NO_RES_RANGE
+    ) !== false;
+
+    if ($isPublic || $remote === '') {
+        return $remote;
+    }
+
+    foreach (['HTTP_CF_CONNECTING_IP', 'HTTP_X_REAL_IP', 'HTTP_X_FORWARDED_FOR'] as $header) {
+        if (empty($_SERVER[$header])) {
+            continue;
+        }
+        foreach (explode(',', (string) $_SERVER[$header]) as $candidate) {
+            $candidate = trim($candidate);
+            if (filter_var($candidate, FILTER_VALIDATE_IP, FILTER_FLAG_NO_PRIV_RANGE | FILTER_FLAG_NO_RES_RANGE)) {
+                return $candidate;
+            }
+        }
+    }
+
+    return $remote;
+}
+
+// --------------------------------------------------
+// 6d. CONDITIONAL GET (fast, always-fresh public pages / APIs)
+// --------------------------------------------------
+// Sends the response with an ETag. The browser re-checks with the server on
+// every visit (so admin changes appear immediately), but when nothing changed
+// the server answers "304 Not Modified" with no body, which is much faster.
+function hpm_send_with_etag(string $body, string $contentType): never
+{
+    $etag = '"' . md5($body) . '"';
+    header('Content-Type: ' . $contentType);
+    header('Cache-Control: no-cache, must-revalidate');
+    header('ETag: ' . $etag);
+    header('Vary: Accept-Encoding');
+
+    $ifNoneMatch = (string) ($_SERVER['HTTP_IF_NONE_MATCH'] ?? '');
+    if ($ifNoneMatch !== '') {
+        foreach (explode(',', $ifNoneMatch) as $candidate) {
+            // Apache's gzip module may append "-gzip" to the ETag; ignore it.
+            $candidate = preg_replace('/^W\//', '', trim($candidate)) ?? '';
+            $candidate = preg_replace('/-(gzip|br)"$/', '"', $candidate) ?? '';
+            if ($candidate === $etag) {
+                http_response_code(304);
+                exit;
+            }
+        }
+    }
+
+    echo $body;
+    exit;
 }
 
 // --------------------------------------------------

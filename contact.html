@@ -24,22 +24,17 @@
   </noscript>
 
   <!-- fontawesome css -->
-  <link rel="preload" href="assets/css/plugins/fontawesome.css" as="style" onload="this.rel='stylesheet'">
-  <link rel="preload" href="assets/css/plugins/swiper.css" as="style" onload="this.rel='stylesheet'">
-  <!-- <link rel="preload" href="assets/css/plugins/aos.css" as="style" onload="this.rel='stylesheet'"> -->
-  <link rel="preload" href="assets/css/plugins/unicons.css" as="style" onload="this.rel='stylesheet'">
-  <link rel="preload" href="assets/css/plugins/metismenu.css" as="style" onload="this.rel='stylesheet'">
-  <link rel="preload" href="assets/css/plugins/magnific-popup.css" as="style" onload="this.rel='stylesheet'">
-  <link rel="preload" href="assets/css/plugins/hover-revel.css" as="style" onload="this.rel='stylesheet'">
-  <link rel="preload" href="assets/css/plugins/timepickers.min.css" as="style" onload="this.rel='stylesheet'">
-  <link rel="preload" href="assets/css/plugins/odometer.css" as="style" onload="this.rel='stylesheet'">
+  <link rel="preload" href="assets/css/plugins/fontawesome.css?v=20261117" as="style" onload="this.rel='stylesheet'">
+  <link rel="preload" href="assets/css/plugins/swiper.css?v=20261117" as="style" onload="this.rel='stylesheet'">
+  <link rel="preload" href="assets/css/plugins/metismenu.css?v=20261117" as="style" onload="this.rel='stylesheet'">
+  <link rel="preload" href="assets/css/plugins/magnific-popup.css?v=20261117" as="style" onload="this.rel='stylesheet'">
+  <link rel="preload" href="assets/css/plugins/odometer.css?v=20261117" as="style" onload="this.rel='stylesheet'">
   <!-- bootstrap css -->
-  <link rel="preload" href="assets/css/vendor/bootstrap.min.css" as="style" onload="this.rel='stylesheet'">
-  <link rel="preload" as="image" href="assets/images/before-after/before.webp">
+  <link rel="preload" href="assets/css/vendor/bootstrap.min.css?v=20261117" as="style" onload="this.rel='stylesheet'">
 
   <style>
     .slider-img-seven {
-      background: url(../images/banner/12.webp);
+      background: none;
     }
   </style>
 
@@ -66,16 +61,16 @@
   </style>
 
   <!-- main css -->
-  <link rel="stylesheet" href="assets/css/style.css">
-  <link rel="stylesheet" href="assets/css/hpm-navigation-responsive.css" />
-  <link rel="stylesheet" href="assets/css/hpm-contact-captcha.css" />
-  <link rel="stylesheet" href="assets/css/hpm-navigation-breadcrumb-overrides.css">
+  <link rel="stylesheet" href="assets/css/style.css?v=20261117">
+  <link rel="stylesheet" href="assets/css/hpm-navigation-responsive.css?v=20261117" />
+  <link rel="stylesheet" href="assets/css/hpm-contact-captcha.css?v=20261117" />
+  <link rel="stylesheet" href="assets/css/hpm-navigation-breadcrumb-overrides.css?v=20261117">
   <meta name="robots" content="index,follow,max-image-preview:large">
-  <link rel="stylesheet" href="assets/css/hpm-site-polish.css">
-  <link rel="stylesheet" href="assets/css/hpm-final-responsive-fix.css?v=20261115-dynamic-categories" />
-  <link rel="stylesheet" href="assets/css/hpm-contact-popup.css">
-<link rel="stylesheet" href="assets/css/hpm-desktop-menu-fix.css" />
-  <link rel="stylesheet" href="assets/css/hpm-performance-design.css">
+  <link rel="stylesheet" href="assets/css/hpm-site-polish.css?v=20261117">
+  <link rel="stylesheet" href="assets/css/hpm-final-responsive-fix.css?v=20261117" />
+  <link rel="stylesheet" href="assets/css/hpm-contact-popup.css?v=20261117">
+<link rel="stylesheet" href="assets/css/hpm-desktop-menu-fix.css?v=20261117" />
+  <link rel="stylesheet" href="assets/css/hpm-performance-design.css?v=20261117">
 </head>
 
 <body class="home-inner home-green">
@@ -345,8 +340,8 @@
 
           <!-- Contact Form -->
           <div class="col-lg-6" data-sal="slide-left" data-sal-duration="800" data-sal-delay="200">
-            <div class="contact-form-area">
-              <form action="contact-submit.php" method="POST">
+            <div class="contact-form-area" id="contact-form-area">
+              <form action="contact-submit.php" method="POST" id="hpmContactForm">
                 <h3 class="title">Request a Pallet Machinery Quote</h3>
 
                 <p class="desc">
@@ -354,10 +349,10 @@
                   are looking for. Our team can review your enquiry and
                   respond by email.
                 </p>
-                <!-- Honeypot: leave empty -->
-                <div style="display: none" aria-hidden="true">
-                  <label for="hpm_website"> Leave this field empty </label>
-                  <input type="text" name="_honey" id="hpm_website" tabindex="-1" autocomplete="off" />
+                <!-- Honeypot: invisible to people, filled in by bots. Checked on the server. -->
+                <div class="hpm-hp-field" aria-hidden="true">
+                  <label for="hpm_website">Leave this field empty</label>
+                  <input type="text" name="_honey" id="hpm_website" tabindex="-1" autocomplete="off" value="" />
                 </div>
 
                 <div class="form-inner">
@@ -537,10 +532,10 @@
       <!-- Footer CTA -->
       <!-- <div class="footer-cta-area cta-two">
                 <div class="cta-image-area">
-                    <img loading="lazy" decoding="async" src="assets/images/cta/02.webp" width="390" alt="" />
-                    <img loading="lazy" decoding="async" src="assets/images/cta/cta-round2.svg" alt="" />
-                    <img loading="lazy" decoding="async" src="assets/images/cta/solar1.webp" alt="" />
-                    <img loading="lazy" decoding="async" src="assets/images/cta/solar2.webp" alt="" />
+                    
+                    
+                    
+                    
                 </div>
 
                 <div class="cta-area-inner">
@@ -557,8 +552,8 @@
                 </div>
 
                 <div class="shape-area">
-                    <img loading="lazy" decoding="async" src="assets/images/cta/cta-round.svg" alt="" />
-                    <img loading="lazy" decoding="async" src="assets/images/cta/cta-round.svg" alt="" />
+                    
+                    
                 </div>
             </div> -->
 
@@ -1005,51 +1000,45 @@
   <!-- HPM Floating Contact Actions -->
 
   <!-- jquery js -->
-  <script src="assets/js/plugins/jquery-3.7.1.min.js" defer></script>
+  <script src="assets/js/plugins/jquery-3.7.1.min.js?v=20261117" defer></script>
   <!-- jquery ui -->
 
-  <script src="assets/js/vendor/jqueryui.js" defer></script>
-
   <!-- swiper js -->
-  <script src="assets/js/plugins/swiper.js" defer></script>
+  <script src="assets/js/plugins/swiper.js?v=20261117" defer></script>
   <!-- metismenu js -->
-  <script src="assets/js/plugins/metismenu.js" defer></script>
+  <script src="assets/js/plugins/metismenu.js?v=20261117" defer></script>
   <!-- waypoint js -->
-  <script src="assets/js/vendor/waypoint.js" defer></script>
+  <script src="assets/js/vendor/waypoint.js?v=20261117" defer></script>
   <!-- waw -->
-  <script src="assets/js/vendor/waw.js" defer></script>
+  <script src="assets/js/vendor/waw.js?v=20261117" defer></script>
   <!-- jquery ui js -->
 
   <!-- magnifying ui js -->
-  <script src="assets/js/plugins/magnific-popup.js" defer></script>
+  <script src="assets/js/plugins/magnific-popup.js?v=20261117" defer></script>
   <!-- sal animation -->
-  <script src="assets/js/vendor/sal.min.js" defer></script>
+  <script src="assets/js/vendor/sal.min.js?v=20261117" defer></script>
   <!-- bootstrap JS -->
-  <script src="assets/js/plugins/bootstrap.min.js" defer></script>
+  <script src="assets/js/plugins/bootstrap.min.js?v=20261117" defer></script>
   <!-- contact form js -->
-  <script src="assets/js/plugins/contact-form.js" defer></script>
   <!-- Smooth Scroll js -->
-  <script src="assets/js/plugins/smooth-scroll.js" defer></script>
+  <script src="assets/js/plugins/smooth-scroll.js?v=20261117" defer></script>
 
 
-  <!-- gsap js -->
-  <!-- <script src="assets/js/plugins/gsap.min.js" defer></script>
-    <script src="assets/js/plugins/scrolltigger.js" defer></script>
-    <script src="assets/js/plugins/split-text.js" defer></script> -->
 
 
-  <script src="assets/js/plugins/scroll-paralax.js" defer></script>
+  <script src="assets/js/plugins/scroll-paralax.js?v=20261117" defer></script>
 
   <!-- odometer js -->
-  <script src="assets/js/plugins/odometer.js" defer></script>
+  <script src="assets/js/plugins/odometer.js?v=20261117" defer></script>
   <!-- main js -->
-  <script src="assets/js/main.js" defer></script>
-  <script src="assets/js/hpm-products-navigation.js" defer></script>
+  <script src="assets/js/main.js?v=20261117" defer></script>
+  <script src="assets/js/hpm-products-navigation.js?v=20261117" defer></script>
 
   <!-- header style two End -->
 
   <script>
-    /* HPM contact feedback and CAPTCHA client-side validation */
+    /* HPM contact form: CAPTCHA messages, load reCAPTCHA only when needed,
+       keep typed details if the server asks the visitor to try again. */
     function hpmCaptchaSolved() {
       var error = document.getElementById("hpmCaptchaError");
       if (error) error.hidden = true;
@@ -1068,11 +1057,59 @@
         error.hidden = false;
       }
     }
-    document.addEventListener("DOMContentLoaded", function () {
-      var params = new URLSearchParams(window.location.search);
-      var status = params.get("contact");
-      var form = document.querySelector(".contact-form-area form");
+    (function () {
+      var STORE_KEY = "hpmContactDraft";
+      var form = document.getElementById("hpmContactForm");
       if (!form) return;
+
+      /* Load Google reCAPTCHA only when the visitor reaches the form
+         (keeps the first page load fast). */
+      var captchaLoaded = false;
+      function loadCaptcha() {
+        if (captchaLoaded) return;
+        captchaLoaded = true;
+        var s = document.createElement("script");
+        s.src = "https://www.google.com/recaptcha/api.js";
+        s.async = true;
+        s.defer = true;
+        s.onerror = hpmCaptchaError;
+        document.head.appendChild(s);
+      }
+      if ("IntersectionObserver" in window) {
+        var io = new IntersectionObserver(function (entries) {
+          if (entries.some(function (e) { return e.isIntersecting; })) {
+            loadCaptcha();
+            io.disconnect();
+          }
+        }, { rootMargin: "600px 0px" });
+        io.observe(form);
+      } else {
+        loadCaptcha();
+      }
+      form.addEventListener("focusin", loadCaptcha, { once: true });
+
+      /* Restore details after a server-side "please try again" message. */
+      var status = new URLSearchParams(window.location.search).get("contact");
+      var retry = ["invalid", "captcha", "ratelimit", "error", "captcha_config"];
+      try {
+        if (status && retry.indexOf(status) !== -1) {
+          var saved = JSON.parse(sessionStorage.getItem(STORE_KEY) || "{}");
+          Object.keys(saved).forEach(function (name) {
+            var el = form.elements[name];
+            if (el && name !== "_honey") el.value = saved[name];
+          });
+        } else if (status) {
+          sessionStorage.removeItem(STORE_KEY);
+        }
+      } catch (e) { /* storage unavailable: ignore */ }
+
+      window.addEventListener("pageshow", function (e) {
+        if (!e.persisted) return;
+        var btn = form.querySelector('button[type="submit"]');
+        if (btn) btn.disabled = false;
+        var label = btn && btn.querySelector(".btn-text");
+        if (label) label.textContent = " Send Your Enquiry ";
+      });
 
       form.addEventListener("submit", function (event) {
         var response = window.grecaptcha && window.grecaptcha.getResponse
@@ -1082,17 +1119,33 @@
 
         if (!response) {
           event.preventDefault();
+          loadCaptcha();
           if (error) {
             error.textContent = "Please complete the \"I'm not a robot\" verification.";
             error.hidden = false;
           }
           var captcha = document.querySelector(".hpm-captcha-wrapper");
           if (captcha) captcha.scrollIntoView({ behavior: "smooth", block: "center" });
+          return;
+        }
+
+        /* Remember what was typed (never the CAPTCHA) and stop double clicks. */
+        try {
+          var draft = {};
+          ["name", "email", "company", "phone", "service", "message"].forEach(function (n) {
+            if (form.elements[n]) draft[n] = form.elements[n].value;
+          });
+          sessionStorage.setItem(STORE_KEY, JSON.stringify(draft));
+        } catch (e) { /* ignore */ }
+        var btn = form.querySelector('button[type="submit"]');
+        if (btn) {
+          btn.disabled = true;
+          var label = btn.querySelector(".btn-text");
+          if (label) label.textContent = " Sending... ";
         }
       });
-    });
+    })();
   </script>
-  <script src="https://www.google.com/recaptcha/api.js" async defer></script>
 
   <div class="hpm-contact-modal" id="hpmContactModal" hidden>
     <div class="hpm-contact-modal__backdrop" data-close-contact-modal></div>
@@ -1105,9 +1158,8 @@
       <button class="hpm-contact-modal__button" type="button" data-close-contact-modal>Continue browsing</button>
     </section>
   </div>
-  <script src="assets/js/hpm-contact-popup.js" defer></script>
-  <script src="assets/js/hpm-global-navigation.js?v=20261115-dynamic-categories" defer></script>
-  <script src="assets/js/hpm-site-polish.js" defer></script>
+  <script src="assets/js/hpm-contact-popup.js?v=20261117" defer></script>
+  <script src="assets/js/hpm-global-navigation.js?v=20261117" defer></script>
 </body>
 
 </html>

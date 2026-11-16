@@ -1,39 +1,38 @@
-HPM WEBSITE PERFORMANCE + LIVE FIXES
-=====================================
+HPM UPDATE - DEPLOYMENT NOTES (2026-11-17 build)
 
-1) LIVE DATABASE PASSWORD (REQUIRED BEFORE UPLOAD)
-   Open config/config.php and replace:
-   PASTE_YOUR_CURRENT_GODADDY_DATABASE_PASSWORD_HERE
-   with the current password for the Plesk database user hpm_admin.
-   Do not add spaces around the password. Do not share this file publicly.
+UPLOAD
+ 1. Back up the live site and database.
+ 2. Upload everything in this folder over the live site, EXCEPT keep your live
+    config/config.php (database password + reCAPTCHA secret key).
+ 3. Hard refresh (Ctrl+F5) once. File links carry ?v=20261117 so browsers fetch the new CSS/JS.
 
-   The live database host, database name, username and port have been set
-   from the Plesk screenshots supplied for this task. The password was
-   masked in the screenshot, so it cannot be filled in automatically.
+PRODUCTS MENU = DATABASE (table `categories`)
+ - Desktop, laptop, tablet and mobile menus are all filled from api/categories.php,
+   which reads `categories` WHERE is_active = 1 ORDER BY sort_order, id.
+   Nothing is hard-coded: add, hide, delete or reorder categories in Admin and the
+   menu, the Products page sidebar and the product sections all follow.
+ - New categories are added at the end. Use the ▲ ▼ buttons in Admin > Categories to reorder.
+ - Inactive categories are hidden everywhere on the site. With no active category the
+   menu shows "Products will be updated soon."
+ - Your database export currently has NO rows in `categories` or `products`.
+   Add your categories first in Admin, then add products to them.
+   (If you still see old menu items, hard refresh once; old versions kept a copy in the browser.)
 
-2) DATABASE CONTENT
-   This update does not drop, recreate, or migrate any database tables.
-   Keep your existing Plesk database and its current data.
+OTHER CHANGES
+ - Contact form protection: see HPM-CAPTCHA-SETUP.txt.
+ - Admin popups on add/edit/delete of products and categories.
+ - Speed: unused CSS removed (style.css 966 KB -> ~300 KB, Bootstrap 273 KB -> ~49 KB),
+   icon fonts 1.25 MB -> ~27 KB, unused scripts/plugin CSS removed, missing files no longer
+   requested (they returned 404 on every page), compression + browser caching in .htaccess.
+ - Fixed: Warehouse page image (Warehouse.webp vs warehouse.webp - Linux is case-sensitive).
+ - Removed unused scratch files: testfile.html, contact-success-notice.html and old README files.
 
-3) UPLOAD
-   Upload the CONTENTS of this HPM folder into the domain's httpdocs folder.
-   Back up the current httpdocs folder and database before replacing files.
-   Preserve config/config.php and includes/mail-config.php securely.
+WHEN YOU EDIT CSS/JS LATER
+ - Change the ?v=20261117 number in the HTML files so visitors get the new file.
+ - CSS was trimmed to what the pages use. If you add a NEW template component later, its
+   styles may need restoring; ask and it can be regenerated.
 
-4) CONTACT FORM
-   The thank-you popup appears after the server redirects back with
-   ?contact=success or ?contact=saved. The saved status means the enquiry
-   was stored but the optional email notification may not have sent.
-   CAPTCHA must remain configured with matching site and secret keys.
-
-5) LOCAL DEVELOPMENT
-   This package's config/config.php is configured for the LIVE Plesk
-   database host. Keep a separate local config for XAMPP with localhost,
-   hpm_catalogue, root and your local password.
-
-6) VERIFY AFTER DEPLOYMENT
-   - Open /admin/login.php and test login.
-   - If a database error remains, check Plesk > Websites & Domains >
-     Logs and the PHP error log. The exact error is logged server-side.
-   - Submit a contact test enquiry and confirm it appears in Admin > Enquiries.
-   - Test homepage, products, service pages and mobile navigation.
+SECURITY NOTES
+ - Table `admins` has a `password_plain` column that stores the admin password in clear
+   text. Set it to NULL in phpMyAdmin (UPDATE admins SET password_plain = NULL;) and change
+   the admin password afterwards.

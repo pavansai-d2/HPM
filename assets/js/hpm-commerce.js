@@ -182,6 +182,21 @@
       </section>`;
   };
 
+  const renderGallery = (product) => {
+    const photos = (Array.isArray(product.gallery) ? product.gallery : [])
+      .map((photo) => ({ path: resolveImagePath(photo && photo.path), alt: String((photo && photo.alt) || "").trim() }))
+      .filter((photo) => photo.path);
+    if (!photos.length) return "";
+    return `
+      <section class="hpm-optional-media hpm-gallery-media" aria-label="More photos of ${escapeHTML(product.name || "this machine")}">
+        ${photos.map((photo, index) => `
+          <button class="hpm-optional-image" type="button" data-open-image="${escapeHTML(photo.path)}" data-image-alt="${escapeHTML(photo.alt || product.name || "HPM machinery")}" aria-label="View photo ${index + 1}">
+            <img loading="lazy" src="${escapeHTML(photo.path)}" alt="${escapeHTML(photo.alt || product.name || "HPM machinery")}">
+            <span>Photo ${index + 1}</span>
+          </button>`).join("")}
+      </section>`;
+  };
+
   const renderProductVideo = (value) => {
     const raw = String(value ?? "").trim();
     if (!raw) return "";
@@ -253,6 +268,7 @@
         <div class="hpm-modal-media">
           ${imageMarkup}
           ${renderOptionalImages(product)}
+          ${renderGallery(product)}
         </div>
 
         <div class="hpm-modal-details">
@@ -285,7 +301,7 @@
 
     const mainImage = modalContent.querySelector(".hpm-modal-main-image");
     mainImage?.addEventListener("error", () => {
-      imageButton?.remove();
+      mainImage.closest("button")?.remove();
       const placeholder = document.createElement("div");
       placeholder.className = "hpm-modal-image-placeholder";
       placeholder.textContent = "Product image could not be loaded";

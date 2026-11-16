@@ -1,39 +1,37 @@
-HPM - HERO SLIDER NAVIGATION AND CONTACT CAPTCHA
+HPM - CONTACT FORM PROTECTION (reCAPTCHA + anti-spam)
 
-1. HERO SLIDER
-- Homepage index.html includes previous/next arrow controls.
-- assets/js/main.js connects those controls to the existing Swiper instance.
-- assets/css/hpm-hero-responsive.css styles and positions the controls.
-- Existing slides, autoplay, and pagination are retained.
+WHAT PROTECTS THE FORM (all server-side in contact-submit.php)
+ 1. Google reCAPTCHA v2 checkbox, verified on the server with Google.
+    Missing/forged/expired token, wrong hostname, or Google unreachable = enquiry
+    is NOT saved and NOT emailed (fails closed).
+ 2. Honeypot field (hidden from people). Bots that fill it get a fake "success"
+    and nothing is saved.
+ 3. Rate limit per IP: 5 per 10 minutes, 20 per day. Change in config/config.php:
+      'contact_limit_10min' => 5,
+      'contact_limit_day'   => 20,
+ 4. Field validation (name, email, phone, message length, no HTML in name fields,
+    header-injection safe) and same-site Origin check.
+ 5. Spam scoring: many links, mostly-links, script/HTML, BBCode, promo keywords
+    (SEO/backlinks etc.), repetition. It looks at content only - never language or
+    country - so genuine enquiries in Arabic, Japanese, Russian etc. pass.
+    Suspected spam is saved to the Spam tab (never emailed).
+ 6. Duplicate protection: identical resubmission is saved only once.
 
-2. GOOGLE reCAPTCHA v2 CHECKBOX SETUP (REQUIRED BEFORE LIVE USE)
-The contact form uses Google reCAPTCHA v2 ("I'm not a robot" checkbox).
-Register the domain in the Google reCAPTCHA Admin Console and select:
-reCAPTCHA v2 -> "I'm not a robot" Checkbox.
+ADMIN (admin/enquiries.php)
+ - Inbox and Spam tabs, with counts. Mark as Spam / Not spam / Delete / Delete all spam.
+ - Messages are shown as escaped plain text; no HTML runs, no external images load.
+ - A strict Content-Security-Policy is sent on the page.
 
-Then:
-A. In contact.html, replace YOUR_RECAPTCHA_V2_SITE_KEY in the data-sitekey
-   attribute with your actual SITE KEY.
+SETUP
+ - Site key is in contact.html (data-sitekey) and secret key in config/config.php.
+   Keep your LIVE config/config.php (database password + secret key); do not overwrite
+   it with a different copy.
+ - Domain(s) must be registered for the key in the Google reCAPTCHA console
+   (haripalletmachinery.com and www.).
+ - Database columns/table are created automatically on first use.
+   database/2026-11-enquiry-spam-protection.sql is a manual equivalent if needed.
+ - Without SMTP/PHPMailer configured, the notification uses PHP mail(); the From
+   address must be a real mailbox on your domain.
 
-B. In config/config.php, replace YOUR_RECAPTCHA_V2_SECRET_KEY with your
-   actual SECRET KEY.
-
-C. Never place the secret key in HTML, JavaScript, GitHub, or public files.
-   Keep config/config.php private and outside public version control where possible.
-
-D. Register haripalletmachinery.com and www.haripalletmachinery.com if both
-   hostnames are used. Register localhost separately for local development.
-
-3. SERVER REQUIREMENTS
-- PHP cURL is recommended; allow_url_fopen is supported as a fallback.
-- Outbound HTTPS access to www.google.com must be allowed.
-- Existing database and SMTP configuration is preserved.
-- The backend fails closed if the secret key is missing or verification fails.
-  The enquiry is not inserted or emailed without successful CAPTCHA validation.
-
-4. TEST
-- Test on a PHP server, not by opening the HTML file directly.
-- Submit with CAPTCHA unchecked: submission must be blocked.
-- Submit with CAPTCHA checked: the enquiry should be saved and the existing
-  email notification workflow should run.
-- Repeat the test on production after adding production keys.
+NOTE
+ - The "thank you" is the popup shown on contact.html after a successful send.

@@ -39,7 +39,7 @@ if ($id > 0) {
 $categories = $pdo->query(
     'SELECT id, name FROM categories
      WHERE is_active = 1 OR id = ' . (int)($p['category_id'] ?? 0) . '
-     ORDER BY sort_order, name'
+     ORDER BY sort_order, id'
 )->fetchAll(PDO::FETCH_ASSOC);
 
 $gallery = [];
@@ -64,14 +64,121 @@ function hpm_product_slugify(string $value): string
 }
 
 /**
+ * Shrinks a big phone/camera photo before it is stored, so product pages load
+ * fast on mobile data: longest side limited to 1600 px, saved as WebP (or JPEG
+ * when WebP is unavailable). Returns the new file name, or null when GD is not
+ * available / anything goes wrong - the caller then stores the original upload.
+ */
+function hpm_product_optimize_image(string $tmpPath, string $mime, string $uploadDir): ?string
+{
+    try {
+        if (!function_exists('imagecreatetruecolor') || !function_exists('imagecopyresampled')) {
+            return null;
+        }
+
+        $info = @getimagesize($tmpPath);
+        if (!$info || empty($info[0]) || empty($info[1])) {
+            return null;
+        }
+        [$width, $height] = [(int)$info[0], (int)$info[1]];
+        // Very large pixel counts could exhaust server memory: keep the original.
+        if ($width * $height > 40_000_000) {
+            return null;
+        }
+
+        $source = match ($mime) {
+            'image/jpeg' => function_exists('imagecreatefromjpeg') ? @imagecreatefromjpeg($tmpPath) : false,
+            'image/png'  => function_exists('imagecreatefrompng') ? @imagecreatefrompng($tmpPath) : false,
+            'image/webp' => function_exists('imagecreatefromwebp') ? @imagecreatefromwebp($tmpPath) : false,
+            default      => false,
+        };
+        if (!$source) {
+            return null;
+        }
+
+        // Respect the camera's rotation flag so photos are not saved sideways.
+        if ($mime === 'image/jpeg' && function_exists('exif_read_data') && function_exists('imagerotate')) {
+            $exif = @exif_read_data($tmpPath);
+            $orientation = (int)($exif['Orientation'] ?? 1);
+            $angle = [3 => 180, 6 => -90, 8 => 90][$orientation] ?? 0;
+            if ($angle !== 0) {
+                $rotated = @imagerotate($source, $angle, 0);
+                if ($rotated) {
+                    imagedestroy($source);
+                    $source = $rotated;
+                    $width = imagesx($source);
+                    $height = imagesy($source);
+                }
+            }
+        }
+
+        $maxSide = 1600;
+        $longest = max($width, $height);
+        $resized = $longest > $maxSide;
+        if ($resized) {
+            $scale = $maxSide / $longest;
+            $newW = max(1, (int)round($width * $scale));
+            $newH = max(1, (int)round($height * $scale));
+        } else {
+            [$newW, $newH] = [$width, $height];
+        }
+
+        $canvas = imagecreatetruecolor($newW, $newH);
+        imagealphablending($canvas, false);
+        imagesavealpha($canvas, true);
+        imagefill($canvas, 0, 0, imagecolorallocatealpha($canvas, 255, 255, 255, 127));
+        imagecopyresampled($canvas, $source, 0, 0, 0, 0, $newW, $newH, $width, $height);
+        imagedestroy($source);
+
+        $useWebp = function_exists('imagewebp');
+        $extension = $useWebp ? 'webp' : 'jpg';
+        $filename = bin2hex(random_bytes(16)) . '.' . $extension;
+        $target = $uploadDir . $filename;
+
+        if ($useWebp) {
+            $saved = imagewebp($canvas, $target, 82);
+        } else {
+            // JPEG has no transparency: flatten onto white.
+            $flat = imagecreatetruecolor($newW, $newH);
+            imagefill($flat, 0, 0, imagecolorallocate($flat, 255, 255, 255));
+            imagecopy($flat, $canvas, 0, 0, 0, 0, $newW, $newH);
+            $saved = imagejpeg($flat, $target, 85);
+            imagedestroy($flat);
+        }
+        imagedestroy($canvas);
+
+        if (!$saved || !is_file($target) || filesize($target) === 0) {
+            @unlink($target);
+            return null;
+        }
+
+        // If re-encoding made a small, already-light image bigger, keep the original.
+        if (!$resized && filesize($target) >= (int)filesize($tmpPath)) {
+            @unlink($target);
+            return null;
+        }
+
+        @chmod($target, 0644);
+        return $filename;
+    } catch (Throwable $exception) {
+        error_log('[HPM Product Image] optimisation skipped: ' . $exception->getMessage());
+        return null;
+    }
+}
+
+/**
  * Save one image in /uploads/products.
  * Returns its relative path, or null when no file was selected.
  */
 function hpm_product_save_image(
     array $file,
     string $label,
-    int $maxBytes = 8_388_608
+    ?int $maxBytes = null
 ): ?string {
+    // Large camera photos are fine when the server can shrink them (GD library);
+    // otherwise keep the original stricter 8 MB limit.
+    $maxBytes ??= function_exists('imagecreatetruecolor') ? 20_971_520 : 8_388_608;
+
     if (!isset($file['error']) || $file['error'] === UPLOAD_ERR_NO_FILE) {
         return null;
     }
@@ -84,7 +191,7 @@ function hpm_product_save_image(
     }
 
     if ((int)($file['size'] ?? 0) > $maxBytes) {
-        throw new RuntimeException('The ' . $label . ' must be 8 MB or smaller.');
+        throw new RuntimeException('The ' . $label . ' must be ' . (int)($maxBytes / 1_048_576) . ' MB or smaller.');
     }
 
     $allowed = [
@@ -107,6 +214,12 @@ function hpm_product_save_image(
         !is_dir($uploadDir)
     ) {
         throw new RuntimeException('Could not create the product upload directory.');
+    }
+
+    // Resize/compress large photos first; falls back to the original file.
+    $optimised = hpm_product_optimize_image($file['tmp_name'], $mime, $uploadDir);
+    if ($optimised !== null) {
+        return 'uploads/products/' . $optimised;
     }
 
     $filename = bin2hex(random_bytes(16)) . '.' . $allowed[$mime];
@@ -140,7 +253,17 @@ function hpm_product_remove_image(?string $relativePath): void
     }
 }
 
-if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+// When the photos are bigger than the server's upload limit PHP discards the whole
+// form (even the security token). Explain that clearly instead of a confusing 403.
+$hpmPostTooLarge = $_SERVER['REQUEST_METHOD'] === 'POST'
+    && !$_POST && !$_FILES
+    && (int)($_SERVER['CONTENT_LENGTH'] ?? 0) > 0;
+if ($hpmPostTooLarge) {
+    $error = 'The selected photos are larger than this server allows ('
+        . ini_get('post_max_size') . ' per save). Choose fewer or smaller photos and try again.';
+}
+
+if ($_SERVER['REQUEST_METHOD'] === 'POST' && !$hpmPostTooLarge) {
     csrf_check();
 
     // Keep existing image paths unless the user uploads a replacement or removes an optional image.
@@ -204,6 +327,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $newUploads = [];
     $galleryUploads = [];
     $removedGalleryPaths = [];
+    $isNewProduct = $id <= 0;
 
     if (!$error) {
         try {
@@ -404,6 +528,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 hpm_product_remove_image($path);
             }
 
+            flash_set(
+                'success',
+                'Product "' . $p['name'] . '" was ' . ($isNewProduct ? 'added' : 'updated') . ' successfully.'
+                . ((int)$p['is_active'] === 1
+                    ? ' It is now visible in its category on the Products page.'
+                    : ' It is saved as Hidden, so it is not shown on the website yet.')
+            );
             header('Location: product-edit.php?id=' . $id . '&saved=1');
             exit;
         } catch (Throwable $exception) {
@@ -424,6 +555,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
 }
 
+/* Validation / save errors are shown as a popup as well as inline. */
+if ($error !== '') {
+    flash_set('error', $error);
+}
+
 function hpm_admin_image_url(?string $path): string
 {
     $path = trim((string)$path);
@@ -442,7 +578,7 @@ function hpm_admin_image_url(?string $path): string
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title><?= $id ? 'Edit' : 'Add' ?> Product | HPM Admin</title>
     <link rel="icon" href="../assets/images/hpm-logo.svg" type="image/svg+xml">
-    <link rel="stylesheet" href="admin.css">
+    <link rel="stylesheet" href="admin.css?v=20261117">
 
     <style>
         .hpm-upload-section {
@@ -596,10 +732,6 @@ function hpm_admin_image_url(?string $path): string
         <p class="editor-intro">
             Manage product information, images, gallery and video shown in the public catalogue.
         </p>
-
-        <?php if (isset($_GET['saved'])): ?>
-            <div class="editor-success" role="status">Product saved successfully.</div>
-        <?php endif; ?>
 
         <?php if ($error): ?>
             <div class="editor-error" role="alert"><?= e($error) ?></div>
@@ -810,5 +942,6 @@ function hpm_admin_image_url(?string $path): string
         <?php endif; ?>
     </section>
 </main>
+<?php require __DIR__ . '/flash-popup.php'; ?>
 </body>
 </html>

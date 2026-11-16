@@ -7,18 +7,76 @@
 
   const categoryApi = new URL("api/categories.php", document.baseURI).toString();
 
+  const CACHE_KEY = "hpmProductCategoriesV2";
+  const CACHE_MAX_AGE_MS = 7 * 24 * 60 * 60 * 1000; // only used to paint the menu instantly
+
+  const readCache = () => {
+    try {
+      const saved = JSON.parse(localStorage.getItem(CACHE_KEY) || "null");
+      if (
+        saved && Array.isArray(saved.categories) && saved.categories.length &&
+        Date.now() - Number(saved.savedAt || 0) < CACHE_MAX_AGE_MS
+      ) {
+        return saved.categories;
+      }
+    } catch (_) { /* storage blocked or corrupt: ignore */ }
+    return null;
+  };
+
+  const writeCache = (categories) => {
+    try {
+      localStorage.setItem(CACHE_KEY, JSON.stringify({ savedAt: Date.now(), categories }));
+    } catch (_) { /* private mode / full: ignore */ }
+  };
+
+  const cleanCategories = (items) =>
+    items
+      .map((c) => ({ name: String((c && c.name) || "").trim(), slug: String((c && c.slug) || "").trim() }))
+      .filter((c) => c.name && c.slug);
+
+  function renderCategoryLists(categories) {
+    const lists = document.querySelectorAll(
+      ".hpm-products-dropdown, .hpm-mobile-product-categories"
+    );
+    lists.forEach((list) => {
+      const fragment = document.createDocumentFragment();
+      categories.forEach((category) => {
+        const li = document.createElement("li");
+        const a = document.createElement("a");
+        a.href = `products.php#category-${encodeURIComponent(category.slug)}`;
+        a.textContent = category.name;
+        li.appendChild(a);
+        fragment.appendChild(li);
+      });
+      if (!categories.length) {
+        const li = document.createElement("li");
+        li.className = "hpm-category-empty";
+        li.textContent = "Products will be updated soon.";
+        fragment.appendChild(li);
+      }
+      list.replaceChildren(fragment);
+    });
+  }
+
   async function loadProductCategories() {
     const lists = document.querySelectorAll(
       ".hpm-products-dropdown, .hpm-mobile-product-categories"
     );
     if (!lists.length) return;
 
+    // 1) Paint the last known categories immediately: no empty/late menu.
+    const cached = readCache();
+    if (cached) renderCategoryLists(cached);
+
+    // 2) Ask the server for the current list. The server answers with a tiny
+    //    "not modified" response when nothing changed, so this is quick, and a
+    //    category added/hidden in the admin panel appears on the next page load.
     try {
       const response = await fetch(categoryApi, {
         method: "GET",
         headers: { Accept: "application/json" },
         credentials: "same-origin",
-        cache: "no-store"
+        cache: "no-cache"
       });
       if (!response.ok) throw new Error(`Category API HTTP ${response.status}`);
 
@@ -27,29 +85,14 @@
         throw new Error("Unexpected categories API response");
       }
 
-      lists.forEach((list) => {
-        list.replaceChildren();
-        data.categories.forEach((category) => {
-          if (!category || !category.name || !category.slug) return;
-          const li = document.createElement("li");
-          const a = document.createElement("a");
-          const slug = String(category.slug).trim();
-          const name = String(category.name).trim();
-          if (!slug || !name) return;
-          a.href = `products.php#category-${encodeURIComponent(slug)}`;
-          a.textContent = name;
-          li.appendChild(a);
-          list.appendChild(li);
-        });
-        if (!list.children.length) {
-          const li = document.createElement("li");
-          li.className = "hpm-category-empty";
-          li.textContent = "Products will be updated soon.";
-          list.appendChild(li);
-        }
-      });
+      const fresh = cleanCategories(data.categories);
+      if (!cached || JSON.stringify(fresh) !== JSON.stringify(cached)) {
+        renderCategoryLists(fresh);
+      }
+      writeCache(fresh);
     } catch (error) {
       console.error("HPM product categories could not be loaded:", error);
+      if (cached) return; // keep showing the last known menu
       lists.forEach((list) => {
         list.replaceChildren();
         const li = document.createElement("li");
