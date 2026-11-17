@@ -52,3 +52,62 @@ function hpm_enquiries_ensure_schema(PDO $pdo): void
         error_log('[HPM Enquiry schema] Could not create enquiry_attempts: ' . $exception->getMessage());
     }
 }
+
+
+/*
+ * HPM catalogue schema helper.
+ *
+ * Makes sure the product media columns and the password-reset table exist, so a
+ * database that was imported from an older export keeps working instead of
+ * failing with "Unknown column 'video_url'". Nothing is ever deleted. When the
+ * columns already exist this costs a single tiny query.
+ * Same result as running database/hpm_hostinger_upgrade.sql by hand.
+ */
+function hpm_catalogue_ensure_schema(PDO $pdo): void
+{
+    static $checked = false;
+    if ($checked) {
+        return;
+    }
+    $checked = true;
+
+    try {
+        $have = $pdo->query('SHOW COLUMNS FROM products')->fetchAll(PDO::FETCH_COLUMN);
+        $wanted = [
+            'before_image' => "ALTER TABLE products ADD COLUMN before_image VARCHAR(255) NULL AFTER image",
+            'after_image'  => "ALTER TABLE products ADD COLUMN after_image VARCHAR(255) NULL AFTER before_image",
+            'video_url'    => "ALTER TABLE products ADD COLUMN video_url VARCHAR(1000) NULL AFTER after_image",
+        ];
+        foreach ($wanted as $column => $sql) {
+            if (!in_array($column, $have, true)) {
+                try {
+                    $pdo->exec($sql);
+                } catch (Throwable $exists) {
+                    error_log('[HPM Schema] products.' . $column . ': ' . $exists->getMessage());
+                }
+            }
+        }
+    } catch (Throwable $exception) {
+        error_log('[HPM Schema] products check failed: ' . $exception->getMessage());
+    }
+
+    try {
+        $pdo->exec(
+            'CREATE TABLE IF NOT EXISTS admin_password_resets (
+                id BIGINT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+                admin_id INT UNSIGNED NOT NULL,
+                token_hash CHAR(64) NOT NULL UNIQUE,
+                expires_at DATETIME NOT NULL,
+                used_at DATETIME NULL DEFAULT NULL,
+                created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+                INDEX idx_admin_password_resets_admin (admin_id),
+                INDEX idx_admin_password_resets_expiry (expires_at),
+                CONSTRAINT fk_admin_password_resets_admin
+                    FOREIGN KEY (admin_id) REFERENCES admins(id)
+                    ON UPDATE CASCADE ON DELETE CASCADE
+            ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci'
+        );
+    } catch (Throwable $exception) {
+        error_log('[HPM Schema] admin_password_resets: ' . $exception->getMessage());
+    }
+}

@@ -30,11 +30,6 @@
         message: "Please complete the CAPTCHA verification and submit your enquiry again.",
         icon: "!", type: "error"
       },
-      ratelimit: {
-        title: "Too many enquiries sent",
-        message: "We have received several submissions from your connection in a short time. Please wait a few minutes and try again, or contact HPM by phone or WhatsApp.",
-        icon: "!", type: "error"
-      },
       captcha_config: {
         title: "Form temporarily unavailable",
         message: "The website verification service is not configured correctly. Please contact HPM by phone or email.",

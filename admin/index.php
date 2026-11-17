@@ -3,17 +3,15 @@
 declare(strict_types=1);
 
 require __DIR__ . '/../includes/bootstrap.php';
-require __DIR__ . '/../includes/enquiry-schema.php';
 admin_required();
 
 $pdo = db();
-hpm_enquiries_ensure_schema($pdo);
 
 $counts = [
     'products'   => (int) $pdo->query('SELECT COUNT(*) FROM products')->fetchColumn(),
     'published'  => (int) $pdo->query('SELECT COUNT(*) FROM products WHERE is_active = 1')->fetchColumn(),
     'categories' => (int) $pdo->query('SELECT COUNT(*) FROM categories')->fetchColumn(),
-    'enquiries'  => (int) $pdo->query('SELECT COUNT(*) FROM enquiries WHERE is_spam = 0')->fetchColumn(),
+    'enquiries'  => (int) $pdo->query('SELECT COUNT(*) FROM enquiries')->fetchColumn(),
 ];
 
 $categories = $pdo->query("
@@ -22,13 +20,12 @@ $categories = $pdo->query("
         c.name,
         c.slug,
         c.is_active,
-        c.sort_order,
         c.created_at,
         COUNT(p.id) AS product_count
     FROM categories c
     LEFT JOIN products p ON p.category_id = c.id
     GROUP BY c.id
-    ORDER BY c.sort_order, c.id
+    ORDER BY c.sort_order, c.name
 ")->fetchAll();
 
 $rows = $pdo->query("
@@ -44,6 +41,11 @@ $rows = $pdo->query("
     LIMIT 50
 ")->fetchAll();
 
+$flash = isset($_GET['saved'])
+    ? 'Changes saved successfully.'
+    : (isset($_GET['deleted']) ? 'Item deleted successfully.' : '');
+
+$error = isset($_GET['error']) ? (string) $_GET['error'] : '';
 ?>
 <!doctype html>
 <html lang="en">
@@ -53,7 +55,7 @@ $rows = $pdo->query("
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>HPM Admin Dashboard | Hari Pallet Machinery</title>
     <link rel="icon" href="../assets/images/hpm-logo.svg" type="image/svg+xml">
-    <link rel="stylesheet" href="admin.css?v=20261117">
+    <link rel="stylesheet" href="admin.css">
 </head>
 
 <body class="hpm-admin">
@@ -137,6 +139,14 @@ $rows = $pdo->query("
                 <!-- The top-right Add product button has intentionally been removed. -->
             </div>
 
+            <?php if ($flash): ?>
+                <div class="notice success"><?= e($flash) ?></div>
+            <?php endif; ?>
+
+            <?php if ($error): ?>
+                <div class="notice error"><?= e($error) ?></div>
+            <?php endif; ?>
+
             <section class="stats-grid">
 
                 <article class="stat-card">
@@ -215,7 +225,7 @@ $rows = $pdo->query("
                                 </tr>
                             <?php endif; ?>
 
-                            <?php foreach ($categories as $catIndex => $cat): ?>
+                            <?php foreach ($categories as $cat): ?>
                                 <tr>
                                     <td>
                                         <strong><?= e($cat['name']) ?></strong>
@@ -228,14 +238,6 @@ $rows = $pdo->query("
                                         </span>
                                     </td>
                                     <td class="actions-cell">
-                                        <?php foreach (['up' => ['▲', 'Move up in menu', $catIndex > 0], 'down' => ['▼', 'Move down in menu', $catIndex < count($categories) - 1]] as $dir => [$glyph, $label, $enabled]): ?>
-                                            <form method="post" action="category-action.php">
-                                                <input type="hidden" name="csrf" value="<?= e(csrf_token()) ?>">
-                                                <input type="hidden" name="id" value="<?= (int) $cat['id'] ?>">
-                                                <input type="hidden" name="action" value="move_<?= $dir ?>">
-                                                <button class="small-btn" type="submit" title="<?= e($label) ?>" aria-label="<?= e($label) ?>" <?= $enabled ? '' : 'disabled' ?>><?= $glyph ?></button>
-                                            </form>
-                                        <?php endforeach; ?>
                                         <form method="post" action="category-action.php">
                                             <input type="hidden" name="csrf" value="<?= e(csrf_token()) ?>">
                                             <input type="hidden" name="id" value="<?= (int) $cat['id'] ?>">
@@ -332,7 +334,6 @@ $rows = $pdo->query("
         </main>
     </div>
 
-<?php require __DIR__ . '/flash-popup.php'; ?>
 </body>
 
 </html>

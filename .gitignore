@@ -1,0 +1,5 @@
+# Server secrets - never commit these
+config/config.php
+includes/mail-config.php
+# One-time diagnostic page
+db-check.php

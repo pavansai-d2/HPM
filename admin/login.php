@@ -225,6 +225,15 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         http_response_code(500);
 
         $error = 'Database error. Check the PHP error log.';
+
+        // TEMPORARY DIAGNOSTICS: set 'debug' => true in config/config.php to see
+        // the exact reason here (wrong password, wrong host, missing column...).
+        // Set it back to false once login works.
+        $debugConfigFile = __DIR__ . '/../config/config.php';
+        $debugConfig = is_file($debugConfigFile) ? require $debugConfigFile : [];
+        if (is_array($debugConfig) && !empty($debugConfig['debug'])) {
+            $error = 'Database error: ' . get_class($exception) . ' - ' . $exception->getMessage();
+        }
     }
 }
 ?>

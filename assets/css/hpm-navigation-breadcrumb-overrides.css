@@ -24,25 +24,12 @@ header.header-seven .mainmenu > li > a:focus-visible {
   color: var(--hpm-nav-hover) !important;
 }
 
-/* Remove permanently orange active class on Products parent. */
-header.header-seven .mainmenu > li.hpm-products-menu.active > a,
-header.header-seven .mainmenu > li.hpm-products-menu > a[aria-current="page"],
-header.header-seven .mainmenu > li.hpm-products-menu > a.is-current {
-  color: var(--hpm-nav-text) !important;
-}
-
 header.header-seven .mainmenu .submenu a {
   color: var(--hpm-nav-text) !important;
 }
 header.header-seven .mainmenu .submenu a:hover,
 header.header-seven .mainmenu .submenu a:focus-visible {
   color: var(--hpm-nav-hover) !important;
-}
-
-/* The category dropdown is populated by hpm-global-navigation.js. */
-.hpm-products-dropdown:empty,
-.hpm-mobile-product-categories:empty {
-  display: none !important;
 }
 
 /* ---------- Mobile drawer controls and menu ---------- */

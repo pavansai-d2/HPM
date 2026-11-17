@@ -14,22 +14,20 @@ csrf_check();
 $id = filter_input(INPUT_POST, 'id', FILTER_VALIDATE_INT);
 
 if (!$id || $id < 1) {
-    flash_set('error', 'Invalid product.');
-    header('Location: index.php#products');
+    header('Location: index.php?error=invalid_product');
     exit;
 }
 
 $pdo = db();
 
 $productStmt = $pdo->prepare(
-    'SELECT name, image, before_image, after_image FROM products WHERE id = ? LIMIT 1'
+    'SELECT image, before_image, after_image FROM products WHERE id = ? LIMIT 1'
 );
 $productStmt->execute([$id]);
 $product = $productStmt->fetch(PDO::FETCH_ASSOC);
 
 if (!$product) {
-    flash_set('error', 'That product no longer exists.');
-    header('Location: index.php#products');
+    header('Location: index.php?error=product_not_found');
     exit;
 }
 
@@ -55,9 +53,8 @@ try {
     }
 
     error_log('[HPM Product Delete] ' . $exception->getMessage());
-    flash_set('error', 'Could not delete the product. Please try again.');
-    header('Location: index.php#products');
-    exit;
+    http_response_code(500);
+    exit('Could not delete the product.');
 }
 
 // Remove only files stored inside /uploads/products after the DB transaction succeeds.
@@ -87,6 +84,5 @@ if ($baseDir !== false) {
     }
 }
 
-flash_set('success', 'Product "' . (string)($product['name'] ?? '') . '" was deleted.');
-header('Location: index.php#products');
+header('Location: index.php?deleted=1');
 exit;

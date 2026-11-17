@@ -1,12 +1,14 @@
 <?php
 declare(strict_types=1);
 
-define('HPM_PUBLIC', true); // no PHP session needed: faster, and cacheable by ETag
+// Public JSON endpoint: no login session required.
+define('HPM_SKIP_SESSION', true);
+
 require __DIR__ . '/../includes/bootstrap.php';
 
 header('Content-Type: application/json; charset=utf-8');
 header('X-Content-Type-Options: nosniff');
-header('Cache-Control: no-cache'); // overridden by the ETag helper on success
+header('Cache-Control: no-store, max-age=0');
 
 $id = filter_input(INPUT_GET, 'id', FILTER_VALIDATE_INT);
 
@@ -63,30 +65,9 @@ try {
         'HPM-' . (int)$product['id']
     );
 
-    // Extra gallery photos uploaded in the admin product editor.
-    $product['gallery'] = [];
-    try {
-        $galleryStmt = db()->prepare(
-            'SELECT image_path, alt_text FROM product_images WHERE product_id = ? ORDER BY sort_order, id'
-        );
-        $galleryStmt->execute([$id]);
-        foreach ($galleryStmt->fetchAll(PDO::FETCH_ASSOC) as $photo) {
-            $path = trim((string)($photo['image_path'] ?? ''));
-            if ($path !== '') {
-                $product['gallery'][] = [
-                    'path' => $path,
-                    'alt' => trim((string)($photo['alt_text'] ?? '')),
-                ];
-            }
-        }
-    } catch (Throwable $galleryError) {
-        // product_images table not created yet: the product still loads.
-        error_log('[HPM Product API] gallery unavailable: ' . $galleryError->getMessage());
-    }
-
-    hpm_send_with_etag(
-        (string) json_encode($product, JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE),
-        'application/json; charset=utf-8'
+    echo json_encode(
+        $product,
+        JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE
     );
 } catch (Throwable $exception) {
     error_log('[HPM Product API] ' . $exception->getMessage());

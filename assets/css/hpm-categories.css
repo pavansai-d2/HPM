@@ -1,0 +1,322 @@
+/*
+ * HPM CATEGORIES - the single stylesheet for product categories.
+ *
+ * Owns every rule for:
+ *   .hpm-products-menu / .hpm-products-dropdown   desktop Products submenu
+ *   .hpm-mobile-product-categories                mobile drawer submenu
+ *   .hpm-catalogue-layout, .hpm-category-nav      products.php sidebar
+ *   .hpm-category-content / -section / -heading / -count / -empty
+ *
+ * These rules used to be duplicated across style.css, hpm-catalogue.css,
+ * hpm-site-polish.css, hpm-navigation-responsive.css,
+ * hpm-navigation-breadcrumb-overrides.css and hpm-final-responsive-fix.css.
+ * They now live here only, in their original cascade order.
+ * Load this file AFTER hpm-final-responsive-fix.css on every public page.
+ */
+
+.hpm-catalogue-layout {
+  width:min(100% - 40px,1440px);
+  margin-inline:auto;
+}
+
+.hpm-catalogue-layout {
+  display:grid;
+  grid-template-columns:245px minmax(0,1fr);
+  gap:40px;
+  padding-top:48px;
+  padding-bottom:85px;
+  align-items:start;
+}
+
+.hpm-category-nav {
+  position:sticky;
+  top:115px;
+  border:1px solid #e8edf2;
+  border-radius:10px;
+  background:#fff;
+  padding:20px 14px;
+  box-shadow:0 7px 25px rgba(18,42,66,.04);
+}
+
+.hpm-category-nav h2 {
+  font-size:16px;
+  color:#17314d;
+  margin:0 8px 14px;
+}
+
+.hpm-category-nav a {
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:8px;
+  padding:12px 10px;
+  border-radius:6px;
+  color:#536174;
+  font-size:13px;
+  line-height:1.45;
+  font-weight:600;
+  border-left:3px solid transparent;
+}
+
+.hpm-category-nav a:hover,
+.hpm-category-nav a.is-current {
+  background:#fff5ed;
+  color:#e66f00;
+  border-left-color:#f47a08;
+}
+
+.hpm-category-nav small {
+  flex:0 0 auto;
+  background:#f0f2f5;
+  color:#748092;
+  border-radius:20px;
+  padding:2px 7px;
+  font-size:10px;
+}
+
+.hpm-category-section {
+  scroll-margin-top:110px;
+  margin-bottom:58px;
+}
+
+.hpm-category-heading {
+  display:flex;
+  justify-content:space-between;
+  align-items:end;
+  gap:15px;
+  border-bottom:1px solid #e7ebef;
+  padding-bottom:15px;
+  margin-bottom:22px;
+}
+
+.hpm-category-heading h2 {
+  font-size:clamp(21px,2.2vw,28px);
+  line-height:1.25;
+  color:#1a3049;
+  margin:6px 0 0;
+  font-weight:700;
+}
+
+.hpm-category-count {
+  font-size:12px;
+  color:#84909d;
+  white-space:nowrap;
+  padding-bottom:3px;
+}
+
+.hpm-category-empty {
+  padding:22px;
+  border:1px solid #e8edf2;
+  background:#f8fafb;
+  border-radius:8px;
+  color:#728091;
+}
+
+@media(max-width:1199px) {
+  .hpm-catalogue-layout {
+    gap:25px;
+    grid-template-columns:220px minmax(0,1fr);
+  }
+}
+
+@media(max-width:767px) {
+  .hpm-catalogue-layout {
+    display:block;
+    padding-top:25px;
+  }
+  .hpm-category-nav {
+    position:static;
+    display:flex;
+    gap:7px;
+    overflow-x:auto;
+    padding:10px;
+    margin-bottom:30px;
+  }
+  .hpm-category-nav h2 {
+    display:none;
+  }
+  .hpm-category-nav a {
+    flex:0 0 auto;
+    border:1px solid #e8edf2;
+    border-radius:6px;
+    padding:9px 11px;
+    max-width:260px;
+  }
+  .hpm-category-nav a.is-current {
+    border-color:#f4bd8e;
+  }
+  .hpm-category-section {
+    scroll-margin-top:20px;
+    margin-bottom:42px;
+  }
+}
+
+@media(max-width:480px) {
+  .hpm-catalogue-layout {
+    width:min(100% - 28px,1440px);
+  }
+  .hpm-category-heading {
+    align-items:flex-start;
+    flex-direction:column;
+    gap:5px;
+  }
+}
+
+.hpm-category-section[hidden] {
+  display: none !important;
+}
+
+.hpm-category-section[hidden] {
+  display: none !important;
+}
+
+.hpm-category-section:not([hidden]) {
+  display: block !important;
+}
+
+.hpm-category-section {
+  width: 100%;
+  min-width: 0;
+}
+
+.hpm-category-nav a.is-current,
+.hpm-category-nav a:hover {
+  color: var(--hpm-secondary) !important;
+}
+
+/* Keep category navigation usable on narrow screens. */
+@media (max-width: 767px) {
+  .hpm-catalogue-layout {
+    display: block !important;
+    width: 100% !important;
+  }
+  .hpm-category-nav {
+    display: flex !important;
+    flex-direction: row !important;
+    gap: 8px !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 0 0 26px !important;
+    padding: 12px !important;
+    overflow-x: auto !important;
+    overflow-y: hidden !important;
+    white-space: normal !important;
+    -webkit-overflow-scrolling: touch;
+  }
+  .hpm-category-nav h2 {
+    display: none !important;
+  }
+  .hpm-category-nav a {
+    flex: 0 0 auto !important;
+    width: auto !important;
+    max-width: 260px !important;
+    min-width: 170px !important;
+    margin: 0 !important;
+    white-space: normal !important;
+  }
+  .hpm-category-content {
+    width: 100% !important;
+    min-width: 0 !important;
+  }
+  .hpm-category-heading {
+    display: flex !important;
+    flex-wrap: wrap !important;
+    align-items: flex-end !important;
+    gap: 8px 18px !important;
+  }
+  .hpm-category-heading h2 {
+    font-size: clamp(22px, 6vw, 30px) !important;
+    line-height: 1.2 !important;
+  }
+}
+
+header.header-seven .mainmenu > li.hpm-products-menu.active > a,
+header.header-seven .mainmenu > li.hpm-products-menu > a[aria-current="page"],
+header.header-seven .mainmenu > li.hpm-products-menu > a.is-current {
+  color: var(--hpm-nav-text) !important;
+}
+
+header.header-seven .mainmenu > li.hpm-products-menu.active > a,
+header.header-seven .mainmenu > li.hpm-products-menu.is-current > a {
+  color: var(--hpm-ink) !important;
+}
+
+.hpm-products-dropdown:empty,
+.hpm-mobile-product-categories:empty {
+  display: none !important;
+}
+
+header.header-seven .mainmenu > li.hpm-products-menu > .hpm-products-dropdown {
+  min-width: 260px;
+}
+
+/* ==========================================================
+   HPM DYNAMIC PRODUCT CATEGORY MENU
+   Categories are populated from /api/categories.php.
+   Keep the full list accessible when the admin adds categories.
+========================================================== */
+@media (min-width: 1200px) {
+  header.header-seven .mainmenu > li.hpm-products-menu {
+    position: relative;
+  }
+  header.header-seven .mainmenu > li.hpm-products-menu > .hpm-products-dropdown {
+    display: block;
+    width: max-content;
+    min-width: 360px;
+    max-width: min(440px, 90vw);
+    max-height: min(72vh, 620px);
+    overflow-x: hidden;
+    overflow-y: auto;
+    overscroll-behavior: contain;
+    scrollbar-width: thin;
+    scrollbar-color: #d6dce2 transparent;
+    padding: 8px 0;
+  }
+  header.header-seven .mainmenu > li.hpm-products-menu > .hpm-products-dropdown > li {
+    display: block;
+    width: 100%;
+  }
+  header.header-seven .mainmenu > li.hpm-products-menu > .hpm-products-dropdown > li > a {
+    display: block;
+    white-space: normal;
+    overflow-wrap: anywhere;
+    line-height: 1.55;
+    padding: 13px 24px;
+  }
+}
+
+#side-bar.hpm-mobile-drawer .hpm-mobile-product-categories {
+  max-height: 48vh;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  scrollbar-width: thin;
+}
+
+#side-bar.hpm-mobile-drawer .hpm-mobile-product-categories > li > a {
+  display: block;
+  white-space: normal;
+  overflow-wrap: anywhere;
+  line-height: 1.5;
+  padding-block: 10px;
+}
+
+@media (min-width: 768px) {
+  .hpm-category-nav {
+    max-height: calc(100vh - 140px);
+    overflow-y: auto;
+    overscroll-behavior: contain;
+    scrollbar-width: thin;
+  }
+}
+
+/* Empty-state message inside the Products submenu (no categories yet / API down). */
+.hpm-products-dropdown .hpm-category-empty,
+.hpm-mobile-product-categories .hpm-category-empty {
+  padding: 12px 24px;
+  border: 0;
+  background: transparent;
+  border-radius: 0;
+  font-size: 13px;
+  line-height: 1.5;
+  color: #728091;
+}

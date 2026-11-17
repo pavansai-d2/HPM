@@ -244,10 +244,6 @@ header .nav-area .mainmenu>li.has-dropdown .submenu a.active {
   }
 }
 
-.hpm-category-section[hidden] {
-  display: none !important
-}
-
 .hpm-modal-media {
   min-width: 0
 }

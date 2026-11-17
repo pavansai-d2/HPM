@@ -68,7 +68,7 @@
 
 .hpm-products-hero {
     padding: clamp(58px, 8vw, 110px) 0;
-    background: linear-gradient(110deg, #202b36f2, #202b36bd), none center/cover;
+    background: linear-gradient(110deg, #202b36f2, #202b36bd), url('../images/usage/pallet-deck-macking.jpg') center/cover;
     color: #fff
 }
 

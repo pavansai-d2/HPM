@@ -1,72 +1,21 @@
 Options -Indexes
 DirectoryIndex index.html index.php
-
-# ---------------------------------------------------------------------------
-# Security headers
-# ---------------------------------------------------------------------------
 <IfModule mod_headers.c>
  Header always set X-Content-Type-Options "nosniff"
  Header always set Referrer-Policy "strict-origin-when-cross-origin"
  Header always set Permissions-Policy "camera=(), microphone=(), geolocation=()"
 </IfModule>
-
-# ---------------------------------------------------------------------------
-# Never serve private files: configuration, database dumps, notes, git data
-# ---------------------------------------------------------------------------
-<FilesMatch "^(config\.php|config\.example\.php|\.env|.*\.sql|composer\.(json|lock))$">
+<FilesMatch "^(config\.php|config\.example\.php|\.env|.*\.sql)$">
  Require all denied
 </FilesMatch>
-# Deployment notes / README files (robots.txt stays public)
-<FilesMatch "^(?!robots\.txt$).*\.(txt|md)$">
- Require all denied
-</FilesMatch>
-# Hidden repository / library folders
-<IfModule mod_alias.c>
- RedirectMatch 404 "(^|/)(\.git|vendor|includes|database|google-sheets|_unminified-backup)(/|$)"
-</IfModule>
-
-# ---------------------------------------------------------------------------
-# Speed: compression (HTML, CSS, JS, JSON, SVG, XML) - typically 70-80% smaller
-# ---------------------------------------------------------------------------
-<IfModule mod_brotli.c>
- AddOutputFilterByType BROTLI_COMPRESS text/html text/plain text/css text/javascript application/javascript application/x-javascript application/json application/xml application/ld+json image/svg+xml
-</IfModule>
-<IfModule mod_deflate.c>
- AddOutputFilterByType DEFLATE text/html text/plain text/css text/javascript application/javascript application/x-javascript application/json application/xml application/ld+json image/svg+xml
-</IfModule>
-
-# ---------------------------------------------------------------------------
-# Speed: browser caching. CSS/JS links carry ?v=YYYYMMDD, so change that number
-# (in the HTML) whenever you edit a CSS/JS file and visitors get the new file.
-# HTML and PHP pages are never cached, so admin changes show immediately.
-# ---------------------------------------------------------------------------
-<IfModule mod_mime.c>
- AddType font/woff2 .woff2
- AddType image/webp .webp
-</IfModule>
 <IfModule mod_expires.c>
  ExpiresActive On
  ExpiresByType image/webp "access plus 1 year"
  ExpiresByType image/jpeg "access plus 1 year"
  ExpiresByType image/png "access plus 1 year"
- ExpiresByType image/svg+xml "access plus 1 year"
- ExpiresByType image/x-icon "access plus 1 year"
- ExpiresByType font/woff2 "access plus 1 year"
  ExpiresByType text/css "access plus 1 month"
  ExpiresByType application/javascript "access plus 1 month"
- ExpiresByType text/javascript "access plus 1 month"
- ExpiresByType text/html "access plus 0 seconds"
 </IfModule>
-<IfModule mod_headers.c>
- <FilesMatch "\.(webp|jpe?g|png|svg|ico|woff2|css|js)$">
-  Header set Cache-Control "public, max-age=2592000"
- </FilesMatch>
- <FilesMatch "\.(webp|jpe?g|png|woff2)$">
-  Header set Cache-Control "public, max-age=31536000, immutable"
- </FilesMatch>
- Header append Vary "Accept-Encoding"
-</IfModule>
-
 <IfModule mod_rewrite.c>
  RewriteEngine On
  RewriteRule ^Products/?$ products.php [L,QSA,NC]

@@ -1,5 +1,4 @@
-# Uploaded images only. Scripts can never run here.
 Options -Indexes
-<FilesMatch "\.(php|phtml|phar|php[0-9]*|pl|py|cgi|sh)$">
+<FilesMatch "\\.(php|phtml|phar|php[0-9]*)$">
   Require all denied
 </FilesMatch>

@@ -40,16 +40,3 @@
         margin-bottom: -9px;
     }
 }
-
-/* Honeypot field: kept off-screen (not display:none, which some bots detect).
-   Real visitors never see it; the server rejects any submission that fills it. */
-.hpm-hp-field {
-    position: absolute !important;
-    left: -10000px !important;
-    top: auto !important;
-    width: 1px !important;
-    height: 1px !important;
-    overflow: hidden !important;
-    opacity: 0 !important;
-    pointer-events: none !important;
-}
