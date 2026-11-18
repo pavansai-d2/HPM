@@ -17,7 +17,8 @@ return [
     'mail_to' => 'info@haripalletmachinery.com',
     'mail_from' => 'info@haripalletmachinery.com',
     'google_apps_script_url' => '',
-    'recaptcha_site_key' => '6LfNFRouAAAAAMpr2PhlpN0VTND-nCjPT17RZnnb',
-    'recaptcha_secret_key' => '6LfNFRouAAAAAFZ7zNiy76lLaDTB_YC58g3VDm4s',
+    'recaptcha_version'    => 'v3',
+    'recaptcha_site_key' => '6Ldd8yYuAAAAAHk2EczFonlDg9hR3Sa_G4gA5JPW',
+    'recaptcha_secret_key' => '6Ldd8yYuAAAAAGxlHegMVLHMXrhNlqHmTKed44aq',
     'session_name' => 'HPM_ADMIN'
 ];
